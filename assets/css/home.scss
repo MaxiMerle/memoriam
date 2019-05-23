@@ -1,0 +1,208 @@
+
+/* ------------------------------ SECTION HEADER -------------------------------- */
+
+.header{
+  background-image: url("img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  width: 100%;
+  height: 830px;
+  margin: auto;
+  background-color: rgba(48,48,48,.4);
+  background-attachment: fixed;
+  a{
+    color: $white;
+  }
+  .home-btn{
+    position: absolute;
+    top: 801px;
+    background-color: rgba(198,68,75,.7);
+    color: $white;
+    padding: 10px 25px;
+    border: none;
+    font-weight: $bold;
+    font-size: 25px;
+    border-radius: 5px;
+    width: 300px;
+    left: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  h1{
+    font-size: 50px;
+    font-weight: $bold;
+    color: $white;
+    text-align: center;
+  }
+  .line-1{
+    position: relative;
+    top: 50%;
+    width: 60px;
+    margin: 0 auto;
+    border-right: 2px solid rgba(198,68,75,.75);
+    font-size: 50px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-10%);
+  }
+  /* Animation */
+  .anim-typewriter{
+    animation: typewriter 2s steps(20) 1s 1 normal both,
+    blinkTextCursor 700ms steps(20) infinite normal;
+  }
+  @keyframes typewriter{
+    from{width: 0;}
+    to{width: 6.5em;}
+  }
+  @keyframes blinkTextCursor{
+    from{border-right-color: rgba(255,255,255,.75);}
+    to{border-right-color: transparent;}
+  }
+}
+
+
+/* ------------------------------ SECTION PRESENTATION -------------------------------- */
+
+.presentation{
+  margin-top: 50px;
+}
+
+/* ------------------------------ SECTION SERVICES -------------------------------- */
+
+.service{
+  padding-top: 80px;
+  .flex-services{
+    display: flex;
+    .dropdown-services{
+      width: 50%;
+      hr{
+        width: 100%;
+        margin: 0 auto;
+        float: left;
+      }
+      .card{
+        border: none;
+        p{
+          font-size: 15px;
+        }
+        .card-header{
+          text-decoration: none;
+          font-weight: $light;
+          font-size: 20px!important;
+          background-color: transparent!important;
+          border-bottom: none!important;
+          .btn-service{
+            color: $red!important;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            h5{
+              font-weight: $light;
+              font-size: 20px;
+            }
+            ion-icon{
+              font-size: 30px;
+              color: $red;
+              transform: rotate(0deg);
+              transition: .3s transform ease-in-out;
+            }
+            &:focus{
+              box-shadow: none!important;
+              ion-icon{
+                transform: rotate(-180deg);
+              }
+            }
+          }
+        }
+      }
+    }
+    .video-service{
+      width: 50%;
+      margin: 30px auto;
+      .embed-responsive{
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+
+
+/* ------------------------------ SECTION FONCTIONNEMENT -------------------------------- */
+
+.fonctionnement {
+  padding-top: 80px;
+
+  .blocks {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    .block-gris {
+      background-color: $grey;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      margin: 0 0 30px 0;
+      padding: 10px;
+      align-items: center;
+      p{
+        text-align: center;
+      }
+      ion-icon{
+        font-size: 50px;
+      }
+      hr{
+        background-color: $red;
+        width: 20%;
+        height: 2px;
+      }
+      h3{
+        font-weight: $bold;
+      }
+    }
+    /* Clear floats after the columns */
+    .blocks:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+
+/* ------------------------------ SECTION AVIS -------------------------------- */
+
+.avis {
+  .blocks-avis{
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-around;
+    .block-avis{
+      padding: 35px 40px 0;
+      background-image: url("img/quotes.png");
+      background-repeat: no-repeat;
+      background-size: 70px;
+      flex: 4;
+
+      p{
+        font-size: 20px;
+        z-index: 10;
+      }
+      h4, h6{
+        text-align: right;
+      }
+      .nom{
+        font-weight: $bold;
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

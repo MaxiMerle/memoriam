@@ -1,0 +1,501 @@
+/* COLORS */
+/* FONTS */
+/* ------------------------------ SECTION HEADER -------------------------------- */
+.header {
+  background-image: url("img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  width: 100%;
+  height: 830px;
+  margin: auto;
+  background-color: rgba(48, 48, 48, 0.4);
+  background-attachment: fixed;
+  /* Animation */
+}
+.header a {
+  color: #fff;
+}
+.header .home-btn {
+  position: absolute;
+  top: 801px;
+  background-color: rgba(198, 68, 75, 0.7);
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  font-weight: 500;
+  font-size: 25px;
+  border-radius: 5px;
+  width: 300px;
+  left: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header h1 {
+  font-size: 50px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
+.header .line-1 {
+  position: relative;
+  top: 50%;
+  width: 60px;
+  margin: 0 auto;
+  border-right: 2px solid rgba(198, 68, 75, 0.75);
+  font-size: 50px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-10%);
+}
+.header .anim-typewriter {
+  animation: typewriter 2s steps(20) 1s 1 normal both, blinkTextCursor 700ms steps(20) infinite normal;
+}
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 6.5em;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+/* ------------------------------ SECTION PRESENTATION -------------------------------- */
+.presentation {
+  margin-top: 50px;
+}
+
+/* ------------------------------ SECTION SERVICES -------------------------------- */
+.service {
+  padding-top: 80px;
+}
+.service .flex-services {
+  display: flex;
+}
+.service .flex-services .dropdown-services {
+  width: 50%;
+}
+.service .flex-services .dropdown-services hr {
+  width: 100%;
+  margin: 0 auto;
+  float: left;
+}
+.service .flex-services .dropdown-services .card {
+  border: none;
+}
+.service .flex-services .dropdown-services .card p {
+  font-size: 15px;
+}
+.service .flex-services .dropdown-services .card .card-header {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 20px !important;
+  background-color: transparent !important;
+  border-bottom: none !important;
+}
+.service .flex-services .dropdown-services .card .card-header .btn-service {
+  color: #c6444b !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.service .flex-services .dropdown-services .card .card-header .btn-service h5 {
+  font-weight: 300;
+  font-size: 20px;
+}
+.service .flex-services .dropdown-services .card .card-header .btn-service ion-icon {
+  font-size: 30px;
+  color: #c6444b;
+  transform: rotate(0deg);
+  transition: 0.3s transform ease-in-out;
+}
+.service .flex-services .dropdown-services .card .card-header .btn-service:focus {
+  box-shadow: none !important;
+}
+.service .flex-services .dropdown-services .card .card-header .btn-service:focus ion-icon {
+  transform: rotate(-180deg);
+}
+.service .flex-services .video-service {
+  width: 50%;
+  margin: 30px auto;
+}
+.service .flex-services .video-service .embed-responsive {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ------------------------------ SECTION FONCTIONNEMENT -------------------------------- */
+.fonctionnement {
+  padding-top: 80px;
+}
+.fonctionnement .blocks {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  /* Clear floats after the columns */
+}
+.fonctionnement .blocks .block-gris {
+  background-color: #f2f2f2;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 30px 0;
+  padding: 10px;
+  align-items: center;
+}
+.fonctionnement .blocks .block-gris p {
+  text-align: center;
+}
+.fonctionnement .blocks .block-gris ion-icon {
+  font-size: 50px;
+}
+.fonctionnement .blocks .block-gris hr {
+  background-color: #c6444b;
+  width: 20%;
+  height: 2px;
+}
+.fonctionnement .blocks .block-gris h3 {
+  font-weight: 500;
+}
+.fonctionnement .blocks .blocks:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ------------------------------ SECTION AVIS -------------------------------- */
+.avis .blocks-avis {
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-around;
+}
+.avis .blocks-avis .block-avis {
+  padding: 35px 40px 0;
+  background-image: url("img/quotes.png");
+  background-repeat: no-repeat;
+  background-size: 70px;
+  flex: 4;
+}
+.avis .blocks-avis .block-avis p {
+  font-size: 20px;
+  z-index: 10;
+}
+.avis .blocks-avis .block-avis h4, .avis .blocks-avis .block-avis h6 {
+  text-align: right;
+}
+.avis .blocks-avis .block-avis .nom {
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+header {
+  z-index: 11;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: 0.3s all;
+  padding: 10px 30px;
+}
+header h1 img {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px 0;
+  transition: all 0.25s;
+}
+.header-ctn .logo-blanc {
+  display: block;
+  background-image: url("img/logo-blanc.png");
+  background-repeat: no-repeat;
+  background-size: 50px;
+  width: 50px;
+  height: 50px;
+}
+.header-ctn .projet, .header-ctn .links {
+  margin-bottom: 0 !important;
+}
+.header-ctn ul {
+  list-style-type: none;
+}
+.header-ctn ul li {
+  display: inline-block;
+  padding: 0 10px;
+}
+.header-ctn ul li a {
+  color: #fff;
+  font-size: 15px !important;
+}
+.header-ctn .projet {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.changeColor {
+  background: #f2f2f2;
+  transition: 0.3s all;
+  box-shadow: 0 0 23px 0 #303030;
+}
+.changeColor .header-ctn .logo-vert {
+  background-image: url("img/logo-vert.png");
+}
+.changeColor .header-ctn li a {
+  color: #303030;
+}
+
+footer {
+  background-color: #303030;
+  padding: 20px 0;
+}
+footer .row {
+  align-items: center;
+}
+footer hr {
+  background-color: #fff !important;
+  width: 80% !important;
+  text-align: center;
+}
+footer .logo {
+  background-image: url("img/logo-vert.png");
+  background-repeat: no-repeat;
+  background-size: 70px;
+  background-position: center;
+  height: 80px;
+  margin: 30px 0;
+}
+footer ul {
+  list-style-type: none;
+}
+footer ul li {
+  text-align: center;
+}
+footer ul li a {
+  color: #fff;
+}
+footer ul li a:hover {
+  color: #c6444b;
+  text-decoration: none;
+}
+footer .list-footer {
+  text-align: center;
+}
+footer .list-footer li {
+  display: inline-block;
+}
+.titre {
+  font-weight: 500 !important;
+}
+
+/* ------------------------------ TITLE -------------------------------- */
+.title {
+  text-align: center;
+  margin-top: 100px;
+}
+.title hr {
+  background-color: #c6444b;
+  width: 15%;
+  height: 2px;
+}
+
+/* ------------------------------ BLOCK ROUGE -------------------------------- */
+.block-rouge {
+  background-color: #c6444b;
+  color: #fff;
+}
+.block-rouge .ligne {
+  display: flex;
+  align-items: center;
+  padding: 10px 100px;
+}
+.block-rouge .chiffre {
+  font-size: 30px;
+  border: 3px solid #fff;
+  border-radius: 100px;
+  width: 50px;
+  text-align: center;
+}
+.block-rouge .texte {
+  padding-left: 60px;
+  font-size: 35px;
+  font-family: "Just Another Hand", cursive;
+}
+.block-rouge .ligne-blocks {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.block-rouge .ligne-blocks .block-gauche, .block-rouge .ligne-blocks .block-droite {
+  border: 3px solid #fff;
+  height: 200px;
+  justify-content: space-between;
+  width: 400px;
+}
+.block-rouge .ligne-blocks .block-gauche p, .block-rouge .ligne-blocks .block-droite p {
+  text-align: center;
+  padding: 25px;
+  font-size: 15px;
+}
+.block-rouge .ligne-blocks .block-gauche {
+  background-image: url("img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ------------------------------ BLOCK FORMULAIRE -------------------------------- */
+.formulaire {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.formulaire .dropzone .btn-drop {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.formulaire .dropzone .label-drop {
+  height: 200px;
+  border: 2px dotted #303030;
+  width: 100%;
+  background-color: #f2f2f2;
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* "hand" cursor */
+}
+.formulaire .dropzone .label-drop:hover {
+  background: rgba(198, 68, 75, 0.8);
+  color: #fff;
+  border: 2px dotted #fff;
+}
+.formulaire .dropzone .label-drop:hover .icon {
+  background-image: url("img/cloud-computing-blanc.png") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 5em;
+  height: 80px;
+  margin: 0 auto;
+}
+.formulaire .icon {
+  background-image: url("img/cloud-computing.png") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 5em;
+  height: 80px;
+  margin: 0 auto;
+}
+.formulaire .btn-ajout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map {
+  padding: 0 !important;
+}
+
+.infos {
+  padding: 50px 50px !important;
+  margin-bottom: 50px;
+}
+.infos .ligne-info {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 10px 0;
+}
+.infos .ligne-info ion-icon {
+  font-size: 35px;
+  padding: 0 150px 0 0;
+}
+.infos .ligne-info h3 {
+  font-weight: 500;
+  font-size: 20px !important;
+}
+
+.contact-form .btn-envoyer {
+  padding: 15px 60px;
+  font-weight: 300;
+  font-size: 25px;
+  border-radius: unset;
+  margin-top: 15px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+/* ------------------------------ COMMON -------------------------------- */
+section {
+  padding: 15px 60px;
+}
+
+h2 {
+  font-size: 25px !important;
+  font-weight: 300 !important;
+}
+
+p {
+  font-weight: 400 !important;
+}
+
+/* Overline From Center */
+.hvr-overline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+.hvr-overline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  top: 0;
+  background: #c6444b;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.hvr-overline-from-center:hover:before, .hvr-overline-from-center:focus:before, .hvr-overline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,32 @@
+.map {
+  padding: 0!important;
+}
+
+.infos{
+  padding: 50px 50px!important;
+  margin-bottom: 50px;
+  .ligne-info{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px 0;
+    ion-icon{
+      font-size: 35px;
+      padding: 0 150px 0 0;
+    }
+    h3{
+      font-weight: $bold;
+      font-size: 20px!important;
+    }
+  }
+}
+
+.contact-form{
+  .btn-envoyer{
+    padding: 15px 60px;
+    font-weight: $light;
+    font-size: 25px;
+    border-radius: unset;
+    margin-top: 15px;
+  }
+}

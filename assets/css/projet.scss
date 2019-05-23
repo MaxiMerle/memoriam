@@ -1,0 +1,123 @@
+.titre{
+  font-weight: 500!important;
+}
+
+
+/* ------------------------------ TITLE -------------------------------- */
+
+.title{
+  text-align: center;
+  margin-top: 100px;
+  hr{
+    background-color: $red;
+    width: 15%;
+    height: 2px;
+  }
+}
+
+
+/* ------------------------------ BLOCK ROUGE -------------------------------- */
+
+.block-rouge{
+  background-color: $red;
+  color: $white;
+  .ligne{
+    display: flex;
+    align-items: center;
+    padding: 10px 100px;
+  }
+  .chiffre{
+    font-size: 30px;
+    border: 3px solid $white;
+    border-radius: 100px;
+    width: 50px;
+    text-align: center;
+  }
+  .texte{
+    padding-left: 60px;
+    font-size:35px;
+    font-family: $font2;
+  }
+  .ligne-blocks{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .block-gauche,.block-droite{
+      border: 3px solid $white;
+      height: 200px;
+      justify-content: space-between;
+      width: 400px;
+      p{
+        text-align: center;
+        padding: 25px;
+        font-size: 15px;
+      }
+    }
+    .block-gauche{
+      background-image: url("img/background.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+
+
+/* ------------------------------ BLOCK FORMULAIRE -------------------------------- */
+
+
+.formulaire{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  .dropzone{
+    .btn-drop{
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+    .label-drop{
+      height: 200px;
+      border: 2px dotted $black;
+      width: 100%;
+      background-color: $grey;
+      display: inline-grid;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer; /* "hand" cursor */
+      &:hover{
+          background: rgba(198,68,75,.8);
+          color: $white;
+        border: 2px dotted $white;
+        .icon{
+          background-image: url("img/cloud-computing-blanc.png")!important;
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 5em;
+          height: 80px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .icon{
+    background-image: url("img/cloud-computing.png")!important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 5em;
+    height: 80px;
+    margin: 0 auto;
+  }
+  .btn-ajout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+}
+
+
+
+

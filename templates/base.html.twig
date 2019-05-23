@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% spaceless %}{% block seoTitle %}{% endblock %}{% endspaceless %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="description" content="{% spaceless %}{% block seoDescription %}{% endblock %}{% endspaceless %}">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+            {% if is_mobile() == true  and is_tablet() == false %}
+                <link rel="stylesheet" href="{{ asset('build/mobile.css') }}">
+            {% endif %}
+            {% if is_tablet() %}
+                <link rel="stylesheet" href="{{ asset('build/tablet.css') }}">
+            {% endif %}
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+
+        {% endblock %}
+    </head>
+    <body>
+    {% include 'common/header.html.twig' %}
+
+        {% block body %}{% endblock %}
+    {% include 'common/footer.html.twig' %}
+
+        {% block javascripts %}
+            <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <script src="{{ asset('build/app.js') }}"></script>
+            <script src="{{ asset('build/dropzone.js') }}"></script>
+            <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}
+    </body>
+</html>

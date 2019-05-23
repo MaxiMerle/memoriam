@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block seoTitle %}
+    {% spaceless %}
+        Votre Projet
+    {% endspaceless %}
+{% endblock %}
+
+{% block body %}
+
+    <br><br><br><br><br><br><br><br><br>
+  <section>
+      <div><h2>Numero de dossier : <strong>{{ projet.Dossier }}</strong></h2></div>
+      <div><p>Projet numero : <strong>{{ projet.id }}</strong></p></div>
+      <div><p>Nom : <strong>{{ projet.NomDefunt }}</strong></p></div>
+      <div><p>Prénom :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
+      <div><p>Né le : <strong>{{ projet.DateNaissance|date('d-m-Y') }}</strong></p></div>
+      <div><p>Mort le : <strong>{{ projet.DateMort|date('d-m-Y') }}</strong></p></div>
+      <div><p>Image 1 : </p><img src="{{ vich_uploader_asset(projet, 'imageFile') }}" alt="{{ projet.imageName }}" width="10%"/></div>
+
+
+  </section>
+
+
+{% endblock %}

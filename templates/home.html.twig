@@ -1,0 +1,207 @@
+{% extends 'base.html.twig' %}
+
+{% block seoTitle %}
+    {% spaceless %}
+       Mémoriam
+    {% endspaceless %}
+{% endblock %}
+
+
+{% block javascripts %}
+         {{ parent() }}
+        {{ encore_entry_script_tags('navbar') }}
+{% endblock %}
+{% block body %}
+
+    <section class="header {% if is_mobile() == true  and is_tablet() == false %} header-mobile {% elseif is_tablet() %}{% else %}{% endif %}">
+        <video loop muted autoplay poster="../assets/css/img/cam-Man.mp4" class="fullscreen-bg__video">
+
+            <source src="{{ asset('../assets/css/img/cam-Man.mp4') }}" type="video/mp4">
+
+        </video>
+        <div class="video-background">
+            <div class="video-foreground">
+                <div id="player" data-videoId="{{ '../assets/css/img/cam-Man.mp4' }}"></div>
+            </div>
+        </div>
+        <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">MÉMORIAM</h1>
+            {% if is_mobile() == false  and is_tablet() == false %}
+                <div class="row text-center">
+                    <button class="col-12 home-btn" >
+                        VOIR PLUS
+                        <ion-icon name="add"></ion-icon>
+                    </button>
+                </div>
+            {% endif %}
+    </section>
+
+
+        <section class="presentation ">
+            <h2>QUI SOMMES-NOUS ?</h2>
+            <p><strong>Mémoriam</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, autem consectetur, consequuntur distinctio, dolorem modi nostrum numquam perferendis quam quidem saepe sint tenetur voluptate. Aut culpa doloribus laboriosam odio sint!</p>
+        </section>
+
+    <section class="service">
+        <h2>NOTRE SERVICE</h2>
+        {% if is_mobile() == true  and is_tablet() == false %}
+            <div class="video-service">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+                <br>
+            </div>
+        <div class="services">
+            <h5 class=""> Montage vidéo comémoratif</h5>
+            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </p>
+            <hr>
+            <h5 class=""> Montage vidéo comémoratif</h5>
+            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+            <hr>
+            <h5 class="text-xs-left"> Montage vidéo comémoratif</h5>
+            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+            <hr>
+        </div>
+
+        {% elseif is_tablet() %}
+
+
+        {% else %}
+
+
+            <div class="flex-services">
+                <div class="dropdown-services">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <button class="btn btn-service collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
+                                    <h5 class="mb-0  btn-title"> Montage vidéo comémoratif</h5>
+                                    <ion-icon name="arrow-dropdown"></ion-icon>
+                                </button>
+                                <hr>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <button class="btn btn-service" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <h5 class="mb-0  btn-title">Collapsible Group Item </h5>
+                                    <ion-icon name="arrow-dropdown"></ion-icon>
+                                </button>
+                                <hr>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <button class="btn btn-service" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                                    <h5 class="mb-0  btn-title">Collapsible Group Item </h5>
+                                    <ion-icon name="arrow-dropdown"></ion-icon>
+                                </button>
+                                <hr>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-service">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="fonctionnement" id="fonctionnement">
+
+        <h2>COMMENT FONCTIONNE MÉMORIAM</h2>
+
+        <div class="row blocks">
+            <div class="block-gris hvr-overline-from-center ">
+                <br>
+                <h3>Étape 1</h3>
+                <hr>
+                <p>Vous accedez au formulaire d'envoi des fichiers photos/vidéos.
+                </p>
+            </div>
+            <div class="block-gris hvr-overline-from-center">
+                <br>
+                <h3>Étape 2</h3>
+                <hr>
+                <p>Vous remplissez toutes les informations necessaires à la réalisation de la vidéo.
+                </p>
+            </div>
+            <div class="block-gris hvr-overline-from-center">
+                <br>
+                <h3>Étape 3</h3>
+                <hr>
+                <p>Une fois les informations du défunt saisies, vous pouvez ajouter un par un les fichiers que vous souhaitez.
+                </p>
+            </div>
+            <div class="block-gris hvr-overline-from-center">
+                <br>
+                <h3>Étape 4</h3>
+                <hr>
+                <p>Pour chaque fichier ajouté, vous pouvez saisir une courte description ou ajouter des mots cles.
+                </p>
+            </div>
+            <div class="block-gris hvr-overline-from-center">
+                <br>
+                <h3>Étape 5</h3>
+                <hr>
+                <p>Vous vérifiez les informations saisies avant de valider le formulaire.
+                </p>
+            </div>
+            <div class="block-gris hvr-overline-from-center">
+                <br>
+                <ion-icon name="desktop"></ion-icon>
+                <hr>
+                <p>Vous recevez par mail votre vidéo finale et le lien de la vidéo publiée sur YouTube (en privé).
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="{% if is_mobile() == true  and is_tablet() == false %}avis-mobile {% elseif is_tablet() %}{% else %} avis{% endif %}" >
+
+        <h2>NOS CLIENTS EN PARLENT...</h2>
+        <div class="row blocks-avis">
+            <div class=" block-avis">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae dolores ea enim, facilis fuga...</p>
+                <h4 class="nom">Jeanne durand</h4>
+                <h6>24/04/2019</h6>
+            </div>
+            <div class=" block-avis">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae dolores ea enim, facilis fuga...</p>
+                <h4 class="nom">Jeanne durand</h4>
+                <h6>24/04/2019</h6>
+            </div>
+            <div class=" block-avis">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae dolores ea enim, facilis fuga...</p>
+                <h4 class="nom">Jeanne durand</h4>
+                <h6>24/04/2019</h6>
+            </div>
+        </div>
+
+    </section>
+
+
+
+{% endblock %}
+
+

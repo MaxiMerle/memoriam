@@ -1,0 +1,67 @@
+/* COLORS */
+/* FONTS */
+body {
+  text-align: center !important;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 15px 15px;
+}
+
+/* ------------------------------ NAVBAR -------------------------------- */
+.navbar-mobile {
+  background: #f2f2f2;
+  transition: 0.3s all;
+  box-shadow: 0 0 23px 0 #303030;
+}
+.navbar-mobile a {
+  font-size: 15px;
+}
+.navbar-mobile .logo-vert {
+  background-image: url("img/logo-vert.png");
+  background-repeat: no-repeat;
+  background-size: 50px;
+  width: 50px;
+  height: 50px;
+}
+.navbar-mobile .projet {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+/* ------------------------------ SECTION HEADER -------------------------------- */
+.header-mobile {
+  height: 400px;
+}
+.header-mobile h1 {
+  padding-top: 150px;
+}
+
+/* ------------------------------ SECTION SERVICE -------------------------------- */
+.service {
+  padding: unset;
+}
+.service h5 {
+  color: #c6444b;
+}
+.service hr {
+  width: 80%;
+}
+.service .services {
+  padding: 15px 15px;
+}
+
+/* ----------------------------- SECTION FONCTIONNEMENT -------------------------------- */
+.fonctionnement {
+  padding-top: 30px;
+}
+.fonctionnement .blocks {
+  display: inline-block;
+}
+.fonctionnement .blocks .block-gris {
+  width: 100%;
+}
+
+/*# sourceMappingURL=mobile.css.map */

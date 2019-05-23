@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+{% block seoTitle %}
+    {% spaceless %}
+        Votre Projet
+    {% endspaceless %}
+{% endblock %}
+
+{% block body %}
+
+
+    <section class="title">
+        <h1>Votre Projet</h1>
+        <hr>
+        <h2>Lorem ipsum dolor sit amet</h2>
+    </section>
+
+    <section class="block-rouge">
+        <div class="ligne">
+            <p class="chiffre">1</p>
+            <p class="texte">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <div class="ligne">
+            <p class="chiffre">2</p>
+            <p class="texte">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <div class="ligne ligne-blocks">
+            <div class="block-gauche"></div>
+            <div class="block-droite">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum dicta eius expedita harum hic impedit incidunt, iusto, odit, officia optio pariatur provident quisquam quos ullam? Cumque doloremque eligendi et?</p>
+            </div>
+        </div>
+        <div class="ligne">
+            <p class="chiffre">3</p>
+            <p class="texte">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <div class="ligne">
+            <p class="chiffre">4</p>
+            <p class="texte">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <section class="formulaire">
+            <h2 class="titre">INFORMATIONS</h2>
+
+            {{ form_start(form) }}
+
+            {{ form_row(form.dossier) }}
+            <div class="row">
+                <div class="col-6">{{ form_row(form.NomDefunt) }}</div>
+                <div class="col-6"> {{ form_row(form.PrenomDefunt) }}</div>
+            </div>
+            <div class="row">
+                <div class="col-6">{{ form_row(form.DateNaissance) }}</div>
+                <div class="col-6"> {{ form_row(form.DateMort) }}</div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="exampleFormControlSelect1">Profession</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Artisan</option>
+                        <option>Agriculteur</option>
+                        <option>Journaliste</option>
+                        <option>Acteur</option>
+                        <option>Cadre</option>
+                    </select>
+                </div>
+                <div class="form-group col-6">
+                    <label for="exampleFormControlSelect1">Hobbies</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Voile</option>
+                        <option>Peinture</option>
+                        <option>Photographie</option>
+                        <option>Histoire</option>
+                        <option>Musique</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="exampleFormControlTextarea1">Courte description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+
+
+            <hr class="mt-5 mb-5">
+
+
+
+            <h2 class="titre">FICHIERS PHOTOS / VIDEOS</h2>
+            <div class="row mb-5 mt-5">
+                <div class="dropzone col-6 text-center">
+                    <form action="">
+                        <h2>PHOTOS / VIDEOS </h2>
+
+                        <label for="projet_imageFile_file" class="label-drop"><span class="icon"></span><strong>Glissez / Déposez un fichier</strong>
+                            Ou selectionnez un fichier
+                            <br>
+                            Taille maximum 5Mo
+                        </label>
+
+                    </form>
+{#                    {{ form_row(form.imageFile) }}     #}
+                </div>
+                <div class="text col-6 text-center">
+                    <h2> DESCRIPTION
+                    </h2>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                </div>
+            </div>
+
+
+
+
+            <button class="btn btn-outline-danger btn-lg btn-block col-12 btn-ajout">AJOUTER UN FICHIER<ion-icon name="add-circle-outline" class="pl-3"></ion-icon></button>
+            <br><br><hr><br><br>
+            <button class="btn btn-outline-success  btn-lg btn-block col-12" type="submit">VALIDER</button>
+
+
+            {{ form_end(form) }}
+
+        </section>
+    </div>
+
+
+{% endblock %}
+

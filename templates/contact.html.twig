@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block seoTitle %}
+    {% spaceless %}
+        Contactez-nous
+    {% endspaceless %}
+{% endblock %}
+{% block seoDescription %}
+    {% spaceless %}
+        Contactez le service client de Mémoriam
+    {% endspaceless %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="title">
+        {% include 'common/flash_messages.html.twig' %}
+        <h1>CONTACTEZ-NOUS</h1>
+        <hr>
+        <h2>Lorem ipsum dolor sit amet</h2>
+    </section>
+    <section class="map" style="padding: 0!important;">
+        <div style="width:fill-available;position: relative;">
+            <iframe  width="100%" height="440" src="https://maps.google.com/maps?width=1024&amp;height=440&amp;hl=en&amp;q=75015+&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        </div>
+    </section>
+    <div class="container">
+        <section class="infos">
+            <div class="ligne-info">
+                <ion-icon name="map"></ion-icon>
+                <h3>1 RUE DE L'ÉCOLE DE MARS 92200 NEUILLY-SUR-SEINE</h3>
+            </div>
+            <div class="ligne-info">
+                <ion-icon name="mail"></ion-icon>
+                <h3>MAIL@MAIL.COM</h3>
+            </div>
+            <div class="ligne-info">
+                <ion-icon name="call"></ion-icon>
+                <h3>010203040506</h3>
+            </div>
+            <div class="ligne-info">
+                <ion-icon name="calendar"></ion-icon>
+                <h3>DU LUNDI AU VENDREDI DE 9H À 18H</h3>
+            </div>
+            <div class="ligne-info">
+                <ion-icon name="card"></ion-icon>
+                <h3>PAIEMENT SÉCURISÉ SUR LE SITE BERTHELOT.FR</h3>
+            </div>
+        </section>
+        <h2>UNE QUESTION ? UN PROBLÈME TECHNIQUE ?</h2>
+        <section class="contact-form">
+            <div>
+                {{ form_start(contact_form) }}
+                {{ form_row(contact_form.name, { 'label': 'Nom(s)', 'attr' : { 'placeholder' : 'Durand...'} }) }}
+                {{ form_row(contact_form.email, { 'label': 'Votre Email', 'attr' : { 'placeholder' : 'votremail@exemple.fr ...'} }) }}
+                {{ form_row(contact_form.message, { 'label' : 'Votre Message', 'attr' : { 'rows' : '4', 'placeholder' : 'Votre message ...'} } ) }}
+                <div class="form-group col-12 text-center">
+                    <input type="submit" value="ENVOYER" class="btn btn-outline-success btn-envoyer"/>
+                </div>
+                {{ form_end(contact_form) }}
+            </div>
+
+
+        </section>
+    </div>
+{% endblock %}
