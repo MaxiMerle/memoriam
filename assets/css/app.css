@@ -73,6 +73,87 @@
 /* ------------------------------ SECTION PRESENTATION -------------------------------- */
 .presentation {
   margin-top: 50px;
+  padding: 0;
+}
+.presentation ion-icon {
+  font-size: 80px !important;
+}
+.presentation .item {
+  text-align: center;
+}
+.presentation hr {
+  width: 50%;
+  color: #c6444b !important;
+}
+.presentation .item-none {
+  visibility: hidden;
+}
+.presentation .block1 {
+  background-color: #c6444b;
+  color: #fff;
+  padding: 50px;
+}
+.presentation .arrow_box {
+  position: relative;
+  background: #c6444b;
+  text-align: center;
+}
+.presentation .arrow_box:after, .presentation .arrow_box:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.presentation .arrow_box:after {
+  border-top-color: #c6444b;
+  border-width: 30px;
+  margin-left: -30px;
+}
+.presentation .arrow_box:before {
+  border-top-color: #c6444b;
+  border-width: 36px;
+  margin-left: -36px;
+}
+.presentation .block2 {
+  align-content: center;
+  color: #c6444b;
+  font-weight: bold;
+  padding: 50px;
+  background-color: transparent;
+  border-left: 2px solid #c6444b;
+  border-right: 2px solid #c6444b;
+}
+.presentation .arrow_box-2 {
+  position: relative;
+  text-align: center;
+}
+.presentation .arrow_box-2:after, .presentation .arrow_box-2:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.presentation .arrow_box-2:after {
+  border-top-color: #fff;
+  border-width: 30px;
+  margin-left: -30px;
+}
+.presentation .arrow_box-2:before {
+  border-top-color: #fff;
+  border-width: 36px;
+  margin-left: -36px;
+}
+.presentation .block3 {
+  background-color: #c6444b;
+  color: #fff;
+  font-weight: bold;
+  padding: 50px;
 }
 
 /* ------------------------------ SECTION SERVICES -------------------------------- */
@@ -117,14 +198,14 @@
 .service .flex-services .dropdown-services .card .card-header .btn-service ion-icon {
   font-size: 30px;
   color: #c6444b;
-  transform: rotate(0deg);
+  transform: rotate(90deg);
   transition: 0.3s transform ease-in-out;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service:focus {
   box-shadow: none !important;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service:focus ion-icon {
-  transform: rotate(-180deg);
+  transform: rotate(0deg);
 }
 .service .flex-services .video-service {
   width: 50%;
@@ -133,6 +214,11 @@
 .service .flex-services .video-service .embed-responsive {
   width: 100%;
   margin: 0 auto;
+}
+.service button {
+  text-align: center;
+  margin: 0 auto;
+  color: #c6444b;
 }
 
 /* ------------------------------ SECTION FONCTIONNEMENT -------------------------------- */

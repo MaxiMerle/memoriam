@@ -33,6 +33,8 @@
     align-items: center;
     justify-content: center;
 
+
+
   }
   h1{
     font-size: 50px;
@@ -72,6 +74,102 @@
 
 .presentation{
   margin-top: 50px;
+  padding: 0;
+  ion-icon{
+    font-size: 80px!important;
+  }
+  .item{
+    text-align: center;
+
+  }
+  hr{
+    width: 50%;
+    color: $red!important;
+  }
+  .item-none{
+    visibility: hidden;
+  }
+
+  .block1{
+    background-color: $red;
+    color: $white;
+    padding: 50px;
+
+
+
+  }
+  .arrow_box {
+    position: relative;
+    background: $red;
+    text-align: center;
+
+  }
+  .arrow_box:after, .arrow_box:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+
+  }
+
+  .arrow_box:after {
+    border-top-color: $red;
+    border-width: 30px;
+    margin-left: -30px;
+  }
+  .arrow_box:before {
+    border-top-color: $red;
+    border-width: 36px;
+    margin-left: -36px;
+  }
+
+
+
+  .block2{
+
+    align-content: center;
+    color: $red;
+    font-weight: bold;
+    padding:  50px;
+    background-color: transparent;
+    border-left: 2px solid $red;
+    border-right: 2px solid $red;
+
+  }
+  .arrow_box-2 {
+    position: relative;
+    text-align: center;
+  }
+  .arrow_box-2:after, .arrow_box-2:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .arrow_box-2:after {
+    border-top-color: $white;
+    border-width: 30px;
+    margin-left: -30px;
+  }
+  .arrow_box-2:before {
+    border-top-color: $white;
+    border-width: 36px;
+    margin-left: -36px;
+  }
+  .block3{
+
+    background-color: $red;
+    color: $white;
+    font-weight: bold;
+    padding:  50px;
+  }
 }
 
 /* ------------------------------ SECTION SERVICES -------------------------------- */
@@ -111,13 +209,13 @@
             ion-icon{
               font-size: 30px;
               color: $red;
-              transform: rotate(0deg);
+              transform: rotate(90deg);
               transition: .3s transform ease-in-out;
             }
             &:focus{
               box-shadow: none!important;
               ion-icon{
-                transform: rotate(-180deg);
+                transform: rotate(0deg);
               }
             }
           }
@@ -132,6 +230,11 @@
         margin: 0 auto;
       }
     }
+  }
+  button{
+    text-align: center;
+    margin: 0 auto;
+    color: $red;
   }
 }
 

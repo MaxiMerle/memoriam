@@ -14,16 +14,6 @@
 {% block body %}
 
     <section class="header {% if is_mobile() == true  and is_tablet() == false %} header-mobile {% elseif is_tablet() %}{% else %}{% endif %}">
-        <video loop muted autoplay poster="../assets/css/img/cam-Man.mp4" class="fullscreen-bg__video">
-
-            <source src="{{ asset('../assets/css/img/cam-Man.mp4') }}" type="video/mp4">
-
-        </video>
-        <div class="video-background">
-            <div class="video-foreground">
-                <div id="player" data-videoId="{{ '../assets/css/img/cam-Man.mp4' }}"></div>
-            </div>
-        </div>
         <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">MÉMORIAM</h1>
             {% if is_mobile() == false  and is_tablet() == false %}
                 <div class="row text-center">
@@ -34,15 +24,92 @@
                 </div>
             {% endif %}
     </section>
-
+    <div class="p-5">
+        <h2>NOTRE PROPOSITION</h2>
+        <p> A partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons le <strong>film hommage du défunt</strong> </p>
+        <div class="engagement mt-5">
+            <h2>NOTRE ENGAGEMENT :</h2>
+            <p>Votre vidéo disponible en <strong>48h maximum.</strong> Disponible pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux</p>
+            <p>Un hommage de qualité professionel</p>
+        </div>
+    </div>
 
         <section class="presentation ">
-            <h2>QUI SOMMES-NOUS ?</h2>
-            <p><strong>Mémoriam</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, autem consectetur, consequuntur distinctio, dolorem modi nostrum numquam perferendis quam quidem saepe sint tenetur voluptate. Aut culpa doloribus laboriosam odio sint!</p>
+            <div class="block1 arrow_box">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="item">
+                            <ion-icon name="images"></ion-icon>
+                            <h2>PHOTOS</h2>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <ion-icon name="film"></ion-icon>
+                            <h2>VIDÉOS</h2>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <ion-icon name="videocam"></ion-icon>
+                            <h2>TÉMOIGNAGE</h2>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="col-12 text-center ">Selectionnez les fichiers photos et vidéos que vous souhaitez utiliser</p>
+                </div>
+            </div>
+
+            <div class="block2 arrow_box-2">
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="item-none">
+                            <ion-icon name="images"></ion-icon>
+                            <h2>Photos</h2>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item">
+                            <ion-icon name="cog"></ion-icon>
+                            <h2>MEMORIAM</h2>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="item-none">
+                            <ion-icon name="images"></ion-icon>
+                            <h2>Photos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <p class="col-12 text-center ">Selectionnez les fichiers photos et vidéos que vous souhaitez utiliser</p>
+                </div>
+            </div>
+
+            <div class="block3">
+                <br>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div class="item-">
+                            <ion-icon name="desktop"></ion-icon>
+                            <h2>FILM HOMMAGE LIVRÉ EN 48H</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br>
+                    <p class="col-12 text-center ">Selectionnez les fichiers photos et vidéos que vous souhaitez utiliser</p>
+                </div>
+            </div>
+
         </section>
 
     <section class="service">
-        <h2>NOTRE SERVICE</h2>
+        <h2>3 POSSIBILITES</h2>
         {% if is_mobile() == true  and is_tablet() == false %}
             <div class="video-service">
                 <div class="embed-responsive embed-responsive-16by9">
@@ -74,42 +141,53 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <button class="btn btn-service collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title"> Montage vidéo comémoratif</h5>
+                                    <h5 class="mb-0  btn-title">Forfait 30 photos / 3 vidéos - Environ 5min</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
-                                <hr>
+
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                                    <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
+                                    <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
+                                    <p><strong>Tarif : 480€</strong></p>
+                                    <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
                                 </div>
+
                             </div>
+
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingTwo">
+                                <hr>
                                 <button class="btn btn-service" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title">Collapsible Group Item </h5>
+                                    <h5 class="mb-0  btn-title">Forfait 50 photos / 5 vidéos - Environ 8min</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
-                                <hr>
+
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</p>
+                                    <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
+                                    <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
+                                    <p><strong>Tarif : 600€ TTC</strong></p>
+                                    <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingThree">
+                                <hr>
                                 <button class="btn btn-service" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title">Collapsible Group Item </h5>
+                                    <h5 class="mb-0  btn-title">Forfait sur mesure - Sans limitation de temps</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
-                                <hr>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                 <div class="card-body">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>
+                                    <p>Réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
+                                    <p><strong>Tarif : Sur devis</strong></p>
+                                    <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
                                 </div>
                             </div>
                         </div>
