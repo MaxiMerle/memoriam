@@ -24,7 +24,7 @@
                 </div>
             {% endif %}
     </section>
-    <div class="p-5">
+    <div class="p-lg-5 mt-5" id="presentation">
         <h2>NOTRE PROPOSITION</h2>
         <p> A partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons le <strong>film hommage du défunt</strong> </p>
         <div class="engagement mt-5">
@@ -34,22 +34,22 @@
         </div>
     </div>
 
-        <section class="presentation ">
+        <section class="presentation">
             <div class="block1 arrow_box">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-lg-4 col-sm-12">
                         <div class="item">
                             <ion-icon name="images"></ion-icon>
                             <h2>PHOTOS</h2>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-sm-12">
                         <div class="item">
                             <ion-icon name="film"></ion-icon>
                             <h2>VIDÉOS</h2>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4 col-sm-12">
                         <div class="item">
                             <ion-icon name="videocam"></ion-icon>
                             <h2>TÉMOIGNAGE</h2>
@@ -65,28 +65,18 @@
             <div class="block2 arrow_box-2">
                 <br>
                 <div class="row">
-                    <div class="col-4">
-                        <div class="item-none">
-                            <ion-icon name="images"></ion-icon>
-                            <h2>Photos</h2>
-                        </div>
-                    </div>
-                    <div class="col-4">
+
+                    <div class="col-12 text-center">
                         <div class="item">
                             <ion-icon name="cog"></ion-icon>
                             <h2>MEMORIAM</h2>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="item-none">
-                            <ion-icon name="images"></ion-icon>
-                            <h2>Photos</h2>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="row">
                     <br>
-                    <p class="col-12 text-center ">Selectionnez les fichiers photos et vidéos que vous souhaitez utiliser</p>
+                    <p class="col-12 text-center ">Mémoriam s'occupe de la création, du montage et de la mise en place de votre vidéo en hommage au défunt.</p>
                 </div>
             </div>
 
@@ -102,14 +92,14 @@
                 </div>
                 <div class="row">
                     <br>
-                    <p class="col-12 text-center ">Selectionnez les fichiers photos et vidéos que vous souhaitez utiliser</p>
+                    <p class="col-12 text-center ">Une fois le montage terminé, vous recevez sous 48h maximum, votre vidéo terminnée par email.</p>
                 </div>
             </div>
 
         </section>
 
-    <section class="service">
-        <h2>3 POSSIBILITES</h2>
+    <section class="service" id="service">
+        <h2 class="">3 POSSIBILITES</h2>
         {% if is_mobile() == true  and is_tablet() == false %}
             <div class="video-service">
                 <div class="embed-responsive embed-responsive-16by9">
@@ -118,14 +108,19 @@
                 <br>
             </div>
         <div class="services">
-            <h5 class=""> Montage vidéo comémoratif</h5>
-            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </p>
+            <h5>Forfait 30 photos / 3 vidéos <br>(Environ 5min)</h5>
+            <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
+            <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
+            <p><strong>Tarif : 480€</strong></p>
             <hr>
-            <h5 class=""> Montage vidéo comémoratif</h5>
-            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+            <h5>Forfait 50 photos / 5 vidéos<br>(Environ 8min)</h5>
+            <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
+            <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
+            <p><strong>Tarif : 600€ TTC</strong></p>
             <hr>
-            <h5 class="text-xs-left"> Montage vidéo comémoratif</h5>
-            <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+            <h5>Forfait sur mesure <br> Sans limitation de temps</h5>
+            <p>Réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
+            <p><strong>Tarif : Sur devis</strong></p>
             <hr>
         </div>
 
@@ -255,7 +250,7 @@
 
 
 
-    <section class="{% if is_mobile() == true  and is_tablet() == false %}avis-mobile {% elseif is_tablet() %}{% else %} avis{% endif %}" >
+    <section class="{% if is_mobile() == true  and is_tablet() == false %} avis-mobile {% elseif is_tablet() %}{% else %} avis{% endif %}" >
 
         <h2>NOS CLIENTS EN PARLENT...</h2>
         <div class="row blocks-avis">

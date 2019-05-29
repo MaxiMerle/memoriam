@@ -42,6 +42,7 @@ section {
 /* ------------------------------ SECTION SERVICE -------------------------------- */
 .service {
   padding: unset;
+  margin-top: 3rem;
 }
 .service h5 {
   color: #c6444b;
@@ -62,6 +63,52 @@ section {
 }
 .fonctionnement .blocks .block-gris {
   width: 100%;
+}
+
+.avis-mobile .block-avis {
+  margin-bottom: 10px;
+}
+
+/* ----------------------------- PAGE PROJET -------------------------------- */
+.block-rouge {
+  text-align: center;
+}
+.block-rouge .ligne {
+  padding: 0;
+  display: block;
+  border-bottom: 1px solid #fff;
+}
+.block-rouge .chiffre {
+  margin: 0 auto;
+  font-size: 40px;
+  border: none;
+  font-family: "Just Another Hand", cursive;
+  margin-top: 20px;
+}
+.block-rouge .ligne-blocks {
+  display: none;
+}
+.block-rouge .texte {
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+/* ----------------------------- PAGE CONTACT -------------------------------- */
+h1 {
+  font-size: 30px !important;
+}
+
+.infos {
+  padding: 30px !important;
+  margin-bottom: 20px;
+}
+.infos .ligne-mobile {
+  display: block !important;
+  text-align: center;
+}
+.infos .ligne-mobile ion-icon {
+  padding: 0 0 0 0 !important;
 }
 
 /*# sourceMappingURL=mobile.css.map */

@@ -91,7 +91,7 @@
 .presentation .block1 {
   background-color: #c6444b;
   color: #fff;
-  padding: 50px;
+  padding: 30px;
 }
 .presentation .arrow_box {
   position: relative;
@@ -121,7 +121,7 @@
   align-content: center;
   color: #c6444b;
   font-weight: bold;
-  padding: 50px;
+  padding: 30px;
   background-color: transparent;
   border-left: 2px solid #c6444b;
   border-right: 2px solid #c6444b;
@@ -153,7 +153,7 @@
   background-color: #c6444b;
   color: #fff;
   font-weight: bold;
-  padding: 50px;
+  padding: 30px;
 }
 
 /* ------------------------------ SECTION SERVICES -------------------------------- */
@@ -388,6 +388,17 @@ footer .list-footer {
 footer .list-footer li {
   display: inline-block;
 }
+.row-mobile .col-sm-12 {
+  display: inline-grid !important;
+}
+.row-mobile a {
+  color: #fff !important;
+}
+.row-mobile a:hover {
+  color: #c6444b !important;
+  text-decoration: none !important;
+}
+
 .titre {
   font-weight: 500 !important;
 }
@@ -449,53 +460,136 @@ footer .list-footer li {
 
 /* ------------------------------ BLOCK FORMULAIRE -------------------------------- */
 .formulaire {
-  margin-top: 50px;
   margin-bottom: 50px;
+  /*.dropzone{
+    .btn-drop{
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+    .label-drop{
+      height: 200px;
+      border: 2px dotted $black;
+      width: 100%;
+      background-color: $grey;
+      display: inline-grid;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer; !* "hand" cursor *!
+      &:hover{
+          background: rgba(198,68,75,.8);
+          color: $white;
+        border: 2px dotted $white;
+        .icon{
+          background-image: url("img/cloud-computing-blanc.png")!important;
+          background-repeat: no-repeat;
+          background-size: contain;
+          width: 5em;
+          height: 80px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  .icon{
+    background-image: url("img/cloud-computing.png")!important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 5em;
+    height: 80px;
+    margin: 0 auto;
+  }
+  .btn-ajout{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }*/
 }
-.formulaire .dropzone .btn-drop {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
+.formulaire .card-header {
+  background: #f2f2f2;
 }
-.formulaire .dropzone .label-drop {
-  height: 200px;
-  border: 2px dotted #303030;
+.formulaire .card-header:after, .formulaire .card-header:active, .formulaire .card-header:focus, .formulaire .card-header:hover {
+  background: #c6444b !important;
+  color: #fff !important;
+}
+
+/* Style the form */
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+/* Style the input fields */
+input {
   width: 100%;
-  background-color: #f2f2f2;
-  display: inline-grid;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  /* "hand" cursor */
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
 }
-.formulaire .dropzone .label-drop:hover {
-  background: rgba(198, 68, 75, 0.8);
-  color: #fff;
-  border: 2px dotted #fff;
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
 }
-.formulaire .dropzone .label-drop:hover .icon {
-  background-image: url("img/cloud-computing-blanc.png") !important;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 5em;
-  height: 80px;
-  margin: 0 auto;
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
 }
-.formulaire .icon {
-  background-image: url("img/cloud-computing.png") !important;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 5em;
-  height: 80px;
-  margin: 0 auto;
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
 }
-.formulaire .btn-ajout {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  /* To center it horizontally (if you want) */
+  line-height: 30px;
+  /* To center it vertically */
+  color: white;
+  transition: 2s;
+  transition-duration: 1s;
+}
+
+#myBar2 {
+  width: 30%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  /* To center it horizontally (if you want) */
+  line-height: 30px;
+  /* To center it vertically */
+  color: white;
+  transition: 2s;
+  animation-duration: 1s;
+  transition-duration: 2s;
 }
 
 .map {

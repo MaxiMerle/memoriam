@@ -12,7 +12,7 @@
             <div class="row text-center">
                 <h1 class="col-12">Les projets en cours</h1>
             </div>
-            {% for projet in projets %}
+            {% for projet in projetsClients %}
                 <div class="row">
                     <div class="projet col-8">
                         <h4>Projet numero : {{ projet.id }}</h4>
@@ -20,8 +20,8 @@
 
                     </div>
                     <div class="col-4">
-                        <a href="{{ path('projet_show',{'id' : projet.id }) }}" class=""><button class="btn btn-dark">VOIR</button></a>
-                        <a href="{{ path('projet_delete',{'id' : projet.id }) }}" class=""><button class="btn btn-danger">SUPPRIMER</button></a>
+                        <a href="{{ path('projetClient_show',{'id' : projet.id }) }}" class=""><button class="btn btn-dark">VOIR</button></a>
+{#                        <a href="{{ path('projet_delete',{'id' : projet.id }) }}" class=""><button class="btn btn-danger">SUPPRIMER</button></a>#}
 
                     </div>
                 </div>

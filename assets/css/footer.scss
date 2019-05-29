@@ -40,3 +40,19 @@ footer{
 
   }
 }
+
+
+
+.row-mobile{
+  .col-sm-12{
+    display: inline-grid!important;
+
+  }
+  a{
+    color: $white!important;
+    &:hover{
+      color: $red!important;
+      text-decoration: none!important;
+    }
+  }
+}

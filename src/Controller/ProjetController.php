@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Projet;
+use App\Entity\ProjetFiles;
 use App\Form\ProjetType;
 use App\Repository\ProjetRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,86 +46,96 @@ class ProjetController extends AbstractController
     }
 
 
-    /**
-     * @Route("/admin/projet/{id}", name="projet_show")
-     */
-    public function show($id)
-    {
-        $projet = $this->getDoctrine()
-            ->getRepository(Projet::class)
-            ->find($id);
+//    /**
+//     * @Route("/admin/projet/{id}", name="projet_show")
+//     */
+//    public function show($id)
+//    {
+//        $projet = $this->getDoctrine()
+//            ->getRepository(Projet::class)
+//            ->find($id);
+//
+//
+//        return $this->render('projet/show.html.twig', ['projet' => $projet]);
+//
+//        // or render a template
+//        // in the template, print things with {{ product.name }}
+//        // return $this->render('product/show.html.twig', ['product' => $product]);
+//    }
+//
+//    /**
+//     * @Route("/admin/projets", name="projets")
+//     */
+//    public function showProjets()
+//    {
+//        $projet = $this->getDoctrine()
+//            ->getRepository(Projet::class)
+//            ->findAll();
+//
+//
+//
+//        return $this->render('projet/projets.html.twig', ['projets' => $projet]);
+//
+//        // or render a template
+//        // in the template, print things with {{ product.name }}
+//        // return $this->render('product/show.html.twig', ['product' => $product]);
+//    }
+//
+//    /**
+//     * @Route("/admin/projets/{id}", name="projet_delete")
+//     */
+//
+//    public function supprimerProjet($id)
+//    {
+//
+//        $repository = $this->getDoctrine()->getRepository(Projet::class);
+//        $entityManager = $this->getDoctrine()->getManager();
+//
+//        $projet = $repository->find($id);
+//
+//        $entityManager->remove($projet);
+//        $entityManager->flush();
+//
+//        return $this->redirectToRoute('projets');
+//    }
 
 
-        return $this->render('projet/show.html.twig', ['projet' => $projet]);
-
-        // or render a template
-        // in the template, print things with {{ product.name }}
-        // return $this->render('product/show.html.twig', ['product' => $product]);
-    }
-
-    /**
-     * @Route("/admin/projets", name="projets")
-     */
-    public function showProjets()
-    {
-        $projet = $this->getDoctrine()
-            ->getRepository(Projet::class)
-            ->findAll();
-
-
-
-        return $this->render('projet/projets.html.twig', ['projets' => $projet]);
-
-        // or render a template
-        // in the template, print things with {{ product.name }}
-        // return $this->render('product/show.html.twig', ['product' => $product]);
-    }
-
-    /**
-     * @Route("/admin/projets/{id}", name="projet_delete")
-     */
-
-    public function supprimerProjet($id)
-    {
-
-        $repository = $this->getDoctrine()->getRepository(Projet::class);
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $projet = $repository->find($id);
-
-        $entityManager->remove($projet);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('projets');
-    }
+//    /**
+//     * @Route("/ajouter-un-projet", name="nouveau_projet_old")
+//     * @param Request $request
+//     * @return Response
+//     */
+//    public function ajoutProjet(Request $request)
+//    {
+//        $projet = new Projet();
+//
+//        $images = new ProjetFiles();
+//        $projet->addProjetFile($images);
+//
+//        $form = $this->createForm(ProjetType::class, $projet);
+//
+//        $form->handleRequest($request);
+//
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $em = $this->getDoctrine()->getManager();
+//
+//
+//
+//            $em->persist($projet);
+//            $em->persist($images);
+//            $em->flush();
+//        }else{
+//                $this->redirectToRoute('contact');
+//        }
+//
+//        return $this->render('votre-projet.html.twig', array(
+//            'projet' => $projet,
+//            'form' => $form->createView(),
+//        ));
+//    }
 
 
 
-
-
-    /**
-     * @Route("/votre-projet", name="nouveau_projet")
-     */
-    public function ajoutProjet(Request $request)
-    {
-        $projet = new Projet();
-
-
-        $form = $this->createForm(ProjetType::class, $projet);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            $em->persist($projet);
-            $em->flush();
-        }
-
-        return $this->render('votre-projet.html.twig', array(
-            'projet' => $projet,
-            'form' => $form->createView(),
-        ));
-    }
 
 }

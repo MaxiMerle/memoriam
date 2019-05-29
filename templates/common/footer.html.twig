@@ -1,41 +1,86 @@
-<footer>
-    <div class="container">
-        <br>
-        <div class="row">
 
-            <div class="col-4 list">
-                <ul>
-                    <li><a href="{{ path('home') }}">MÉORIAM</a></li>
-                    <li><a href="{{ path('home') }}#fonctionnement">FONCTIONNEMENT</a></li>
-                    <li><a href="{{ path('home') }}#service">NOTRE SERVICE</a></li>
-                    <li><a href="{{ path('contact') }}">CONTACTS</a></li>
-                </ul>
-            </div>
-            <div class="col-4 list">
-                <ul>
-                    <li><a href="#">AGENCE BERTHELOT</a></li>
-                    <li><a href="#">FACEBOOK</a></li>
 
-                </ul>
+{% if is_mobile() == true %}
+    <footer>
+        <div class="container">
+            <br>
+            <div class="row row-mobile">
+
+                <div class=" col-sm-12 ">
+                        <a href="{{ path('home') }}">MÉORIAM</a>
+                        <a href="{{ path('home') }}#fonctionnement">FONCTIONNEMENT</a>
+                        <a href="{{ path('home') }}#service">NOTRE SERVICE</a>
+                        <a href="{{ path('contact') }}">CONTACTS</a>
+                </div>
+                <div class=" col-sm-12 ">
+
+                        <a href="#">AGENCE BERTHELOT</a>
+                        <a href="#">FACEBOOK</a>
+
+
+                </div>
+                <div class=" col-sm-12 ">
+
+                        <a href="{{ path('home') }}">MÉORIAM</a>
+                        <a href="{{ path('contact') }}">010203040506</a>
+                        <a href="{{ path('contact') }}">memoriam@mail.fr</a>
+                </div>
             </div>
-            <div class="col-4 list">
-                <ul>
-                    <li><a href="{{ path('home') }}">MÉORIAM</a></li>
-                    <li><a href="{{ path('contact') }}">010203040506</a></li>
-                    <li><a href="{{ path('contact') }}">emoriam@mail.fr</a></li>
-                </ul>
+            <div class="row row-mobile">
+
+                <div class="col-12">
+                    <hr>
+                        <a href="#">MAXIME MERLE © 2019  </a><br>
+                        <a href="{{ path('mentions-legales') }}">MENTIONS LÉGALES / </a>
+                        <a href="{{ path('cgv') }}"> CGV</a>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="row">
+    </footer>
 
-            <div class="col-12">
-                <hr>
-                <ul class="list-footer">
-                    <li><a href="#">MAXIME MERLE © 2019 / </a></li>
-                    <li><a href="{{ path('mentions-legales') }}">MENTIONS LÉGALES / </a></li>
-                    <li><a href="{{ path('cgv') }}"> CGV</a></li>
-                </ul>
+
+    {% else %}
+        <footer>
+            <div class="container">
+                <br>
+                <div class="row">
+
+                    <div class="col-lg-4 col-sm-12 list">
+                        <ul>
+                            <li><a href="{{ path('home') }}">MÉORIAM</a></li>
+                            <li><a href="{{ path('home') }}#fonctionnement">FONCTIONNEMENT</a></li>
+                            <li><a href="{{ path('home') }}#service">NOTRE SERVICE</a></li>
+                            <li><a href="{{ path('contact') }}">CONTACTS</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 list">
+                        <ul>
+                            <li><a href="#">AGENCE BERTHELOT</a></li>
+                            <li><a href="#">FACEBOOK</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 list">
+                        <ul>
+                            <li><a href="{{ path('home') }}">MÉORIAM</a></li>
+                            <li><a href="{{ path('contact') }}">010203040506</a></li>
+                            <li><a href="{{ path('contact') }}">memoriam@mail.fr</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-12">
+                        <hr>
+                        <ul class="list-footer">
+                            <li><a href="#">MAXIME MERLE © 2019 / </a></li>
+                            <li><a href="{{ path('mentions-legales') }}">MENTIONS LÉGALES / </a></li>
+                            <li><a href="{{ path('cgv') }}"> CGV</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</footer>
+        </footer>
+
+{% endif %}

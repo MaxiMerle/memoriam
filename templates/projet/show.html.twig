@@ -7,15 +7,25 @@
 
 {% block body %}
 
-    <br><br><br><br><br><br><br><br><br>
+    <section class="title">
+        <h1>Le projet de {{ projet.prenomClient }} {{ projet.nomClient }}</h1>
+        <hr>
+        <h2>Forfait selectionné : {{ projet.categorie.name }} </h2>
+    </section>
   <section>
-      <div><h2>Numero de dossier : <strong>{{ projet.Dossier }}</strong></h2></div>
+      <div><h2>Numero de dossier : <strong>{{ projet.dossier }}</strong></h2></div>
       <div><p>Projet numero : <strong>{{ projet.id }}</strong></p></div>
-      <div><p>Nom : <strong>{{ projet.NomDefunt }}</strong></p></div>
-      <div><p>Prénom :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
-      <div><p>Né le : <strong>{{ projet.DateNaissance|date('d-m-Y') }}</strong></p></div>
-      <div><p>Mort le : <strong>{{ projet.DateMort|date('d-m-Y') }}</strong></p></div>
-      <div><p>Image 1 : </p><img src="{{ vich_uploader_asset(projet, 'imageFile') }}" alt="{{ projet.imageName }}" width="10%"/></div>
+      <div><p>Nom Client: <strong>{{ projet.nomClient }}</strong></p></div>
+      <div><p>Prenom Client : <strong>{{ projet.prenomClient }}</strong></p></div>
+      <div><p>Email Client : <strong>{{ projet.emailClient }}</strong></p></div>
+      <hr>
+      <div><p>Prénom Défunt :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
+      <div><p>Prénom Défunt :  <strong>{{ projet.nomDefunt }}</strong></p></div>
+      <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt|date('d-m-Y') }}</strong></p></div>
+      <div><p>Mort le : <strong>{{ projet.dateMortDefunt|date('d-m-Y') }}</strong></p></div>
+      <div><p>Description : <strong>{{ projet.descriptionDefunt }}</strong></p></div>
+      <br>
+      <div><p>Images : <strong></strong></p></div>
 
 
   </section>
