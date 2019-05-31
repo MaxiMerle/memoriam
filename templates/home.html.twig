@@ -13,14 +13,13 @@
 {% endblock %}
 {% block body %}
 
-    <section class="header {% if is_mobile() == true  and is_tablet() == false %} header-mobile {% elseif is_tablet() %}{% else %}{% endif %}">
+    <section class="header mb-5 {% if is_mobile() == true  and is_tablet() == false %} header-mobile {% elseif is_tablet() %}{% else %}{% endif %}">
         <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">MÉMORIAM</h1>
             {% if is_mobile() == false  and is_tablet() == false %}
                 <div class="row text-center">
-                    <button class="col-12 home-btn btn btn-default-danger" >
-                        <a  href="{{ path('nouveau_projet') }}"> MON PROJET</a>
-
-                    </button>
+                    <a  href="{{ path('nouveau_projet') }}"><button class="col-12 home-btn btn btn-default-danger" >
+                        MON PROJET</button>
+                    </a>
                 </div>
             {% endif %}
     </section>

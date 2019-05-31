@@ -35,8 +35,7 @@
   }
   .texte{
     padding-left: 60px;
-    font-size:35px;
-    font-family: $font2;
+    font-size:25px;
   }
   .ligne-blocks{
     display: flex;
@@ -231,3 +230,11 @@ input.invalid {
   }
 }
 
+
+
+
+.projet{
+ion-icon{
+  font-size: 40px;
+}
+}

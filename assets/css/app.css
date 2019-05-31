@@ -457,8 +457,7 @@ footer .list-footer li {
 }
 .block-rouge .texte {
   padding-left: 60px;
-  font-size: 35px;
-  font-family: "Just Another Hand", cursive;
+  font-size: 25px;
 }
 .block-rouge .ligne-blocks {
   display: flex;
@@ -640,6 +639,10 @@ input.invalid {
 .tab .ligne .text {
   color: #c6444b !important;
   font-family: "Just Another Hand", cursive;
+}
+
+.projet ion-icon {
+  font-size: 40px;
 }
 
 .map {

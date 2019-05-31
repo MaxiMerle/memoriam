@@ -116,7 +116,7 @@ class ProjetClientController extends AbstractController
         $entityManager->remove($projet);
         $entityManager->flush();
 
-        return $this->render('projet/projets.html.twig', ['projetsClients' => $projet]);
+        return $this->redirectToRoute('projetsClients');
    }
 
 

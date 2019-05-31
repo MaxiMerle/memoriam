@@ -27,13 +27,11 @@
     <header class="header-home changeColor">
         <div class="header-ctn ">
             <a href= "{{ path('home') }}" class="logo-vert logo-blanc"></a>
-            <ul class="links ml-5">
+            <ul class="links ml-5 flo">
                 <li><a href="{{ path('home') }}#presentation">QUI SOMMES-NOUS ?</a></li>
                 <li><a href="{{ path('home') }}#service">NOTRE SERVICE</a></li>
                 <li><a href="{{ path('home') }}#fonctionnement">FONCTIONNEMENT</a></li>
                 <li><a href="{{ path('contact') }}">CONTACTS</a></li>
-            </ul>
-            <ul class="projet">
                 <li style="margin-top: 5px"><a href="{{ path('nouveau_projet') }}">VOTRE PROJET</a></li>
                 {#<li><a href=""><ion-icon name="contact" size="large"></ion-icon></a></li>#}
                 <li><a href="{{ path('projetsClients') }}"><ion-icon name="lock" size="large"></ion-icon></a></li>
