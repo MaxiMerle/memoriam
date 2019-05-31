@@ -26,8 +26,15 @@ class ContactController extends AbstractController
                    $message = (new \Swift_Message('MESSAGE CLIENT MÉMORIAM'))
                            ->setFrom($contactFormData['email'])
                            ->setTo('maximerle@gmail.com')
-                           ->setBody($contactFormData['message'],
-                                    'text/plain'
+                           ->setBody(
+                               '<html>' .
+                               ' <body>' .
+                                '<h1>' .'  NOM : ' . $contactFormData['name'] .'</h1>' .
+                               '  EMAIL : ' .  $contactFormData['email'] .
+                               '  MESSAGE : ' .  $contactFormData['message'] .
+
+                               ' </body>' .
+                               '</html>', 'text/html'
                            );
 
                    $mailer->send($message);

@@ -9,8 +9,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,22 +22,40 @@ class ProjetClientType extends AbstractType
     {
 
         $builder
-            ->add('nomClient')
-            ->add('prenomClient')
-            ->add('emailClient')
-            ->add('dossier')
+            ->add('nomClient', TextType::class, [
+                'attr' => ['placeholder' => 'Votre nom...']
+            ])
+            ->add('prenomClient', TextType::class, [
+                'attr' => ['placeholder' => 'Votre prenom...']
+            ])
+            ->add('emailClient', EmailType::class, [
+                'attr' => ['placeholder' => 'Votre email...']
+            ])
+            ->add('dossier', TextType::class, [
+                'attr' => ['placeholder' => 'Votre numéro de dossier Berthelot...']
+            ])
             ->add('categorie', EntityType::class, [
                 'class' => ProjetClientCategorie::class,
                 'choice_label' => 'name',
-                'placeholder' => 'Choisissez votre forfait',
-                'label' => 'Choix du forfait'
+                'placeholder' => 'Choix du forfait :',
+                'label' => 'Choix du forfait : '
             ])
 
-            ->add('nomDefunt')
-            ->add('prenomDefunt')
-            ->add('dateNaissanceDefunt')
-            ->add('dateMortDefunt')
-            ->add('descriptionDefunt')
+            ->add('nomDefunt', TextType::class, [
+                'attr' => ['placeholder' => 'Nom du défunt...']
+            ])
+            ->add('prenomDefunt', TextType::class, [
+                'attr' => ['placeholder' => 'Prénom du défunt...']
+            ])
+            ->add('dateNaissanceDefunt', TextType::class, [
+                'attr' => ['placeholder' => 'Date de naissance...']
+            ])
+            ->add('dateMortDefunt', TextType::class, [
+                'attr' => ['placeholder' => 'Date du décès...']
+            ])
+            ->add('descriptionDefunt', TextareaType::class, [
+                'attr' => ['placeholder' => 'Courte description du défunt...']
+            ])
 
 
             ->add('save', SubmitType::class, [
@@ -45,22 +65,7 @@ class ProjetClientType extends AbstractType
 
         ;
     }
-    public function buildFormDefunt(FormBuilderInterface $builder, array $options)
-    {
 
-        $builder
-            ->add('nomDefunt')
-            ->add('prenomDefunt')
-            ->add('dateNaissanceDefunt')
-            ->add('dateMortDefunt')
-            ->add('descriptionDefunt')
-            ->add('save', SubmitType::class, [
-                'label' => 'Valider les informations du défunt et passer à la suite >>',
-                'attr' => ['class' => 'btn btn-block btn-outline-success']
-            ])
-
-        ;
-    }
 
     public function configureOptions(OptionsResolver $resolver)
     {

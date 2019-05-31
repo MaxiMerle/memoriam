@@ -134,10 +134,12 @@ background: $grey;
   padding: 40px;
   width: 70%;
   min-width: 300px;
+
+
 }
 
 /* Style the input fields */
-input {
+input select{
   width: 100%;
   font-size: 17px;
   border: 1px solid #aaaaaa;
@@ -145,7 +147,7 @@ input {
 
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
-  background-color: #ffdddd;
+  border-color: $red;
 }
 
 /* Hide all steps by default: */
@@ -177,7 +179,14 @@ input.invalid {
 
 
 
-
+.rouge{
+  color: $red!important;
+  border-color: $red!important;
+  &:hover{
+    background-color: $red!important;
+    color: $white!important;
+  }
+}
 
 
 #myBar {
@@ -201,3 +210,24 @@ input.invalid {
   animation-duration: 1s;
   transition-duration: 2s;
 }
+
+
+.tab{
+  .ligne{
+    display: flex;
+    align-items: center;
+    padding: 10px 100px;
+    .chiffre{
+      font-size: 30px;
+      border: 3px solid $red;
+      border-radius: 100px;
+      width: 50px;
+      text-align: center;
+    }
+    .text{
+      color: $red!important;
+      font-family: $font2;
+    }
+  }
+}
+

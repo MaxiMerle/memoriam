@@ -101,6 +101,23 @@ class ProjetClientController extends AbstractController
         return $choix;
     }
 
+    /**
+     * @Route("/admin/projets/{id}", name="projet_delete")
+     */
+
+    public function supprimerProjet($id)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(ProjetClient::class);
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $projet = $repository->find($id);
+
+        $entityManager->remove($projet);
+        $entityManager->flush();
+
+        return $this->render('projet/projets.html.twig', ['projetsClients' => $projet]);
+   }
 
 
 }

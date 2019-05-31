@@ -17,14 +17,14 @@
         <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">MÉMORIAM</h1>
             {% if is_mobile() == false  and is_tablet() == false %}
                 <div class="row text-center">
-                    <button class="col-12 home-btn" >
-                        VOIR PLUS
-                        <ion-icon name="add"></ion-icon>
+                    <button class="col-12 home-btn btn btn-default-danger" >
+                        <a  href="{{ path('nouveau_projet') }}"> MON PROJET</a>
+
                     </button>
                 </div>
             {% endif %}
     </section>
-    <div class="p-lg-5 mt-5" id="presentation">
+    <div class="p-lg-5 p-md-5 mt-5" id="presentation">
         <h2>NOTRE PROPOSITION</h2>
         <p> A partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons le <strong>film hommage du défunt</strong> </p>
         <div class="engagement mt-5">
@@ -37,19 +37,19 @@
         <section class="presentation">
             <div class="block1 arrow_box">
                 <div class="row">
-                    <div class="col-lg-4 col-sm-12">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="item">
                             <ion-icon name="images"></ion-icon>
                             <h2>PHOTOS</h2>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-12">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="item">
                             <ion-icon name="film"></ion-icon>
                             <h2>VIDÉOS</h2>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-12">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="item">
                             <ion-icon name="videocam"></ion-icon>
                             <h2>TÉMOIGNAGE</h2>
@@ -125,11 +125,31 @@
         </div>
 
         {% elseif is_tablet() %}
+            <div class="video-service">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+                <br>
+            </div>
+            <div class="services">
+                <h5>Forfait 30 photos / 3 vidéos (Environ 5min)</h5>
+                <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
+                <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
+                <p><strong>Tarif : 480€</strong></p>
+                <hr>
+                <h5>Forfait 50 photos / 5 vidéos (Environ 8min)</h5>
+                <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
+                <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
+                <p><strong>Tarif : 600€ TTC</strong></p>
+                <hr>
+                <h5>Forfait sur mesure. Sans limitation de temps</h5>
+                <p>Réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
+                <p><strong>Tarif : Sur devis</strong></p>
+                <hr>
+            </div>
 
 
         {% else %}
-
-
             <div class="flex-services">
                 <div class="dropdown-services">
                     <div id="accordion">
@@ -148,9 +168,7 @@
                                     <p><strong>Tarif : 480€</strong></p>
                                     <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
                                 </div>
-
                             </div>
-
                         </div>
                         <div class="card">
                             <div class="card-header" id="headingTwo">
@@ -159,7 +177,6 @@
                                     <h5 class="mb-0  btn-title">Forfait 50 photos / 5 vidéos - Environ 8min</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
-
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
@@ -194,9 +211,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-    {% endif %}
 
+    {% endif %}
+    </section>
     <section class="fonctionnement" id="fonctionnement">
 
         <h2>COMMENT FONCTIONNE MÉMORIAM</h2>
@@ -250,7 +267,7 @@
 
 
 
-    <section class="{% if is_mobile() == true  and is_tablet() == false %} avis-mobile {% elseif is_tablet() %}{% else %} avis{% endif %}" >
+    <section class="{% if is_mobile() == true  and is_tablet() == false %} avis-mobile {% elseif is_tablet() %} avis {% else %} avis{% endif %}" >
 
         <h2>NOS CLIENTS EN PARLENT...</h2>
         <div class="row blocks-avis">
