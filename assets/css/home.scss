@@ -12,6 +12,16 @@
   background-color: rgba(48,48,48,.4);
   background-attachment: fixed;
 
+  video{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    width: 100%;
+    height: 830px;
+    margin: auto;
+    position: sticky;
+  }
+
 
 
   a{
@@ -312,5 +322,8 @@
     }
   }
 }
+
+
+
 
 

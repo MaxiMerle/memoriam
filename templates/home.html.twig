@@ -13,9 +13,14 @@
 {% endblock %}
 {% block body %}
 
+
     <section class="header mb-5 {% if is_mobile() == true  and is_tablet() == false %} header-mobile {% elseif is_tablet() %}{% else %}{% endif %}">
         <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">MÉMORIAM</h1>
             {% if is_mobile() == false  and is_tablet() == false %}
+  {#              <video loop muted autoplay playsinline poster="https://media.giphy.com/media/26Ff43GwoaAks9XgY/giphy.gif">
+                    <source src="https://multicdn.synq.fm/blog/videos/background.mp4" type="video/mp4"  />
+                </video>
+   #}
                 <div class="row text-center">
                     <a  href="{{ path('nouveau_projet') }}"><button class="col-12 home-btn btn btn-default-danger" >
                         MON PROJET</button>

@@ -29,9 +29,10 @@ class ContactController extends AbstractController
                            ->setBody(
                                '<html>' .
                                ' <body>' .
-                                '<h1>' .'  NOM : ' . $contactFormData['name'] .'</h1>' .
-                               '  EMAIL : ' .  $contactFormData['email'] .
-                               '  MESSAGE : ' .  $contactFormData['message'] .
+                                '<h2>' .'  NOM : ' . $contactFormData['name'] .'</h2>' .
+                               '<h2>' .'  EMAIL : ' . $contactFormData['email'] .'</h2>' .
+                               '<h2>' .'  MESSAGE : ' . $contactFormData['message'] .'</h2>' .
+
 
                                ' </body>' .
                                '</html>', 'text/html'

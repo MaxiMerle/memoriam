@@ -13,6 +13,15 @@
   background-attachment: fixed;
   /* Animation */
 }
+.header video {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  width: 100%;
+  height: 830px;
+  margin: auto;
+  position: sticky;
+}
 .header a {
   color: #fff;
 }

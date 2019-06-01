@@ -39,6 +39,7 @@ class ProjetClientType extends AbstractType
                 'choice_label' => 'name',
                 'placeholder' => 'Choix du forfait :',
                 'label' => 'Choix du forfait : '
+
             ])
 
             ->add('nomDefunt', TextType::class, [

@@ -13,12 +13,12 @@
             <link rel="stylesheet" href="{{ asset('build/app.css') }}">
             {% if is_mobile() == true  and is_tablet() == false %} <link rel="stylesheet" href="{{ asset('build/mobile.css') }}">{% endif %}
             {% if is_tablet() %} <link rel="stylesheet" href="{{ asset('build/tablet.css') }}"> {% endif %}
-
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         {% endblock %}
     </head>
     <body>
+
     {% include 'common/header.html.twig' %}
         {% block body %}
 
