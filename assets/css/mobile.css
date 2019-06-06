@@ -21,14 +21,18 @@ section {
 .navbar-mobile .logo-vert {
   background-image: url("img/logo-vert.png");
   background-repeat: no-repeat;
-  background-size: 50px;
+  background-size: 40px;
   width: 50px;
-  height: 50px;
+  height: 45px;
 }
 .navbar-mobile .projet {
   display: flex;
   justify-content: center;
   align-items: end;
+}
+
+.navbar-tablet h1 {
+  margin-top: 40% !important;
 }
 
 /* ------------------------------ SECTION HEADER -------------------------------- */
@@ -45,7 +49,7 @@ section {
   margin-top: 3rem;
 }
 .service h5 {
-  color: #c6444b;
+  color: #434343;
 }
 .service hr {
   width: 80%;

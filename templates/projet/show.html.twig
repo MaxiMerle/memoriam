@@ -13,21 +13,53 @@
         <h2>Forfait selectionné : {{ projet.categorie.name }} </h2>
     </section>
   <section>
-      <div><h2>Numero de dossier : <strong>{{ projet.dossier }}</strong></h2></div>
-      <div><p>Projet numero : <strong>{{ projet.id }}</strong></p></div>
-      <div><p>Nom Client: <strong>{{ projet.nomClient }}</strong></p></div>
-      <div><p>Prenom Client : <strong>{{ projet.prenomClient }}</strong></p></div>
-      <div><p>Email Client : <strong>{{ projet.emailClient }}</strong></p></div>
+      <div class="container">
+
+      <div class="row">
+          <div class="col-12 section-client">
+              <div><h2>Numero de dossier : <strong>{{ projet.dossier }}</strong></h2></div>
+              <div><p>Projet numero : <strong>{{ projet.id }}</strong></p></div>
+              <div><p>Nom Client: <strong>{{ projet.nomClient }}</strong></p></div>
+              <div><p>Prenom Client : <strong>{{ projet.prenomClient }}</strong></p></div>
+              <div><p>Email Client : <strong>{{ projet.emailClient }}</strong></p></div>
+          </div>
+      </div>
       <hr>
-      <div><p>Prénom Défunt :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
-      <div><p>Prénom Défunt :  <strong>{{ projet.nomDefunt }}</strong></p></div>
-      <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt|date('d-m-Y') }}</strong></p></div>
-      <div><p>Mort le : <strong>{{ projet.dateMortDefunt|date('d-m-Y') }}</strong></p></div>
-      <div><p>Description : <strong>{{ projet.descriptionDefunt }}</strong></p></div>
-      <br>
-      <div><p>Images : <strong></strong></p></div>
+      <div class="row">
+        <div class="col-12 section-defunt">
+          <div><p>SURNOM :  <strong>{{ projet.surnomDefunt }}</strong></p></div>
+          <div><p>Sexe :  <strong>{{ projet.gender }}</strong></p></div>
+          <div><p>Prénom Défunt :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
+          <div><p>Prénom Défunt :  <strong>{{ projet.nomDefunt }}</strong></p></div>
+          <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt|date('d-m-Y') }}</strong></p></div>
+          <div><p>Mort le : <strong>{{ projet.dateMortDefunt|date('d-m-Y') }}</strong></p></div>
+          <div><p>Ce que chacun retiendra de lui : <strong>{{ projet.descriptionDefunt }}</strong></p></div>
+          <div><p>Mot de la fin : <strong>{{ projet.motFin }}</strong></p></div>
+          <div><p>Devise, citation : <strong> {{ projet.deviseDefunt }}</strong></p></div>
+        </div>
+      </div>
+      <hr>
+<div class="container">
+    <div class="row">
+        <div class="col-12 section-images">
+            <div>
+                <h2>Images :</h2>
 
+            </div>
 
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-12 section-videos">
+            <div>
+                <h2>Vidéos : <strong></strong></h2>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+      </div>
   </section>
 
 

@@ -44,7 +44,13 @@ class ProjetClientController extends AbstractController
              $entityManager->persist($newProjet);
              $entityManager->flush();
 
+            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci');
+
             return $this->redirectToRoute('nouveau_projet');
+        }
+        elseif ($form->isEmpty()){
+            $this->addFlash('dannger', 'Votre Projet n\'a pas bien été enregistré ! Merci de recommencer');
+
         }
 
         return $this->render('projet_client/index.html.twig', [

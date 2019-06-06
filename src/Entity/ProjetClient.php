@@ -32,6 +32,8 @@ class ProjetClient
 
     /**
      * @ORM\Column(type="string", length=255)
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
      */
     private $emailClient;
 
@@ -70,6 +72,26 @@ class ProjetClient
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $DescriptionDefunt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $surnomDefunt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $gender;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $motFin;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $deviseDefunt;
 
 
 
@@ -198,6 +220,54 @@ class ProjetClient
     public function setDescriptionDefunt(?string $DescriptionDefunt): self
     {
         $this->DescriptionDefunt = $DescriptionDefunt;
+
+        return $this;
+    }
+
+    public function getSurnomDefunt(): ?string
+    {
+        return $this->surnomDefunt;
+    }
+
+    public function setSurnomDefunt(?string $surnomDefunt): self
+    {
+        $this->surnomDefunt = $surnomDefunt;
+
+        return $this;
+    }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?string $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getMotFin(): ?string
+    {
+        return $this->motFin;
+    }
+
+    public function setMotFin(string $motFin): self
+    {
+        $this->motFin = $motFin;
+
+        return $this;
+    }
+
+    public function getDeviseDefunt(): ?string
+    {
+        return $this->deviseDefunt;
+    }
+
+    public function setDeviseDefunt(?string $deviseDefunt): self
+    {
+        $this->deviseDefunt = $deviseDefunt;
 
         return $this;
     }

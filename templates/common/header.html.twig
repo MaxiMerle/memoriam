@@ -10,8 +10,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto text-center">
-                    <li><a class="dropdown-item" href="{{ path('home') }}#service"> NOTRE SERVICE </a></li>
-                    <li><a class="dropdown-item" href="{{ path('home') }}#fonctionnement"> FONCTIONNEMENT </a></li>
+                    <li><a href="{{ path('home') }}#presentation">QUI SOMMES-NOUS ?</a></li>
+                    <li><a class="dropdown-item" href="{{ path('home') }}#service"> NOS SERVICE </a></li>
                     <li><a class="dropdown-item" href="{{ path('contact') }}"> CONTACTS </a></li>
                     <li><a class="dropdown-item" href="{{ path('nouveau_projet') }}">VOTRE PROJET </a></li>
                     <li><a class="dropdown-item" href="{{ path('projetsClients') }}"><ion-icon name="lock" size="large"></ion-icon></a></li>
@@ -29,12 +29,11 @@
             <a href= "{{ path('home') }}" class="logo-vert logo-blanc"></a>
             <ul class="links ml-5">
                 <li><a href="{{ path('home') }}#presentation">QUI SOMMES-NOUS ?</a></li>
-                <li><a href="{{ path('home') }}#service">NOTRE SERVICE</a></li>
-                <li><a href="{{ path('home') }}#fonctionnement">FONCTIONNEMENT</a></li>
+                <li><a href="{{ path('home') }}#service">NOS SERVICES</a></li>
                 <li><a href="{{ path('contact') }}">CONTACTS</a></li>
             </ul>
             <ul class="projet">
-                <li style="margin-top: 5px"><a href="{{ path('nouveau_projet') }}">VOTRE PROJET</a></li>
+                <li style="margin-top: 5px"><a href="{{ path('nouveau_projet') }}" class="projet-links">VOTRE PROJET</a></li>
                 {#<li><a href=""><ion-icon name="contact" size="large"></ion-icon></a></li>#}
                 <li><a href="{{ path('projetsClients') }}"><ion-icon name="lock" size="large"></ion-icon></a></li>
             </ul>
@@ -54,10 +53,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto text-center">
-                    <li><a class="dropdown-item" href="{{ path('home') }}#service"> NOTRE SERVICE </a></li>
-                    <li><a class="dropdown-item" href="{{ path('home') }}#fonctionnement"> FONCTIONNEMENT </a></li>
+                    <li><a href="{{ path('home') }}#presentation">QUI SOMMES-NOUS ?</a></li>
+                    <li><a class="dropdown-item" href="{{ path('home') }}#service"> NOS SERVICES </a></li>
                     <li><a class="dropdown-item" href="{{ path('contact') }}"> CONTACTS </a></li>
-                    <li><a class="dropdown-item" href="{{ path('nouveau_projet') }}">VOTRE PROJET </a></li>
+                    <li><a class="dropdown-item projet" href="{{ path('nouveau_projet') }}">VOTRE PROJET </a></li>
                     <li><a class="dropdown-item" href="{{ path('projetsClients') }}"><ion-icon name="lock" size="large"></ion-icon></a></li>
 
 

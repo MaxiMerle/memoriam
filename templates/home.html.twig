@@ -14,23 +14,20 @@
 {% block body %}
 
 
-    <section class="header mb-5 {% if is_mobile() == true  and is_tablet() == false %} header-mobile {% elseif is_tablet() %}{% else %}{% endif %}">
+    <section class="header mb-5 {% if is_mobile() == true  and is_tablet() == false %} header-mobile {% elseif is_tablet() %}header-tablet{% else %}{% endif %}">
         <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">MÉMORIAM</h1>
             {% if is_mobile() == false  and is_tablet() == false %}
   {#              <video loop muted autoplay playsinline poster="https://media.giphy.com/media/26Ff43GwoaAks9XgY/giphy.gif">
                     <source src="https://multicdn.synq.fm/blog/videos/background.mp4" type="video/mp4"  />
                 </video>
    #}
-                <div class="row text-center">
-                    <a  href="{{ path('nouveau_projet') }}"><button class="col-12 home-btn btn btn-default-danger" >
-                        MON PROJET</button>
-                    </a>
-                </div>
+
             {% endif %}
     </section>
+
     <div class="p-lg-5 p-md-5 mt-5" id="presentation">
         <h2>NOTRE PROPOSITION</h2>
-        <p> A partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons le <strong>film hommage du défunt</strong> </p>
+        <p> A partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionelle </strong> du défunt </p>
         <div class="engagement mt-5">
             <h2>NOTRE ENGAGEMENT :</h2>
             <p>Votre vidéo disponible en <strong>48h maximum.</strong> Disponible pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux</p>
@@ -80,7 +77,7 @@
                 </div>
                 <div class="row">
                     <br>
-                    <p class="col-12 text-center ">Mémoriam s'occupe de la création, du montage et de la mise en place de votre vidéo en hommage au défunt.</p>
+                    <p class="col-12 text-center ">Mémoriam réalise avec des <strong>moyens professionels</strong> le film en hommage au défunt.</p>
                 </div>
             </div>
 
@@ -90,39 +87,40 @@
                     <div class="col-12 text-center">
                         <div class="item-">
                             <ion-icon name="desktop"></ion-icon>
-                            <h2>FILM HOMMAGE LIVRÉ EN 48H</h2>
+                            <h2>FILM HOMMAGE À VOTRE DISPOSITION</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <br>
-                    <p class="col-12 text-center ">Une fois le montage terminé, vous recevez sous 48h maximum, votre vidéo terminnée par email.</p>
+                    <p class="col-12 text-center ">Vous recevez votre film hommage <strong>en 48h maximum</strong> par internet.</p>
                 </div>
             </div>
 
         </section>
 
     <section class="service" id="service">
-        <h2 class="">3 POSSIBILITES</h2>
+        <h2 class="">2 POSSIBILITES</h2>
         {% if is_mobile() == true  and is_tablet() == false %}
             <div class="video-service">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/vcFpNlX-qnU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <br>
             </div>
         <div class="services">
-            <h5>Forfait 30 photos / 3 vidéos <br>(Environ 5min)</h5>
+
+            <h5> 30 photos / 3 vidéos <br>(Environ 5min)</h5>
             <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
             <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
-            <p><strong>Tarif : 480€</strong></p>
+            <p><strong>Tarif : 480€ TTC</strong></p>
             <hr>
-            <h5>Forfait 50 photos / 5 vidéos<br>(Environ 8min)</h5>
+            <h5> 50 photos / 5 vidéos<br>(Environ 8min)</h5>
             <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
             <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
             <p><strong>Tarif : 600€ TTC</strong></p>
             <hr>
-            <h5>Forfait sur mesure <br> Sans limitation de temps</h5>
+            <h5>Sur mesure <br> Sans limitation de temps</h5>
             <p>Réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
             <p><strong>Tarif : Sur devis</strong></p>
             <hr>
@@ -131,22 +129,22 @@
         {% elseif is_tablet() %}
             <div class="video-service">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/vcFpNlX-qnU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <br>
             </div>
             <div class="services">
-                <h5>Forfait 30 photos / 3 vidéos (Environ 5min)</h5>
+                <h5>30 photos / 3 vidéos (Environ 5min)</h5>
                 <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
                 <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
                 <p><strong>Tarif : 480€</strong></p>
                 <hr>
-                <h5>Forfait 50 photos / 5 vidéos (Environ 8min)</h5>
+                <h5>50 photos / 5 vidéos (Environ 8min)</h5>
                 <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
                 <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
                 <p><strong>Tarif : 600€ TTC</strong></p>
                 <hr>
-                <h5>Forfait sur mesure. Sans limitation de temps</h5>
+                <h5>Sur mesure. Sans limitation de temps</h5>
                 <p>Réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
                 <p><strong>Tarif : Sur devis</strong></p>
                 <hr>
@@ -160,17 +158,21 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <button class="btn btn-service collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title">Forfait 30 photos / 3 vidéos - Environ 5min</h5>
+                                    <h5 class="mb-0  btn-title">Votre film hommage</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
 
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
+                                    <h5>30 photos / 3 vidéos - Environ 5min</h5>
                                     <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
                                     <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
                                     <p><strong>Tarif : 480€</strong></p>
                                     <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
+
+                                    <p class="mt-3" style="font-size: 13px"><i>Vous préférez la réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers et avec l'envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ... ? </i>
+                                    <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.</p>
                                 </div>
                             </div>
                         </div>
@@ -178,46 +180,36 @@
                             <div class="card-header" id="headingTwo">
                                 <hr>
                                 <button class="btn btn-service" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title">Forfait 50 photos / 5 vidéos - Environ 8min</h5>
+                                    <h5 class="mb-0  btn-title">Votre film hommage grand format</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
+                                    <h5>50 photos / 5 vidéos - Environ 8min</h5>
                                     <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
                                     <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
                                     <p><strong>Tarif : 600€ TTC</strong></p>
                                     <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
+                                    <p class="mt-3" style="font-size: 13px"><i>Vous préférez la réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers et avec l'envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ... ? </i>
+                                        <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.</p>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <hr>
-                                <button class="btn btn-service" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title">Forfait sur mesure - Sans limitation de temps</h5>
-                                    <ion-icon name="arrow-dropdown"></ion-icon>
-                                </button>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                <div class="card-body">
-                                    <p>Réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
-                                    <p><strong>Tarif : Sur devis</strong></p>
-                                    <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="video-service">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/vcFpNlX-qnU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
 
     {% endif %}
     </section>
+    {#
     <section class="fonctionnement" id="fonctionnement">
 
         <h2>COMMENT FONCTIONNE MÉMORIAM</h2>
@@ -268,6 +260,7 @@
 
         </div>
     </section>
+    #}
 
 
 

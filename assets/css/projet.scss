@@ -238,3 +238,35 @@ ion-icon{
   font-size: 40px;
 }
 }
+
+.demo-droppable {
+  border: 2px dotted $red;
+  color: $red;
+  padding: 65px 0;
+  text-align: center;
+  background-color: $grey;
+  cursor: pointer;
+
+  ion-icon{
+    font-size: 50px;
+  }
+  &:hover{
+
+  }
+}
+.demo-droppable.dragover {
+  background: $red;
+  color: $white;
+}
+.fichier{
+  display: flex!important;
+  align-items: center!important;
+  justify-content: center!important;
+ }
+
+.genre{
+  .form-check{
+    display: inline-block!important;
+    padding-left: 2.25rem!important;
+  }
+}

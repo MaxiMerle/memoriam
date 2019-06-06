@@ -25,9 +25,9 @@ section{
   .logo-vert {
     background-image: url("img/logo-vert.png");
     background-repeat: no-repeat;
-    background-size: 50px;
+    background-size: 40px;
     width: 50px;
-    height: 50px;
+    height: 45px;
   }
   .projet{
     display: flex;
@@ -35,6 +35,11 @@ section{
     align-items: end;
   }
 
+}
+.navbar-tablet{
+  h1{
+    margin-top: 40%!important;
+  }
 }
 
 /* ------------------------------ SECTION HEADER -------------------------------- */

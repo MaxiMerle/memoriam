@@ -41,10 +41,19 @@ class ProjetClientType extends AbstractType
                 'label' => 'Choix du forfait : '
 
             ])
+            ->add('surnomDefunt', TextType::class, [
+                'attr' => ['placeholder' => 'Désignation utilisée tout au long du film...']
+            ])
+            ->add('gender', ChoiceType::class, array(
+                'choices' => array('Femme' => 'Femme', 'Homme' => 'Homme'),
+                'expanded' => true,
+            ))
+
 
             ->add('nomDefunt', TextType::class, [
                 'attr' => ['placeholder' => 'Nom du défunt...']
             ])
+
             ->add('prenomDefunt', TextType::class, [
                 'attr' => ['placeholder' => 'Prénom du défunt...']
             ])
@@ -55,7 +64,21 @@ class ProjetClientType extends AbstractType
                 'attr' => ['placeholder' => 'Date du décès...']
             ])
             ->add('descriptionDefunt', TextareaType::class, [
-                'attr' => ['placeholder' => 'Courte description du défunt...']
+                'attr' => ['placeholder' => 'Ex : Elle a été une mère exemplaire pour ses enfants ...',
+                            'label' => 'Ce que chacun retiendra de lui (en une phrase)...'
+                    ]
+            ])
+
+            ->add('motFin', TextareaType::class, [
+                'attr' => ['placeholder' => 'Repose en paix, Evelyne. Nous ne t\'oublierons jamais ...',
+                    'label' => 'CLe mot de la fin'
+                ]
+            ])
+
+            ->add('deviseDefunt', TextareaType::class, [
+                'attr' => ['placeholder' => 'Ex : "Ne jamais baisser les bras"...',
+                    'label' => 'devise défunt'
+                ]
             ])
 
 

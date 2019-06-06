@@ -29,7 +29,7 @@ class Document
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Folder", inversedBy="documents")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $folder;
 

@@ -9,6 +9,8 @@
 
 
     <section class="title">
+        {% include 'common/flash_messages.html.twig' %}
+
         <h1>Votre Projet</h1>
         <hr>
         <h2>Votre hommage video commence ici ...</h2>
@@ -171,6 +173,7 @@
 
         <form name="regForm" method="post">
             {{ form_start(form) }}
+
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
                 <h2>Commencez par renseigner vos informations personelles : </h2>
@@ -180,11 +183,12 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-12">
-                           {{ form_widget(form.nomClient) }}
-                        </div>
-                        <div class="col-12 mt-3">
+                        <div class="col-6 mt-3">
                             {{ form_widget(form.prenomClient) }}
+                        </div>
+                        <div class="col-6 mt-3">
+                            {{ form_widget(form.nomClient) }}
+
                         </div>
                         <div class="col-12 mt-3">
                             {{ form_widget(form.emailClient) }}
@@ -208,12 +212,27 @@
                 </div>
                 <div class="form-group">
                     <div class="row">
+
                         <div class="col-12 mt-3">
-                            {{ form_widget(form.nomDefunt) }}
+                            <p>Comment souhaitez-vous que nous appelions votre cher (chère) disparu(e) dans le film* :</p>
+                            <p style="font-size: 12px"><i>Par exemple : <strong>Evelyne</strong> est née à Montluçon - <strong>Evelyne Bertrand</strong> est née à Montluçon - <strong>Mamie Lyne</strong> est née à Montluçon </i></p>
+                            {{ form_widget(form.surnomDefunt) }}
                         </div>
-                        <div class="col-12 mt-3">
+
+                        <div class="col-6 mt-3">
                             {{ form_widget(form.prenomDefunt) }}
+
                         </div>
+                        <div class="col-6 mt-3">
+                            {{ form_widget(form.nomDefunt) }}
+
+                        </div>
+
+                        <div class="col-12 mt-3 genre">
+                            {{ form_widget(form.gender) }}
+
+                        </div>
+
                         <div class="col-6 mt-3">
                             {{ form_widget(form.dateNaissanceDefunt) }}
                         </div>
@@ -221,8 +240,21 @@
                             {{ form_widget(form.dateMortDefunt) }}
                         </div>
                         <div class="col-12 mt-3">
-                            {{ form_widget(form.descriptionDefunt, {'attr': {'rows': '4' }}) }}
+                            <hr>
+                            <p>Ce que chacun rediendra de lui (en une phrase) :</p>
+                            {{ form_widget(form.descriptionDefunt, {'attr': {'rows': '2' }}) }}
                         </div>
+                        <div class="col-12 mt-3">
+                            <hr>
+                            <p>Le mot de la fin : </p>
+                            {{ form_widget(form.motFin, {'attr': {'rows': '3' }}) }}
+                        </div>
+                        <div class="col-12 mt-3">
+                            <hr>
+                            <p><strong>Facultatif</strong> - Une devise, un poème ou une chanson qui correspondaient très bien à votre disparu(e) : </p>
+                            {{ form_widget(form.deviseDefunt, {'attr': {'rows': '3' }}) }}
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -232,11 +264,26 @@
                 <div class="progress mb-5">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
                 </div>
-                <form action="/file-upload" class="dropzone">
-                    <div class="fallback">
-                        <input name="file" type="file" multiple />
+                <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div action="/file-upload" class="dropzone">
+                        <div class="fallback">
+                            <div class="demo-droppable">
+                                <ion-icon name="cloud-upload"></ion-icon>
+                                <p>Drag files here or click to upload</p>
+                            </div>
+                            <div class="output"></div>
+                        </div>
                     </div>
-                </form>
+                </div>
+
+                <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
+                    </div>
+                </div>
+                </div>
+                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>
             </div>
 
             <div class="tab">
@@ -244,6 +291,27 @@
                 <div class="progress mb-5">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
                 </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <div action="/file-upload" class="dropzone">
+                            <div class="fallback">
+                                <div class="demo-droppable">
+                                    <ion-icon name="cloud-upload"></ion-icon>
+                                    <p>Drag files here or click to upload</p>
+                                </div>
+                                <div class="output"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
+                        <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>
+
             </div>
 
             <div class="tab">
@@ -253,7 +321,7 @@
                 </div>
                     <p>Mémoriam s'engage à livrer la vidéo sous 48h après validation</p>
                 {{ form_errors(form) }}
-                {{ form_row(form.save) }}
+
             </div>
 
             <div style="overflow:auto;">
@@ -271,8 +339,10 @@
                 <span class="step"></span>
                 <span class="step"></span>
             </div>
+            {{ form_row(form.save) }}
             {{ form_end(form) }}
         </form>
+
 
 
     </div>
