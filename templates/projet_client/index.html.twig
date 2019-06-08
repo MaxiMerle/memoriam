@@ -11,7 +11,7 @@
     <section class="title">
         {% include 'common/flash_messages.html.twig' %}
 
-        <h1>Votre Projet</h1>
+        <h1>VOTRE PROJET</h1>
         <hr>
         <h2>Votre hommage video commence ici ...</h2>
 {#        <a href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">INFORMATIONS</a>#}
@@ -171,7 +171,7 @@
     <div class="container mt-5 mb-5">
 
 
-        <form name="regForm" method="post">
+        <form name="regForm" method="post" class="needs-validation">
             {{ form_start(form) }}
 
             <!-- One "tab" for each step in the form: -->
@@ -213,11 +213,7 @@
                 <div class="form-group">
                     <div class="row">
 
-                        <div class="col-12 mt-3">
-                            <p>Comment souhaitez-vous que nous appelions votre cher (chère) disparu(e) dans le film* :</p>
-                            <p style="font-size: 12px"><i>Par exemple : <strong>Evelyne</strong> est née à Montluçon - <strong>Evelyne Bertrand</strong> est née à Montluçon - <strong>Mamie Lyne</strong> est née à Montluçon </i></p>
-                            {{ form_widget(form.surnomDefunt) }}
-                        </div>
+
 
                         <div class="col-6 mt-3">
                             {{ form_widget(form.prenomDefunt) }}
@@ -228,17 +224,52 @@
 
                         </div>
 
-                        <div class="col-12 mt-3 genre">
-                            {{ form_widget(form.gender) }}
-
-                        </div>
-
                         <div class="col-6 mt-3">
                             {{ form_widget(form.dateNaissanceDefunt) }}
                         </div>
                         <div class="col-6 mt-3">
                             {{ form_widget(form.dateMortDefunt) }}
+
                         </div>
+
+                        <div class="col-12 mt-3">
+                            <hr>
+                            <p>Comment souhaitez-vous que nous appelions votre cher (chère) disparu(e) dans le film* :</p>
+                            <p style="font-size: 12px"><i>Par exemple : <strong>Evelyne</strong> est née à Montluçon - <strong>Evelyne Bertrand</strong> est née à Montluçon - <strong>Mamie Lyne</strong> est née à Montluçon </i></p>
+                            {{ form_widget(form.surnomDefunt) }}
+
+                        </div>
+
+                        <div class="col-12 mt-3 genre">
+                            {{ form_widget(form.gender) }}
+
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <hr>
+                            <p>Les 3 qualités qui le (la) carratérisaient  :</p>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <hr>
+                            <p>Les 3 grands moments de sa vie  :</p>
+                            <p style="font-size: 12px"><i>Par exemple : Son mariage, la naissance d'un enfant, un succès professionel ou sportif - Merci de bien les signaler dans les légendes des photos/vidéos si vous avez dds images correspondant à ces évenements </i></p>
+
+                            <p>{{ form_widget(form.momentDefunt1) }}</p>
+                            <p>{{ form_widget(form.momentDefunt2) }}</p>
+                            <p>{{ form_widget(form.momentDefunt3) }}</p>
+
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <hr>
+                            <p>Ses passions ou hobbies  (Merci de signaler également s'il existe des images correspondant à cela) :</p>
+                            <p>{{ form_widget(form.passionDefunt1) }}</p>
+                            <p>{{ form_widget(form.passionDefunt2) }}</p>
+                            <p>{{ form_widget(form.passionDefunt3) }}</p>
+
+                        </div>
+
                         <div class="col-12 mt-3">
                             <hr>
                             <p>Ce que chacun rediendra de lui (en une phrase) :</p>
@@ -270,7 +301,7 @@
                         <div class="fallback">
                             <div class="demo-droppable">
                                 <ion-icon name="cloud-upload"></ion-icon>
-                                <p>Drag files here or click to upload</p>
+                                <p>Glissez-déposez un fichier ou cliquez pour rechercher un fichier </p>
                             </div>
                             <div class="output"></div>
                         </div>
@@ -283,7 +314,7 @@
                     </div>
                 </div>
                 </div>
-                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>
+{#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
             </div>
 
             <div class="tab">
@@ -297,7 +328,7 @@
                             <div class="fallback">
                                 <div class="demo-droppable">
                                     <ion-icon name="cloud-upload"></ion-icon>
-                                    <p>Drag files here or click to upload</p>
+                                    <p>Glissez-déposez un fichier ou cliquez pour rechercher un fichier</p>
                                 </div>
                                 <div class="output"></div>
                             </div>
@@ -310,7 +341,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>
+{#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
 
             </div>
 
@@ -321,13 +352,15 @@
                 </div>
                     <p>Mémoriam s'engage à livrer la vidéo sous 48h après validation</p>
                 {{ form_errors(form) }}
+                {{ form_row(form.save) }}
+
 
             </div>
 
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-outline-warning rouge">Retour</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-outline-success">Suivant</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-outline-success ml-3">Suivant</button>
                 </div>
             </div>
 
@@ -339,7 +372,6 @@
                 <span class="step"></span>
                 <span class="step"></span>
             </div>
-            {{ form_row(form.save) }}
             {{ form_end(form) }}
         </form>
 

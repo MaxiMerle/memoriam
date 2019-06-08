@@ -24,16 +24,26 @@
 
             {% endif %}
     </section>
+<div class="container" id="presentation">
+    <div class="row">
+        <div class="col-6">
+            <div class="img-presentation">
 
-    <div class="p-lg-5 p-md-5 mt-5" id="presentation">
-        <h2>NOTRE PROPOSITION</h2>
-        <p> A partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionelle </strong> du défunt </p>
-        <div class="engagement mt-5">
-            <h2>NOTRE ENGAGEMENT :</h2>
-            <p>Votre vidéo disponible en <strong>48h maximum.</strong> Disponible pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux</p>
-            <p>Un hommage de qualité professionel</p>
+            </div>
+
+        </div>
+        <div class=" col-6 6p-lg-5 p-md-5" >
+            <h2 class="mt-5">NOTRE PROPOSITION</h2>
+            <p> A partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionelle </strong> du défunt </p>
+            <div class="engagement mt-5">
+                <h2>NOTRE ENGAGEMENT :</h2>
+                <p>Votre vidéo disponible en <strong>48h maximum.</strong> Disponible pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux</p>
+                <p>Un hommage de qualité professionel</p>
+            </div>
         </div>
     </div>
+</div>
+
 
         <section class="presentation">
             <div class="block1 arrow_box">
@@ -100,7 +110,7 @@
         </section>
 
     <section class="service" id="service">
-        <h2 class="">2 POSSIBILITES</h2>
+        <h2 class="">2 POSSIBILITÉS</h2>
         {% if is_mobile() == true  and is_tablet() == false %}
             <div class="video-service">
                 <div class="embed-responsive embed-responsive-16by9">
@@ -158,7 +168,7 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <button class="btn btn-service collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title">Votre film hommage</h5>
+                                    <h5 class="mb-0  btn-title">VOTRE FILM HOMMAGE</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
 
@@ -169,10 +179,11 @@
                                     <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
                                     <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
                                     <p><strong>Tarif : 480€</strong></p>
-                                    <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
+                                    <a class="" href="">CHOISIR CE FORFAIT</a>
 
                                     <p class="mt-3" style="font-size: 13px"><i>Vous préférez la réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers et avec l'envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ... ? </i>
-                                    <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.</p>
+                                        <br>
+                                        <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.</p>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +191,7 @@
                             <div class="card-header" id="headingTwo">
                                 <hr>
                                 <button class="btn btn-service" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <h5 class="mb-0  btn-title">Votre film hommage grand format</h5>
+                                    <h5 class="mb-0  btn-title">VOTRE FILM HOMMAGE GRAND FORMAT</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
                             </div>
@@ -192,6 +203,7 @@
                                     <p><strong>Tarif : 600€ TTC</strong></p>
                                     <button class="btn btn-outline-danger text-center col-12">CHOISIR CE FORFAIT</button>
                                     <p class="mt-3" style="font-size: 13px"><i>Vous préférez la réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers et avec l'envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ... ? </i>
+                                        <br>
                                         <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.</p>
 
                                 </div>

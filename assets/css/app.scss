@@ -11,10 +11,17 @@ html{
   scroll-behavior:smooth;
 }
 body{
-  font-family: $font1!important;
+  font-family: $font4!important;
 
 
 
+}
+.title{
+  hr{
+    background-color: $new_red!important;
+    width: 15%;
+    height: 2px;
+  }
 }
 
 /* ------------------------------ COMMON -------------------------------- */

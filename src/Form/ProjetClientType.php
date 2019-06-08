@@ -63,6 +63,42 @@ class ProjetClientType extends AbstractType
             ->add('dateMortDefunt', TextType::class, [
                 'attr' => ['placeholder' => 'Date du décès...']
             ])
+
+            ->add('momentDefunt1', TextType::class, [
+                'attr' => ['placeholder' => 'Ex : Son mariage en 1969 ...',
+                    'label' => 'Les grands moments de sa vie'
+                ]
+            ])
+            ->add('momentDefunt2', TextType::class, [
+                'attr' => ['placeholder' => 'Ex : La naissance de ses enfants ...',
+                    'label' => 'Les grands moments de sa vie'
+                ]
+            ])
+            ->add('momentDefunt3', TextType::class, [
+                'attr' => ['placeholder' => 'Ex : Son titre de championne ...',
+                    'label' => 'Les grands moments de sa vie'
+                ]
+            ])
+
+            ->add('passionDefunt1', TextType::class, [
+                'attr' => ['placeholder' => 'Ex : La lecture ...',
+                    'label' => 'Ses passions et hobbies'
+                ]
+            ])
+
+            ->add('passionDefunt2', TextType::class, [
+                'attr' => ['placeholder' => 'Ex : Le jogging ...',
+                    'label' => 'Ses passions et hobbies'
+                ]
+            ])
+
+            ->add('passionDefunt3', TextType::class, [
+                'attr' => ['placeholder' => 'Ex : La cuisine ...',
+                    'label' => 'Ses passions et hobbies'
+                ]
+            ])
+
+
             ->add('descriptionDefunt', TextareaType::class, [
                 'attr' => ['placeholder' => 'Ex : Elle a été une mère exemplaire pour ses enfants ...',
                             'label' => 'Ce que chacun retiendra de lui (en une phrase)...'

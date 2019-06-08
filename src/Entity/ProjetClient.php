@@ -93,6 +93,36 @@ class ProjetClient
      */
     private $deviseDefunt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $momentDefunt1;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $momentDefunt2;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $momentDefunt3;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $passionDefunt1;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $passionDefunt2;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $passionDefunt3;
+
 
 
 
@@ -268,6 +298,78 @@ class ProjetClient
     public function setDeviseDefunt(?string $deviseDefunt): self
     {
         $this->deviseDefunt = $deviseDefunt;
+
+        return $this;
+    }
+
+    public function getMomentDefunt1(): ?string
+    {
+        return $this->momentDefunt1;
+    }
+
+    public function setMomentDefunt1(string $momentDefunt1): self
+    {
+        $this->momentDefunt1 = $momentDefunt1;
+
+        return $this;
+    }
+
+    public function getMomentDefunt2(): ?string
+    {
+        return $this->momentDefunt2;
+    }
+
+    public function setMomentDefunt2(string $momentDefunt2): self
+    {
+        $this->momentDefunt2 = $momentDefunt2;
+
+        return $this;
+    }
+
+    public function getMomentDefunt3(): ?string
+    {
+        return $this->momentDefunt3;
+    }
+
+    public function setMomentDefunt3(string $momentDefunt3): self
+    {
+        $this->momentDefunt3 = $momentDefunt3;
+
+        return $this;
+    }
+
+    public function getPassionDefunt1(): ?string
+    {
+        return $this->passionDefunt1;
+    }
+
+    public function setPassionDefunt1(string $passionDefunt1): self
+    {
+        $this->passionDefunt1 = $passionDefunt1;
+
+        return $this;
+    }
+
+    public function getPassionDefunt2(): ?string
+    {
+        return $this->passionDefunt2;
+    }
+
+    public function setPassionDefunt2(string $passionDefunt2): self
+    {
+        $this->passionDefunt2 = $passionDefunt2;
+
+        return $this;
+    }
+
+    public function getPassionDefunt3(): ?string
+    {
+        return $this->passionDefunt3;
+    }
+
+    public function setPassionDefunt3(string $passionDefunt3): self
+    {
+        $this->passionDefunt3 = $passionDefunt3;
 
         return $this;
     }
