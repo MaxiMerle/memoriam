@@ -202,14 +202,13 @@
   .flex-services{
     display: flex;
     .dropdown-services{
-      width: 50%;
+      width: 45%;
       hr{
         width: 100%;
         margin: 0 auto;
         float: left;
       }
       .card{
-        border: none;
         p{
           font-size: 15px;
         }
@@ -217,16 +216,16 @@
           text-decoration: none;
           font-weight: $light;
           font-size: 20px!important;
-          background-color: transparent!important;
           border-bottom: none!important;
+          background-color: transparent!important;
+
           .btn-service{
-            color: $red!important;
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
             h5{
-              font-weight: $light;
+              font-weight: $bold;
               font-size: 20px;
             }
             ion-icon{
@@ -236,18 +235,19 @@
               transition: .3s transform ease-in-out;
             }
             &:focus{
-              box-shadow: none!important;
               ion-icon{
                 transform: rotate(0deg);
               }
             }
           }
         }
+        .card-body{
+        }
       }
     }
     .video-service{
-      width: 50%;
-      margin: 30px auto;
+      width: 55%;
+      margin: 0 auto;
       .embed-responsive{
         width: 100%;
         margin: 0 auto;
@@ -258,7 +258,11 @@
     text-align: center;
     margin: 0 auto;
     color: $red;
+    &:focus{
+      box-shadow: none!important;
+    }
   }
+
 }
 
 

@@ -185,15 +185,12 @@
   display: flex;
 }
 .service .flex-services .dropdown-services {
-  width: 50%;
+  width: 45%;
 }
 .service .flex-services .dropdown-services hr {
   width: 100%;
   margin: 0 auto;
   float: left;
-}
-.service .flex-services .dropdown-services .card {
-  border: none;
 }
 .service .flex-services .dropdown-services .card p {
   font-size: 15px;
@@ -202,18 +199,17 @@
   text-decoration: none;
   font-weight: 300;
   font-size: 20px !important;
-  background-color: transparent !important;
   border-bottom: none !important;
+  background-color: transparent !important;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service {
-  color: #434343 !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service h5 {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 20px;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service ion-icon {
@@ -222,15 +218,12 @@
   transform: rotate(90deg);
   transition: 0.3s transform ease-in-out;
 }
-.service .flex-services .dropdown-services .card .card-header .btn-service:focus {
-  box-shadow: none !important;
-}
 .service .flex-services .dropdown-services .card .card-header .btn-service:focus ion-icon {
   transform: rotate(0deg);
 }
 .service .flex-services .video-service {
-  width: 50%;
-  margin: 30px auto;
+  width: 55%;
+  margin: 0 auto;
 }
 .service .flex-services .video-service .embed-responsive {
   width: 100%;
@@ -240,6 +233,9 @@
   text-align: center;
   margin: 0 auto;
   color: #434343;
+}
+.service button:focus {
+  box-shadow: none !important;
 }
 
 /* ------------------------------ SECTION FONCTIONNEMENT -------------------------------- */
