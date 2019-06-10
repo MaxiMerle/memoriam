@@ -1,53 +1,55 @@
 /* COLORS */
 /* FONTS */
-/* ------------------------------ SECTION HEADER -------------------------------- */
-.header {
-  background-image: url("img/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
+.header-video {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  min-height: 25rem;
   width: 100%;
-  height: 830px;
-  margin: auto;
-  background-color: rgba(48, 48, 48, 0.4);
-  background-attachment: fixed;
-  /* Animation */
+  overflow: hidden;
 }
-.header video {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
-  width: 100%;
-  height: 830px;
-  margin: auto;
-  position: sticky;
-}
-.header a {
-  color: #fff;
-}
-.header .home-btn {
+
+.header-video video {
   position: absolute;
-  top: 801px;
-  background-color: rgba(198, 68, 75, 0.7);
-  color: #fff;
-  padding: 10px 25px;
-  border: none;
-  font-weight: 500;
-  font-size: 25px;
-  border-radius: 5px;
-  width: 300px;
-  left: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
-.header h1 {
-  font-size: 50px;
-  font-weight: 500;
-  color: #fff;
-  text-align: center;
+
+.header-video .container {
+  position: relative;
+  z-index: 2;
 }
-.header .line-1 {
+
+.header-video .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  .header-video {
+    background: url("img/memories.jpg") black no-repeat center center scroll;
+  }
+
+  .header-video video {
+    display: none;
+  }
+}
+.line-1 {
   position: relative;
   top: 50%;
   width: 60px;
@@ -58,10 +60,13 @@
   white-space: nowrap;
   overflow: hidden;
   transform: translateY(-10%);
+  letter-spacing: 5px;
 }
-.header .anim-typewriter {
+
+.anim-typewriter {
   animation: typewriter 2s steps(20) 1s 1 normal both, blinkTextCursor 700ms steps(20) infinite normal;
 }
+
 @keyframes typewriter {
   from {
     width: 0;
@@ -78,8 +83,69 @@
     border-right-color: transparent;
   }
 }
+/* ------------------------------ SECTION HEADER -------------------------------- */
+/*
 
+
+.header{
+  background-image: url("img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  width: 100%;
+  height: 830px;
+  margin: auto;
+  background-color: rgba(48,48,48,.4);
+  background-attachment: fixed;
+
+  video{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    width: 100%;
+    height: 830px;
+    margin: auto;
+    position: sticky;
+  }
+
+
+
+  a{
+    color: $white;
+  }
+  .home-btn{
+    position: absolute;
+    top: 801px;
+    background-color: rgba(198,68,75,.7);
+    color: $white;
+    padding: 10px 25px;
+    border: none;
+    font-weight: $bold;
+    font-size: 25px;
+    border-radius: 5px;
+    width: 300px;
+    left: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+  }
+  h1{
+    font-size: 50px;
+    font-weight: $bold;
+    color: $white;
+    text-align: center;
+  }
+
+}
+*/
 /* ------------------------------ SECTION PRESENTATION -------------------------------- */
+#presentation {
+  margin-top: 50px;
+}
+
 .img-presentation {
   background-image: url("img/memories.jpg") !important;
   width: 100%;
@@ -185,7 +251,7 @@
   display: flex;
 }
 .service .flex-services .dropdown-services {
-  width: 45%;
+  width: 50%;
 }
 .service .flex-services .dropdown-services hr {
   width: 100%;
@@ -196,10 +262,10 @@
   font-size: 15px;
 }
 .service .flex-services .dropdown-services .card .card-header {
+  padding: 0.05rem 1.25rem !important;
   text-decoration: none;
   font-weight: 300;
   font-size: 20px !important;
-  border-bottom: none !important;
   background-color: transparent !important;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service {
@@ -213,16 +279,16 @@
   font-size: 20px;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service ion-icon {
-  font-size: 30px;
+  font-size: 40px;
   color: #434343;
-  transform: rotate(90deg);
+  transform: rotate(0deg);
   transition: 0.3s transform ease-in-out;
 }
 .service .flex-services .dropdown-services .card .card-header .btn-service:focus ion-icon {
-  transform: rotate(0deg);
+  transform: rotate(-90deg);
 }
 .service .flex-services .video-service {
-  width: 55%;
+  width: 50%;
   margin: 0 auto;
 }
 .service .flex-services .video-service .embed-responsive {
@@ -304,7 +370,7 @@
   text-transform: uppercase;
 }
 
-header {
+.header-home {
   z-index: 11;
   position: fixed;
   width: 100%;
@@ -312,7 +378,7 @@ header {
   transition: 0.3s all;
   padding: 15px 30px;
 }
-header h1 img {
+.header-home h1 img {
   position: absolute;
   top: 10px;
   left: 50%;

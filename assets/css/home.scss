@@ -1,5 +1,87 @@
 
+
+.header-video {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header-video video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.header-video .container {
+  position: relative;
+  z-index: 2;
+}
+
+.header-video .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  .header-video {
+    background: url('img/memories.jpg') black no-repeat center center scroll;
+  }
+  .header-video video {
+    display: none;
+  }
+}
+
+.line-1{
+  position: relative;
+  top: 50%;
+  width: 60px;
+  margin: 0 auto;
+  border-right: 2px solid rgba(198,68,75,.75);
+  font-size: 50px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-10%);
+  letter-spacing: 5px;
+}
+
+ .anim-typewriter{
+   animation: typewriter 2s steps(20) 1s 1 normal both,
+   blinkTextCursor 700ms steps(20) infinite normal;
+ }
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 6.5em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+
+
 /* ------------------------------ SECTION HEADER -------------------------------- */
+
+/*
+
 
 .header{
   background-image: url("img/background.jpg");
@@ -52,35 +134,16 @@
     color: $white;
     text-align: center;
   }
-  .line-1{
-    position: relative;
-    top: 50%;
-    width: 60px;
-    margin: 0 auto;
-    border-right: 2px solid rgba(198,68,75,.75);
-    font-size: 50px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-10%);
-  }
-  /* Animation */
-  .anim-typewriter{
-    animation: typewriter 2s steps(20) 1s 1 normal both,
-    blinkTextCursor 700ms steps(20) infinite normal;
-  }
-  @keyframes typewriter{
-    from{width: 0;}
-    to{width: 6.5em;}
-  }
-  @keyframes blinkTextCursor{
-    from{border-right-color: rgba(255,255,255,.75);}
-    to{border-right-color: transparent;}
-  }
+
 }
+*/
 
 
 /* ------------------------------ SECTION PRESENTATION -------------------------------- */
+
+#presentation{
+  margin-top: 50px;
+}
 .img-presentation {
   background-image: url("img/memories.jpg")!important;
   width: 100%;
@@ -202,7 +265,7 @@
   .flex-services{
     display: flex;
     .dropdown-services{
-      width: 45%;
+      width: 50%;
       hr{
         width: 100%;
         margin: 0 auto;
@@ -213,10 +276,10 @@
           font-size: 15px;
         }
         .card-header{
+          padding: 0.05rem 1.25rem!important;
           text-decoration: none;
           font-weight: $light;
           font-size: 20px!important;
-          border-bottom: none!important;
           background-color: transparent!important;
 
           .btn-service{
@@ -229,14 +292,14 @@
               font-size: 20px;
             }
             ion-icon{
-              font-size: 30px;
+              font-size: 40px;
               color: $red;
-              transform: rotate(90deg);
+              transform: rotate(0deg);
               transition: .3s transform ease-in-out;
             }
             &:focus{
               ion-icon{
-                transform: rotate(0deg);
+                transform: rotate(-90deg);
               }
             }
           }
@@ -246,7 +309,7 @@
       }
     }
     .video-service{
-      width: 55%;
+      width: 50%;
       margin: 0 auto;
       .embed-responsive{
         width: 100%;
