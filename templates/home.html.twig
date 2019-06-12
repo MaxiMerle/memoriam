@@ -2,7 +2,7 @@
 
 {% block seoTitle %}
     {% spaceless %}
-       Mémoriam
+       In Memoriae
     {% endspaceless %}
 {% endblock %}
 
@@ -33,32 +33,32 @@
         <div class="container h-100">
             <div class="d-flex h-100 text-center align-items-center">
                 <div class="w-100 text-white">
-                    <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">MEMORIAM</h1>
+                    <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">IN MEMORIAE</h1>
                 </div>
             </div>
         </div>
     </div>
 
-<div class="container mt-5" id="presentation">
-    <div class="row">
-        <div class="col-12">
-            <h2>QUI SOMMES-NOUS ? </h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 col-sm-12">
-            <div class="img-presentation">
+<div class="container mt-5" id="about">
 
-            </div>
+    <div class="row mt-5 mb-5">
+{#        <div class="col-lg-6 col-md-12 col-sm-12">#}
+{#            <div class="img-presentation">#}
 
-        </div>
-        <div class=" col-lg-6  p-md-5 col-sm-12" >
-            <h2 class="">NOTRE PROPOSITION</h2>
-            <p> À partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionnelle </strong> pour votre défunt.</p>
-            <div class="engagement mt-5">
+{#            </div>#}
+
+{#        </div>#}
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+           <div class="proposition mb-3">
+               <h2>NOTRE PROPOSITION</h2>
+               <hr>
+               <p> À partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionnelle </strong> pour votre défunt.</p>
+
+           </div>
+            <div class="engagement mt-5 text-center">
                 <h2>NOTRE ENGAGEMENT </h2>
-                <p>Votre film hommage disponible en <strong>48h maximum.</strong> Disponible pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux</p>
-                <p>Un hommage de qualité professionnelle pour une personne exeptionelle.</p>
+                <hr>
+                <p>Votre film hommage disponible en <strong>48h maximum.</strong> Disponible pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux. Un hommage de qualité professionnelle pour une personne exeptionelle.</p>
             </div>
         </div>
     </div>
@@ -68,6 +68,10 @@
         <section class="presentation">
             <div class="block1 arrow_box">
                 <div class="row">
+                    <div class="col-12">
+                        <h1>ÉTAPE 1</h1>
+                        <hr>
+                    </div>
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="item">
                             <ion-icon name="images"></ion-icon>
@@ -85,35 +89,40 @@
                             <ion-icon name="videocam"></ion-icon>
                             <h2>TÉMOIGNAGES</h2>
                         </div>
-
                     </div>
                 </div>
-                <div class="row">
-                    <p class="col-12 text-center ">Selectionnez les fichiers photos et vidéos que vous souhaitez utiliser</p>
-                </div>
+                   <p>Selectionnez les fichiers photos et vidéos que vous souhaitez utiliser</p>
+
             </div>
 
             <div class="block2 arrow_box-2">
                 <br>
                 <div class="row">
-
+                    <div class="col-12">
+                        <h1>ÉTAPE 2</h1>
+                        <hr>
+                    </div>
                     <div class="col-12 text-center">
                         <div class="item">
                             <ion-icon name="cog"></ion-icon>
-                            <h2>MEMORIAM</h2>
+                            <h2>IN MEMORIAE</h2>
                         </div>
                     </div>
 
                 </div>
                 <div class="row">
                     <br>
-                    <p class="col-12 text-center ">Mémoriam réalise avec des <strong>moyens professionels</strong> le film en hommage au défunt.</p>
+                    <p class="col-12 text-center ">Nous réalisons, avec des <strong>moyens professionels,</strong> le film en hommage au défunt.</p>
                 </div>
             </div>
 
             <div class="block3">
                 <br>
                 <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>ÉTAPE 3</h1>
+                        <hr>
+                    </div>
                     <div class="col-12 text-center">
                         <div class="item-">
                             <ion-icon name="desktop"></ion-icon>
@@ -140,14 +149,13 @@
             </div>
         <div class="services">
 
-            <h5> 30 photos / 3 vidéos <br>(Environ 5min)</h5>
-            <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
+            <h5> 30 photos / 5 vidéos <br>(Environ 5min)</h5>
+            <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
             <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
             <p><strong>Tarif : 480€ TTC</strong></p>
             <hr>
-            <h5> 50 photos / 5 vidéos<br>(Environ 8min)</h5>
-            <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
-            <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
+            <h5> 50 photos / 7 vidéos<br>(Environ 8min)</h5>
+            <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 7 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
             <p><strong>Tarif : 600€ TTC</strong></p>
             <hr>
             <h5>Sur mesure <br> Sans limitation de temps</h5>
@@ -164,18 +172,16 @@
                 <br>
             </div>
             <div class="services">
-                <h5>30 photos / 3 vidéos (Environ 5min)</h5>
+                <h5>30 photos / 5 vidéos (Environ 5min)</h5>
                 <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
-                <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
                 <p><strong>Tarif : 480€</strong></p>
                 <hr>
-                <h5>50 photos / 5 vidéos (Environ 8min)</h5>
+                <h5>50 photos / 7 vidéos (Environ 8min)</h5>
                 <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
-                <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
                 <p><strong>Tarif : 600€ TTC</strong></p>
                 <hr>
                 <h5>Sur mesure. Sans limitation de temps</h5>
-                <p>Réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
+                <p>Réalisation d'un film hommage entièrement personalisable, sans limitation de temps et de fichiers. Envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ...</p>
                 <p><strong>Tarif : Sur devis</strong></p>
                 <hr>
             </div>
@@ -195,17 +201,12 @@
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
-                                    <h2 class="text-center">30 photos / 3 vidéos - Environ 5min</h2>
-                                    <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 3 vidéos (vidéos souvenirs et/ou témoignages vidéos) </p>
-                                    <h6><strong>Tarif : 480€</strong></h6>
+                                    <h5 class="text-center">30 photos / 5 vidéos - Environ 5min</h5>
+                                    <p>Un film hommage d'environ 5min, composé de maximum 30 photos, 5 vidéos souvenirs et 3 témoignages vidéos </p>
+                                    <h6><strong>Tarif : 480€ TTC</strong></h6>
                                     <div class="col-12 text-center mt-2 mb-2">
-                                        <a class="btn btn-outline-dark text-center" href="">CHOISIR CE FORFAIT</a>
+                                        <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
                                     </div>
-                                    <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour une taille maximum de 20Mo au format MP4</i></p>
-
-                                    <p class="mt-3" style="font-size: 13px"><i>Vous préférez la réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers et avec l'envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ... ? </i>
-                                        <br>
-                                        <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.</p>
                                 </div>
                             </div>
                         </div>
@@ -218,15 +219,14 @@
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
-                                    <h5>50 photos / 5 vidéos - Environ 8min</h5>
-                                    <p>Un film hommage d'environ 5min, composé de maximum 50 photos, 5 vidéos (vidéos souvenirs et/ou témoignages vidéos)</p>
+                                    <h5 class="text-center">50 photos / 7 vidéos - Environ 8min</h5>
+                                    <p>Un film hommage d'environ 8min, composé de maximum 50 photos, 7 vidéos souvenirs et 3 témoignages vidéos</p>
                                     <p><strong>Tarif : 600€ TTC</strong></p>
                                     <div class="col-12 text-center mt-2 mb-2">
-                                        <a class="btn btn-outline-dark text-center" href="">CHOISIR CE FORFAIT</a>
+                                        <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
                                     </div>
-                                    <p><i>Les fihciers vidéos envoyés ne doivent pas exeder 10min, pour taille une maximum de 20Mo au format MP4</i></p>
 
-                                    <p class="mt-3" style="font-size: 13px"><i>Vous préférez la réalisation d'un film hommage entèrement personalisable, sans limitation de temps et de fichiers et avec l'envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ... ? </i>
+                                    <p class="mt-3" style=""><i>Vous préférez la réalisation d'un film hommage entièrement personalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour receuillir vos témoignages, filmer la cérémonie etc ? </i>
                                         <br>
                                         <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.</p>
 

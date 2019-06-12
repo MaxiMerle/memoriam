@@ -1,0 +1,17 @@
+.about{
+  .profile{
+    background: url("img/profile.png") no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  .text{
+    padding: 20px 150px;
+    text-align: center;
+  }
+  hr{
+    width: 20%;
+    color: $red;
+  }
+}

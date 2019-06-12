@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -122,6 +124,26 @@ class ProjetClient
      * @ORM\Column(type="string", length=255)
      */
     private $passionDefunt3;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $musiques;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\ProjetClientQualite", inversedBy="projetClient")
+     */
+    private $qualite;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lieuDefunt;
+
+    public function __construct()
+    {
+        $this->qualite = new ArrayCollection();
+    }
 
 
 
@@ -370,6 +392,59 @@ class ProjetClient
     public function setPassionDefunt3(string $passionDefunt3): self
     {
         $this->passionDefunt3 = $passionDefunt3;
+
+        return $this;
+    }
+
+    public function getMusiques(): ?string
+    {
+        return $this->musiques;
+    }
+
+    public function setMusiques(string $musiques): self
+    {
+        $this->musiques = $musiques;
+
+        return $this;
+    }
+
+
+
+
+    /**
+     * @return Collection|ProjetClientQualite[]
+     */
+    public function getQualite(): Collection
+    {
+        return $this->qualite;
+    }
+
+    public function setQualite (ProjetClientQualite $qualite): self
+    {
+        if (!$this->qualite->contains($qualite)) {
+            $this->qualite[] = $qualite;
+        }
+
+        return $this;
+    }
+
+    public function removeQualite(ProjetClientQualite $qualite): self
+    {
+        if ($this->qualite->contains($qualite)) {
+            $this->qualite->removeElement($qualite);
+        }
+
+        return $this;
+    }
+
+    public function getLieuDefunt(): ?string
+    {
+        return $this->lieuDefunt;
+    }
+
+    public function setLieuDefunt(?string $lieuDefunt): self
+    {
+        $this->lieuDefunt = $lieuDefunt;
 
         return $this;
     }

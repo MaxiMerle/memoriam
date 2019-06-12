@@ -28,7 +28,7 @@
             <section class="infos  ">
                 <div class="ligne-info ligne-mobile">
                     <ion-icon name="map"></ion-icon>
-                    <h3>18 rue de Varize</h3>
+                    <h3>18 RUE DE VARIZE, 75016 PARIS </h3>
                 </div>
                 <div class="ligne-info ligne-mobile">
                     <ion-icon name="mail"></ion-icon>
@@ -44,16 +44,16 @@
                 </div>
                 <div class="ligne-info ligne-mobile">
                     <ion-icon name="card"></ion-icon>
-                    <h3>PAIEMENT SÉCURISÉ SUR LE SITE BERTHELOT.FR</h3>
+                    <h3>PAIEMENT SÉCURISÉ ET LIVRAISON EN 48H</h3>
                 </div>
             </section>
         </div>
-        <h2>UNE QUESTION ? UN PROBLÈME TECHNIQUE ?</h2>
+        <h2>UNE QUESTION ? UN PROJET SUR MESURE ? UNE PRÉCISION FACTUELLE SUR VOTRE PROJET ?</h2>
         <section class="contact-form">
             <div>
                 {{ form_start(contact_form) }}
-                {{ form_row(contact_form.name, { 'label': 'Nom(s)', 'attr' : { 'placeholder' : 'Durand...'} }) }}
-                {{ form_row(contact_form.email, { 'label': 'Votre Email', 'attr' : { 'placeholder' : 'votremail@exemple.fr ...'} }) }}
+                {{ form_row(contact_form.name, { 'label': 'Votre Nom', 'attr' : { 'placeholder' : 'Durand...'} }) }}
+                {{ form_row(contact_form.email, { 'label': 'Votre Email', 'attr' : { 'placeholder' : 'email@exemple.fr ...'} }) }}
                 {{ form_row(contact_form.message, { 'label' : 'Votre Message', 'attr' : { 'rows' : '4', 'placeholder' : 'Votre message ...'} } ) }}
                 <div class="form-group col-12 text-center">
                     <input type="submit" value="ENVOYER" class="btn btn-outline-success btn-envoyer"/>

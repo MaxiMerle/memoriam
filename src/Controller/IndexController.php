@@ -53,5 +53,17 @@ class IndexController extends  AbstractController
         ]);
     }
 
+    /**
+     * @Route("/qui-sommes-nous", name="qui-sommes-nous")
+     */
+    public function aboutUsController()
+    {
+
+
+        return $this->render('about.html.twig', [
+
+        ]);
+    }
+
 
 }

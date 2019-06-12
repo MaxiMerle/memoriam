@@ -42,11 +42,15 @@
 
 @media (pointer: coarse) and (hover: none) {
   .header-video {
-    background: url('img/memories.jpg') black no-repeat center center scroll;
+    background: url('img/background.jpg') black no-repeat center center scroll;
+    background-size: cover;
   }
   .header-video video {
     display: none;
   }
+}
+@media (min-width: 768px) and (max-width: 1024px){
+
 }
 
 .line-1{
@@ -69,7 +73,7 @@
  }
 @keyframes typewriter{
   from{width: 0;}
-  to{width: 6.5em;}
+  to{width: 8em;}
 }
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(255,255,255,.75);}
@@ -139,11 +143,38 @@
 */
 
 
+/* ------------------------------ SECTION QUI SOMMES-NOUS -------------------------------- */
+
+#about{
+  margin-top: 50px;
+
+  h2{
+    font-size: 25px!important;
+    font-weight: $bold;
+  }
+  p{
+    font-size: 15px;
+  }
+  hr{
+    width: 20%;
+  }
+  .proposition{
+    p{
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+    }
+    h2{
+      font-size: 30px!important;
+    }
+  }
+}
+
+
 /* ------------------------------ SECTION PRESENTATION -------------------------------- */
 
-#presentation{
-  margin-top: 50px;
-}
+
 .img-presentation {
   background-image: url("img/memories.jpg")!important;
   width: 100%;
@@ -165,12 +196,24 @@
     text-align: center;
 
   }
+   .circle {
+
+     padding: 8px;
+     background: #fff;
+     color: #666;
+     text-align: center;
+    border: 3px solid $white;
+  }
   hr{
-    width: 50%;
-    color: $red!important;
+    width: 30%;
+    background-color: $white!important;
+
   }
   h2{
     font-weight: $bold;
+  }
+  p{
+    font-size: 18px;
   }
   .item-none{
     visibility: hidden;
@@ -180,8 +223,6 @@
     background-color: $red;
     color: $white;
     padding: 30px;
-
-
 
   }
   .arrow_box {
@@ -221,8 +262,10 @@
     font-weight: bold;
     padding:  30px;
     background-color: transparent;
-    border-left: 2px solid $red;
-    border-right: 2px solid $red;
+
+    hr{
+      background: $black!important;
+    }
 
   }
   .arrow_box-2 {

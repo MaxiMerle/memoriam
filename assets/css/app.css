@@ -42,7 +42,8 @@
 
 @media (pointer: coarse) and (hover: none) {
   .header-video {
-    background: url("img/memories.jpg") black no-repeat center center scroll;
+    background: url("img/background.jpg") black no-repeat center center scroll;
+    background-size: cover;
   }
 
   .header-video video {
@@ -72,7 +73,7 @@
     width: 0;
   }
   to {
-    width: 6.5em;
+    width: 8em;
   }
 }
 @keyframes blinkTextCursor {
@@ -141,11 +142,30 @@
 
 }
 */
-/* ------------------------------ SECTION PRESENTATION -------------------------------- */
-#presentation {
+/* ------------------------------ SECTION QUI SOMMES-NOUS -------------------------------- */
+#about {
   margin-top: 50px;
 }
+#about h2 {
+  font-size: 25px !important;
+  font-weight: 500;
+}
+#about p {
+  font-size: 15px;
+}
+#about hr {
+  width: 20%;
+}
+#about .proposition p {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#about .proposition h2 {
+  font-size: 30px !important;
+}
 
+/* ------------------------------ SECTION PRESENTATION -------------------------------- */
 .img-presentation {
   background-image: url("img/memories.jpg") !important;
   width: 100%;
@@ -165,12 +185,22 @@
 .presentation .item {
   text-align: center;
 }
+.presentation .circle {
+  padding: 8px;
+  background: #fff;
+  color: #666;
+  text-align: center;
+  border: 3px solid #fff;
+}
 .presentation hr {
-  width: 50%;
-  color: #434343 !important;
+  width: 30%;
+  background-color: #fff !important;
 }
 .presentation h2 {
   font-weight: 500;
+}
+.presentation p {
+  font-size: 18px;
 }
 .presentation .item-none {
   visibility: hidden;
@@ -210,8 +240,9 @@
   font-weight: bold;
   padding: 30px;
   background-color: transparent;
-  border-left: 2px solid #434343;
-  border-right: 2px solid #434343;
+}
+.presentation .block2 hr {
+  background: #303030 !important;
 }
 .presentation .arrow_box-2 {
   position: relative;
@@ -802,6 +833,22 @@ body .avis-tablet {
 
 .navbar-tablet h1 {
   margin-top: 40% !important;
+}
+
+.about .profile {
+  background: url("img/profile.png") no-repeat;
+  background-size: contain;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.about .text {
+  padding: 20px 150px;
+  text-align: center;
+}
+.about hr {
+  width: 20%;
+  color: #434343;
 }
 
 html {

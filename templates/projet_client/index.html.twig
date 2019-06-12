@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block seoTitle %}
     {% spaceless %}
-        Votre Projet
+        Im Memoriae - Votre Projet
     {% endspaceless %}
 {% endblock %}
-
+{% block seoDescription %}
+    {% spaceless %}
+        Votre film hommage commence ici
+    {% endspaceless %}
+{% endblock %}
 {% block body %}
 
 
@@ -176,10 +180,11 @@
 
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
-                <h2>Commencez par renseigner vos informations personelles : </h2>
+                <h2>Vos informations personelles : </h2>
                 <div class="progress mb-5">
                     <div class="mb-5"><br><br></div>
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">20%</div>
+
                 </div>
                 <div class="form-group">
                     <div class="row">
@@ -206,7 +211,7 @@
             </div>
 
             <div class="tab">
-                <h2>Puis celles du défunt  : </h2>
+                <h2>Les informations du défunt :  </h2>
                 <div class="progress mb-5">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
                 </div>
@@ -231,6 +236,10 @@
                             {{ form_widget(form.dateMortDefunt) }}
 
                         </div>
+                        <div class="col-12 mt-3 genre">
+                            {{ form_widget(form.gender) }}
+
+                        </div>
 
                         <div class="col-12 mt-3">
                             <hr>
@@ -240,20 +249,37 @@
 
                         </div>
 
-                        <div class="col-12 mt-3 genre">
-                            {{ form_widget(form.gender) }}
 
-                        </div>
 
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p>Les 3 qualités qui le (la) carratérisaient  :</p>
-                        </div>
+                          <div class="col-12 mt-3">
+                              <hr>
+                              <p>Les 3 qualités qui le (la) carratérisaient  :</p>
+                          </div>
+                            <div class="col-4">
+                                <p>{{ form_widget(form.qualite) }}</p>
+                            </div>
+                            <div class="col-4">
+                                <select class="custom-select">
+                                    <option selected>Choix qualité 2</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <select class="custom-select">
+                                    <option selected>Choix qualité 3</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
 
                         <div class="col-12 mt-3">
                             <hr>
                             <p>Les 3 grands moments de sa vie  :</p>
-                            <p style="font-size: 12px"><i>Par exemple : Son mariage, la naissance d'un enfant, un succès professionel ou sportif - Merci de bien les signaler dans les légendes des photos/vidéos si vous avez dds images correspondant à ces évenements </i></p>
+                            <p style="font-size: 12px"><i>Par exemple : Son mariage, la naissance d'un enfant, un succès professionnel ou sportif - Merci de bien signaler dans les descriptions des photos/vidéos si vous avez des images en rapport à ces évenements </i></p>
 
                             <p>{{ form_widget(form.momentDefunt1) }}</p>
                             <p>{{ form_widget(form.momentDefunt2) }}</p>
@@ -263,7 +289,7 @@
 
                         <div class="col-12 mt-3">
                             <hr>
-                            <p>Ses passions ou hobbies  (Merci de signaler également s'il existe des images correspondant à cela) :</p>
+                            <p>Ses passions ou hobbies (Merci de bien signaler dans les descriptions des photos/vidéos si vous avez des images en rapport à ces évenements) :</p>
                             <p>{{ form_widget(form.passionDefunt1) }}</p>
                             <p>{{ form_widget(form.passionDefunt2) }}</p>
                             <p>{{ form_widget(form.passionDefunt3) }}</p>
@@ -282,8 +308,13 @@
                         </div>
                         <div class="col-12 mt-3">
                             <hr>
-                            <p><strong>Facultatif</strong> - Une devise, un poème ou une chanson qui correspondaient très bien à votre disparu(e) : </p>
+                            <p><strong>Facultatif</strong> - Une devise, un poème, un artiste, un auteur, une association ou une chanson qui correspondait à votre disparu(e) : </p>
                             {{ form_widget(form.deviseDefunt, {'attr': {'rows': '3' }}) }}
+                        </div>
+                        <div class="col-12 mt-3">
+                            <hr>
+                            <p><strong>Facultatif</strong> - Un lieu, un paysage, un pays, un village qui correspondait à votre disparu(e) : </p>
+                            {{ form_widget(form.lieuDefunt, {'attr': {'rows': '3' }}) }}
                         </div>
 
                     </div>
@@ -296,7 +327,14 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
                 </div>
                 <div class="row">
-                <div class="col-lg-6 col-sm-12">
+                    <div class="col-12">
+                        {{ form_row(form.musiques) }}
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-12">
                     <div action="/file-upload" class="dropzone">
                         <div class="fallback">
                             <div class="demo-droppable">
@@ -358,7 +396,7 @@
 
 
                     <p>Mémoriam s'engage à livrer la vidéo sous 48h après validation du paiment</p>
-                {{ form_errors(form) }}
+
                 {{ form_row(form.save) }}
 
                 </div>

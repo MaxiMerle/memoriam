@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\Entity\Projet;
 use App\Entity\ProjetClient;
 use App\Entity\ProjetClientCategorie;
+use App\Entity\ProjetClientQualite;
 use App\Form\ProjetClientType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProjetClientController extends AbstractController
@@ -18,8 +21,7 @@ class ProjetClientController extends AbstractController
     /**
      * @Route("/votre-projet", name="nouveau_projet")
      * @param Request $request
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return RedirectResponse|Response
      */
     public function index(Request $request)
     {
@@ -38,6 +40,8 @@ class ProjetClientController extends AbstractController
             // but, the original `$task` variable has also been updated
             $newProjet = $form->getData();
 
+
+
             // ... perform some action, such as saving the task to the database
             // for example, if Task is a Doctrine entity, save it!
              $entityManager = $this->getDoctrine()->getManager();
@@ -49,7 +53,7 @@ class ProjetClientController extends AbstractController
             return $this->redirectToRoute('nouveau_projet');
         }
         elseif ($form->isEmpty()){
-            $this->addFlash('dannger', 'Votre Projet n\'a pas bien été enregistré ! Merci de recommencer');
+            $this->addFlash('danger', 'Votre Projet n\'a pas bien été enregistré ! Merci de recommencer');
 
         }
 

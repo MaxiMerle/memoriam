@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\ProjetClient;
 use App\Entity\ProjetClientCategorie;
+use App\Entity\ProjetClientQualite;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -37,8 +38,8 @@ class ProjetClientType extends AbstractType
             ->add('categorie', EntityType::class, [
                 'class' => ProjetClientCategorie::class,
                 'choice_label' => 'name',
-                'placeholder' => 'Choix du forfait :',
-                'label' => 'Choix du forfait : '
+                'placeholder' => 'Choix du pojet :',
+                'label' => 'Choix du projet : '
 
             ])
             ->add('surnomDefunt', TextType::class, [
@@ -49,13 +50,29 @@ class ProjetClientType extends AbstractType
                 'expanded' => true,
             ))
 
+            ->add('qualite', EntityType::class, [
+                'class' => ProjetClientQualite::class,
+                'choice_label' => 'nom',
+                'placeholder' => 'Choix de la qualité 1 :',
+                'label' => 'Choix de la qualité 1 : '
+
+            ])
+
+
+
+            ->add('musiques', ChoiceType::class, array(
+                'choices' => array('1 - Suite n°3 pour orchestre de Bach' => '1 - Suite n°3 pour orchestre de Bach', '2 - Suite n°3 pour orchestre de Bach' => '2 - Suite n°3 pour orchestre de Bach', '3 - Suite n°3 pour orchestre de Bach' => '3 - Suite n°3 pour orchestre de Bach', '4 - Suite n°3 pour orchestre de Bach' => '4 - Suite n°3 pour orchestre de Bach'),
+                'expanded' => false,
+                'label' => 'Choisissez la musique qui vous convient le plus pour accompagner votre film hommage'
+            ))
+
 
             ->add('nomDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Nom du défunt...']
+                'attr' => ['placeholder' => 'Nom...']
             ])
 
             ->add('prenomDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Prénom du défunt...']
+                'attr' => ['placeholder' => 'Prénom...']
             ])
             ->add('dateNaissanceDefunt', TextType::class, [
                 'attr' => ['placeholder' => 'Date de naissance...']
@@ -114,6 +131,11 @@ class ProjetClientType extends AbstractType
             ->add('deviseDefunt', TextareaType::class, [
                 'attr' => ['placeholder' => 'Ex : "Ne jamais baisser les bras"...',
                     'label' => 'devise défunt'
+                ]
+            ])
+            ->add('lieuDefunt', TextareaType::class, [
+                'attr' => ['placeholder' => 'Ex : "Un lieu, un paysage, un pays, un village...',
+                    'label' => 'lieu défunt'
                 ]
             ])
 

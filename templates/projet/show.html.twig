@@ -38,6 +38,16 @@
           <div><p>Prénom Défunt :  <strong>{{ projet.nomDefunt }}</strong></p></div>
           <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt|date('d-m-Y') }}</strong></p></div>
           <div><p>Mort le : <strong>{{ projet.dateMortDefunt|date('d-m-Y') }}</strong></p></div>
+
+            <div><p>MUSIQUE :  <strong>{{ projet.musiques }}</strong></p></div>
+
+
+            <div class="col-6"><p>3 qualités : <br>
+{% for qualite in projet.qualite %}
+                    - <strong>{{ qualite.nom }}</strong><br>
+{% endfor %}
+                </p>
+            </div>
             <div class="col-6"><p>3 grands moments : <br>
                     - <strong>{{ projet.momentDefunt1 }}</strong><br>
                     - <strong>{{ projet.momentDefunt2 }}</strong><br>
