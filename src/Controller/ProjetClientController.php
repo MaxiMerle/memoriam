@@ -48,12 +48,13 @@ class ProjetClientController extends AbstractController
              $entityManager->persist($newProjet);
              $entityManager->flush();
 
-            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci');
+            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance !');
 
             return $this->redirectToRoute('nouveau_projet');
         }
-        elseif ($form->isEmpty()){
-            $this->addFlash('danger', 'Votre Projet n\'a pas bien été enregistré ! Merci de recommencer');
+        elseif ($form->isSubmitted() && $form->isEmpty()){
+            $this->addFlash('error', 'Votre Projet n\'a pu être enregistré ! Merci de recommencer');
+            return $this->redirectToRoute('nouveau_projet');
 
         }
 

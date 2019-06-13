@@ -11,6 +11,8 @@ section{
  padding: 15px 15px;
 }
 
+
+
 /* ------------------------------ NAVBAR -------------------------------- */
 
 
@@ -23,11 +25,15 @@ section{
     font-size: 15px;
   }
   .logo-vert {
-    background-image: url("img/logo-vert.png");
-    background-repeat: no-repeat;
-    background-size: 40px;
-    width: 50px;
-    height: 45px;
+    //background-image: url("img/logo-vert.png");
+    //background-repeat: no-repeat;
+    //background-size: 40px;
+    //width: 50px;
+    //height: 45px;
+    color: $black;
+    font-size: 20px!important;
+    font-family: $font2;
+
   }
   .projet{
     display: flex;
@@ -53,8 +59,16 @@ section{
   }
 }
 
+/* ------------------------------ SECTION ABOUT -------------------------------- */
 
-
+#about{
+  h2{
+    font-size: 28px!important;
+  }
+  p{
+    font-size: 20px!important;
+  }
+}
 
 
 /* ------------------------------ SECTION SERVICE -------------------------------- */
@@ -147,4 +161,10 @@ h1{
     padding: 0 0 0 0 !important;
   }
 }
+}
+
+/* ------------------------------ FOOTER -------------------------------- */
+
+footer{
+  
 }

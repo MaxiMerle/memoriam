@@ -32,9 +32,7 @@ class ProjetClientType extends AbstractType
             ->add('emailClient', EmailType::class, [
                 'attr' => ['placeholder' => 'Votre email...']
             ])
-            ->add('dossier', TextType::class, [
-                'attr' => ['placeholder' => 'Votre numéro de dossier Berthelot...']
-            ])
+
             ->add('categorie', EntityType::class, [
                 'class' => ProjetClientCategorie::class,
                 'choice_label' => 'name',
@@ -43,7 +41,7 @@ class ProjetClientType extends AbstractType
 
             ])
             ->add('surnomDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Désignation utilisée tout au long du film...']
+                'attr' => ['placeholder' => 'Dénomination utilisée tout au long du film...']
             ])
             ->add('gender', ChoiceType::class, array(
                 'choices' => array('Femme' => 'Femme', 'Homme' => 'Homme'),
@@ -53,8 +51,8 @@ class ProjetClientType extends AbstractType
             ->add('qualite', EntityType::class, [
                 'class' => ProjetClientQualite::class,
                 'choice_label' => 'nom',
-                'placeholder' => 'Choix de la qualité 1 :',
-                'label' => 'Choix de la qualité 1 : '
+                'placeholder' => 'Qualité 1 :',
+                'label' => 'Qualité 1 : '
 
             ])
 
@@ -62,8 +60,7 @@ class ProjetClientType extends AbstractType
 
             ->add('musiques', ChoiceType::class, array(
                 'choices' => array('1 - Suite n°3 pour orchestre de Bach' => '1 - Suite n°3 pour orchestre de Bach', '2 - Suite n°3 pour orchestre de Bach' => '2 - Suite n°3 pour orchestre de Bach', '3 - Suite n°3 pour orchestre de Bach' => '3 - Suite n°3 pour orchestre de Bach', '4 - Suite n°3 pour orchestre de Bach' => '4 - Suite n°3 pour orchestre de Bach'),
-                'expanded' => false,
-                'label' => 'Choisissez la musique qui vous convient le plus pour accompagner votre film hommage'
+                'expanded' => false
             ))
 
 
@@ -99,19 +96,19 @@ class ProjetClientType extends AbstractType
 
             ->add('passionDefunt1', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : La lecture ...',
-                    'label' => 'Ses passions et hobbies'
+                    'label' => 'Ses passions ses hobbies'
                 ]
             ])
 
             ->add('passionDefunt2', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : Le jogging ...',
-                    'label' => 'Ses passions et hobbies'
+                    'label' => 'Ses passions ses hobbies'
                 ]
             ])
 
             ->add('passionDefunt3', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : La cuisine ...',
-                    'label' => 'Ses passions et hobbies'
+                    'label' => 'Ses passions ou ses hobbies'
                 ]
             ])
 
@@ -123,8 +120,8 @@ class ProjetClientType extends AbstractType
             ])
 
             ->add('motFin', TextareaType::class, [
-                'attr' => ['placeholder' => 'Repose en paix, Evelyne. Nous ne t\'oublierons jamais ...',
-                    'label' => 'CLe mot de la fin'
+                'attr' => ['placeholder' => 'Ex : Repose en paix, Evelyne. Nous ne t\'oublierons jamais ...',
+                    'label' => 'épitaphe'
                 ]
             ])
 
@@ -134,7 +131,7 @@ class ProjetClientType extends AbstractType
                 ]
             ])
             ->add('lieuDefunt', TextareaType::class, [
-                'attr' => ['placeholder' => 'Ex : "Un lieu, un paysage, un pays, un village...',
+                'attr' => ['placeholder' => 'Ex : "Le vieux port de Marseille, la Forêt des Landes, les chateaux de la Loire...',
                     'label' => 'lieu défunt'
                 ]
             ])

@@ -4,18 +4,19 @@ footer{
   .row{
     align-items: center;
   }
+  p{
+    color: $white;
+  }
+
   hr{
     background-color: $white!important;
     width: 80%!important;
     text-align: center;
   }
-  .logo{
-    background-image: url("img/logo-vert.png");
-    background-repeat: no-repeat;
-    background-size: 70px;
-    background-position: center;
-    height: 80px;
-    margin: 30px 0;
+  img{
+    width: 50px;
+    margin: 0 auto;
+    cursor: pointer;
   }
   ul{
     list-style-type: none;
@@ -36,9 +37,12 @@ footer{
     }
   }
   .list{
-
+    a{
+      color: $white;
+    }
   }
 }
+
 
 
 

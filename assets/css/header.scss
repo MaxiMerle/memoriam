@@ -20,13 +20,18 @@
   justify-content: space-between;
   padding: 0 30px 0;
   transition: all .25s;
+
   .logo-blanc {
     display: block;
-    background-image: url("img/logo-blanc.png");
-    background-repeat: no-repeat;
-    background-size: 40px;
-    width: 100px;
-    height: 50px;
+    //background-image: url("img/logo-blanc.png");
+    //background-repeat: no-repeat;
+    //background-size: 40px;
+    //width: 100px;
+    //height: 50px;
+    font-family: $font2;
+    color: $white;
+    font-size: 30px;
+
   }
   .projet ,.links{
     margin-bottom: 0!important;
@@ -64,7 +69,8 @@
   box-shadow: 0 0 23px 0 $black;
   .header-ctn{
     .logo-vert {
-      background-image: url("img/logo-vert.png");
+      //background-image: url("img/logo-vert.png");
+      color: $black;
     }
     li{
       a{

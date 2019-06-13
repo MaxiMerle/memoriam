@@ -147,22 +147,24 @@
   margin-top: 50px;
 }
 #about h2 {
-  font-size: 25px !important;
-  font-weight: 500;
+  font-size: 30px !important;
+  font-weight: 500 !important;
 }
 #about p {
-  font-size: 15px;
+  font-size: 25px;
+  text-transform: uppercase;
 }
 #about hr {
   width: 15%;
 }
 #about .proposition p {
-  font-size: 20px;
+  font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 #about .proposition h2 {
-  font-size: 30px !important;
+  font-size: 28px !important;
+  font-weight: 500 !important;
 }
 
 /* ------------------------------ SECTION PRESENTATION -------------------------------- */
@@ -425,11 +427,9 @@
 }
 .header-ctn .logo-blanc {
   display: block;
-  background-image: url("img/logo-blanc.png");
-  background-repeat: no-repeat;
-  background-size: 40px;
-  width: 100px;
-  height: 50px;
+  font-family: "Just Another Hand", cursive;
+  color: #fff;
+  font-size: 30px;
 }
 .header-ctn .projet, .header-ctn .links {
   margin-bottom: 0 !important;
@@ -465,7 +465,7 @@
   box-shadow: 0 0 23px 0 #303030;
 }
 .changeColor .header-ctn .logo-vert {
-  background-image: url("img/logo-vert.png");
+  color: #303030;
 }
 .changeColor .header-ctn li a {
   color: #303030;
@@ -510,18 +510,18 @@ footer {
 footer .row {
   align-items: center;
 }
+footer p {
+  color: #fff;
+}
 footer hr {
   background-color: #fff !important;
   width: 80% !important;
   text-align: center;
 }
-footer .logo {
-  background-image: url("img/logo-vert.png");
-  background-repeat: no-repeat;
-  background-size: 70px;
-  background-position: center;
-  height: 80px;
-  margin: 30px 0;
+footer img {
+  width: 50px;
+  margin: 0 auto;
+  cursor: pointer;
 }
 footer ul {
   list-style-type: none;
@@ -541,6 +541,10 @@ footer .list-footer {
 footer .list-footer li {
   display: inline-block;
 }
+footer .list a {
+  color: #fff;
+}
+
 .row-mobile .col-sm-12 {
   display: inline-grid !important;
 }
@@ -562,7 +566,7 @@ footer .list-footer li {
   margin-top: 100px;
 }
 
-/* ------------------------------ BLOCK ROUGE -------------------------------- */
+/* ------------------------------ BLOCK GRIS -------------------------------- */
 .block-rouge {
   background-color: #434343;
   color: #fff;
@@ -812,7 +816,7 @@ input.invalid {
 }
 .infos .ligne-info ion-icon {
   font-size: 35px;
-  padding: 0 150px 0 0;
+  padding: 0 100px 0 0;
 }
 .infos .ligne-info h3 {
   font-weight: 500;

@@ -19,11 +19,9 @@ section {
   font-size: 15px;
 }
 .navbar-mobile .logo-vert {
-  background-image: url("img/logo-vert.png");
-  background-repeat: no-repeat;
-  background-size: 40px;
-  width: 50px;
-  height: 45px;
+  color: #303030;
+  font-size: 20px !important;
+  font-family: "Just Another Hand", cursive;
 }
 .navbar-mobile .projet {
   display: flex;
@@ -41,6 +39,14 @@ section {
 }
 .header-mobile h1 {
   padding-top: 285px;
+}
+
+/* ------------------------------ SECTION ABOUT -------------------------------- */
+#about h2 {
+  font-size: 28px !important;
+}
+#about p {
+  font-size: 20px !important;
 }
 
 /* ------------------------------ SECTION SERVICE -------------------------------- */
@@ -114,5 +120,7 @@ h1 {
 .infos .ligne-mobile ion-icon {
   padding: 0 0 0 0 !important;
 }
+
+/* ------------------------------ FOOTER -------------------------------- */
 
 /*# sourceMappingURL=mobile.css.map */

@@ -12,7 +12,7 @@
 }
 
 
-/* ------------------------------ BLOCK ROUGE -------------------------------- */
+/* ------------------------------ BLOCK GRIS -------------------------------- */
 
 .block-rouge{
   background-color: $red;
@@ -32,6 +32,7 @@
   .texte{
     padding-left: 60px;
     font-size:25px;
+
   }
   .ligne-blocks{
     display: flex;

@@ -149,24 +149,27 @@
   margin-top: 50px;
 
   h2{
-    font-size: 25px!important;
-    font-weight: $bold;
+    font-size: 30px!important;
+    font-weight: $bold!important;
   }
   p{
-    font-size: 15px;
+    font-size: 25px;
+    text-transform: uppercase;
   }
   hr{
     width: 15%;
   }
   .proposition{
     p{
-      font-size: 20px;
+      font-size: 25px;
       text-transform: uppercase;
       letter-spacing: 2px;
 
     }
     h2{
-      font-size: 30px!important;
+      font-size: 28px!important;
+      font-weight: $bold!important;
+
     }
   }
 }

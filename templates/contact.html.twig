@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block seoTitle %}
     {% spaceless %}
-        Contactez-nous
+       IN MEMORIAE -  Contactez-nous
     {% endspaceless %}
 {% endblock %}
 {% block seoDescription %}
     {% spaceless %}
-        Une question ? Une demande de devis pour un projet sur mesure ? Contactez-nous
+        Une question ? Une demande de devis pour un film hommage sur mesure ? Contactez-nous
     {% endspaceless %}
 {% endblock %}
 
@@ -16,39 +16,26 @@
         {% include 'common/flash_messages.html.twig' %}
         <h1>CONTACTEZ-NOUS</h1>
         <hr>
-        <h2> Une question ? Une demande de devis pour un projet sur mesure ?</h2>
     </section>
-    <section class="map" style="padding: 0!important;">
-        <div style="width:fill-available;position: relative;">
-            <iframe  width="100%" height="440" src="https://maps.google.com/maps?width=1024&amp;height=440&amp;hl=en&amp;q=75015+&amp;ie=UTF8&amp;t=&amp;z=13&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-        </div>
-    </section>
+
     <div class="container">
         <div class="">
-            <section class="infos  ">
-                <div class="ligne-info ligne-mobile">
-                    <ion-icon name="map"></ion-icon>
-                    <h3>18 RUE DE VARIZE, 75016 PARIS </h3>
-                </div>
+            <section class="infos">
                 <div class="ligne-info ligne-mobile">
                     <ion-icon name="mail"></ion-icon>
                     <h3>MAIL@MAIL.COM</h3>
                 </div>
                 <div class="ligne-info ligne-mobile">
-                    <ion-icon name="call"></ion-icon>
-                    <h3>010203040506</h3>
-                </div>
-                <div class="ligne-info ligne-mobile">
                     <ion-icon name="calendar"></ion-icon>
-                    <h3>DU LUNDI AU VENDREDI DE 9H À 18H</h3>
+                    <h3>NOUS SOMMES À VOTRE SERVICE TOUTE L'ANNÉE 7/7</h3>
                 </div>
                 <div class="ligne-info ligne-mobile">
                     <ion-icon name="card"></ion-icon>
-                    <h3>PAIEMENT SÉCURISÉ ET LIVRAISON EN 48H</h3>
+                    <h3>PAIEMENT SÉCURISÉ VIA PAYPAL</h3>
                 </div>
             </section>
         </div>
-        <h2>UNE QUESTION ? UN PROJET SUR MESURE ? UNE PRÉCISION FACTUELLE SUR VOTRE PROJET ?</h2>
+        <h2>UNE QUESTION ? UN PROJET SUR MESURE ? UNE PRÉCISION FACTUELLE SUR VOTRE FILM HOMMAGE ?</h2>
         <section class="contact-form">
             <div>
                 {{ form_start(contact_form) }}
@@ -60,8 +47,6 @@
                 </div>
                 {{ form_end(contact_form) }}
             </div>
-
-
         </section>
     </div>
 {% endblock %}

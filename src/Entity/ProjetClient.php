@@ -40,7 +40,7 @@ class ProjetClient
     private $emailClient;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 , nullable=true)
      */
     private $dossier;
 
