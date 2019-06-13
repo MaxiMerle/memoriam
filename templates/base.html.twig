@@ -11,6 +11,8 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet">
 
         {#-------------      CSS      --------------#}
         {% block stylesheets %}
@@ -24,7 +26,6 @@
 
     {% include 'common/header.html.twig' %}
         {% block body %}
-
         {% endblock %}
     {% include 'common/footer.html.twig' %}
 
@@ -39,7 +40,6 @@
             <script>
                 var currentTab = 0; // Current tab is set to be the first tab (0)
                 showTab(currentTab); // Display the current tab
-
                 function showTab(n) {
                     // This function will display the specified tab of the form ...
                     var x = document.getElementsByClassName("tab");
@@ -50,17 +50,14 @@
                     } else {
                         document.getElementById("prevBtn").style.display = "inline";
                     }
-                    if (n == (x.length - 1)) {
-                    } else {
-                        document.getElementById("nextBtn").innerHTML = "Suivant";
-                    }
-                    if (n == 5) {
+
+                    if (n === 4) {
                         document.getElementById("nextBtn").style.display = "none";
+                        document.getElementById("prevBtn").style.display = "none";
                     }
                     // ... and run a function that displays the correct step indicator:
                     fixStepIndicator(n)
                 }
-
                 function nextPrev(n) {
                     // This function will figure out which tab to display
                     var x = document.getElementsByClassName("tab");
@@ -111,70 +108,6 @@
                     //... and adds the "active" class to the current step:
                     x[n].className += " active";
                 }
-            </script>
-            <script>
-                (function(window) {
-                    function triggerCallback(e, callback) {
-                        if(!callback || typeof callback !== 'function') {
-                            return;
-                        }
-                        var files;
-                        if(e.dataTransfer) {
-                            files = e.dataTransfer.files;
-                        } else if(e.target) {
-                            files = e.target.files;
-                        }
-                        callback.call(null, files);
-                    }
-                    function makeDroppable(ele, callback) {
-                        var input = document.createElement('input');
-                        input.setAttribute('type', 'file');
-                        input.setAttribute('multiple', true);
-                        input.style.display = 'none';
-                        input.addEventListener('change', function(e) {
-                            triggerCallback(e, callback);
-                        });
-                        ele.appendChild(input);
-
-                        ele.addEventListener('dragover', function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            ele.classList.add('dragover');
-                        });
-
-                        ele.addEventListener('dragleave', function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            ele.classList.remove('dragover');
-                        });
-
-                        ele.addEventListener('drop', function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            ele.classList.remove('dragover');
-                            triggerCallback(e, callback);
-                        });
-
-                        ele.addEventListener('click', function() {
-                            input.value = null;
-                            input.click();
-                        });
-                    }
-                    window.makeDroppable = makeDroppable;
-                })(this);
-                (function(window) {
-                    makeDroppable(window.document.querySelector('.demo-droppable'), function(files) {
-                        console.log(files);
-                        var output = document.querySelector('.output');
-                        output.innerHTML = '';
-                        for(var i=0; i<files.length; i++) {
-                            if(files[i].type.indexOf('image/') === 0) {
-                                output.innerHTML += '<img width="50" src="' + URL.createObjectURL(files[i]) + '" />';
-                            }
-                            output.innerHTML += '<p>'+files[i].name+'</p>';
-                        }
-                    });
-                })(this);
             </script>
 
         {% endblock %}

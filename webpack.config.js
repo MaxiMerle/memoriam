@@ -33,7 +33,6 @@ Encore
     .enableVersioning(Encore.isProduction())
     .enableSassLoader()
     .addEntry('navbar', './assets/js/navbar.js')
-    .addEntry('files', './assets/js/files.js')
     .addEntry('dropzone', './assets/js/dropzone.js')
 
 

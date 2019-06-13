@@ -427,9 +427,12 @@
 }
 .header-ctn .logo-blanc {
   display: block;
-  font-family: "Just Another Hand", cursive;
+  font-family: "Reenie Beanie", cursive;
   color: #fff;
-  font-size: 30px;
+  font-size: 35px;
+}
+.header-ctn .logo-blanc:hover {
+  text-decoration: none;
 }
 .header-ctn .projet, .header-ctn .links {
   margin-bottom: 0 !important;
