@@ -119,5 +119,6 @@
     <orderEntry type="library" name="jquery-3.4.1" level="application" />
     <orderEntry type="library" name="plyr.polyfilled" level="application" />
     <orderEntry type="library" name="slick" level="application" />
+    <orderEntry type="library" name="adsbygoogle" level="application" />
   </component>
 </module>
