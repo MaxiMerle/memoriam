@@ -11,20 +11,12 @@
 {% endblock %}
 {% block body %}
 
-
     <section class="title">
         {% include 'common/flash_messages.html.twig' %}
-
         <h1>VOTRE PROJET</h1>
         <hr>
         <h2>Votre film hommage commence ici</h2>
-{#        <a href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">INFORMATIONS</a>#}
-{#        <a href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo">INFORMATIONS DEFUNT</a>#}
-{#        <a href="#collapseThree" role="button" aria-expanded="true" aria-controls="collapseThree">FICHIERS PHOTOS</a>#}
-{#        <a href="#collapseThree" role="button" aria-expanded="true" aria-controls="collapseThree">FICHIERS VIDEOS</a>#}
-{#        <a href="#collapseThree" role="button" aria-expanded="true" aria-controls="collapseThree">VALIDATION FINALE</a>#}
     </section>
-
 
     <section class="block-rouge">
         <div class="ligne">
@@ -35,12 +27,6 @@
             <p class="chiffre">2</p>
             <p class="texte">Selectionnez vos fichiers photos et vidéos.</p>
         </div>
-{#        <div class="ligne ligne-blocks">#}
-{#            <div class="block-gauche"></div>#}
-{#            <div class="block-droite">#}
-{#                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum dicta eius expedita harum hic impedit incidunt, iusto, odit, officia optio pariatur provident quisquam quos ullam? Cumque doloremque eligendi et?</p>#}
-{#            </div>#}
-{#        </div>#}
         <div class="ligne">
             <p class="chiffre">3</p>
             <p class="texte">Validez et envoyez-nous votre projet.</p>
@@ -50,133 +36,10 @@
             <p class="texte">Vous recevez le film hommage sous 48h.</p>
         </div>
     </section>
-
-
-{#
-
-    <div class="accordion formulaire" id="accordionExample">
-
-        #}
-{# ------------------------ INFORMATIONS PERSONELLES ------------------#}{#
-
-        <div class="card">
-            <div class="card-header text-center" id="headingOne" >
-                <h5 class="mb-0"  href="#headingOne"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" ><span style="border: 1px solid black;border-radius: 50px;width: 30px;">1</span> INFORMATIONS PERSONNELLES</h5>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                    <div class="container">
-                        {{ form_start(form) }}
-                        {{ form_row(form.nomClient) }}
-                        {{ form_row(form.prenomClient) }}
-                        {{ form_row(form.emailClient) }}
-                        {{ form_row(form.dossier) }}
-                        {{ form_row(form.categorie) }}
-                        <a class="btn btn-block btn-outline-warning" href="#collapseTwo" role="button" aria-expanded="false" aria-controls="collapseTwo" type="butoon" >PASSER À L'ETAPE SUIVANTE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        #}
-{# ------------------------ INFORMATIONS DEFUNT ------------------#}{#
-
-        <div class="card">
-            <div class="card-header text-center" id="headingTwo">
-                <h5 class="mb-0"  href="#headingOne"  data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">INFORMATIONS DU DÉFUNT</h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    <div class="container">
-                        {{ form_row(form.nomDefunt) }}
-                        {{ form_row(form.prenomDefunt) }}
-                        <div class="row">
-                            <div class="col-6">{{ form_row(form.dateNaissanceDefunt) }}</div>
-                            <div class="col-6"> {{ form_row(form.dateMortDefunt) }}</div>
-                        </div>
-                        {{ form_row(form.descriptionDefunt, {'attr': {'rows': '4' }}) }}
-
-                        <a class="btn btn-block btn-outline-warning" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree" type="butoon" >PASSER À L'ETAPE SUIVANTE</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        #}
-{# ------------------------ FICHIERS PHOTOS ------------------#}{#
-
-
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h5 class="mb-0 text-center" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        FICHIERS PHOTOS
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                    <div class="container">
-
-
-                        <a class="btn btn-block btn-outline-warning" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour" type="butoon" >PASSER À L'ETAPE SUIVANTE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        #}
-{# ------------------------ FICHIERS VIDEOS ------------------#}{#
-
-        <div class="card">
-            <div class="card-header" id="headingFour">
-                <h5 class="mb-0 text-center"  data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        FICHIERS VIÉOS
-                </h5>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                <div class="card-body">
-                    <div class="container">
-
-
-                        <a class="btn btn-block btn-outline-warning" href="#collapseFive" role="button" aria-expanded="false" aria-controls="collapseFive" type="butoon" >PASSER À L'ETAPE SUIVANTE</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        #}
-{# ------------------------ VALIDATION ------------------#}{#
-
-        <div class="card">
-            <div class="card-header" id="headingFive">
-                <h5 class="mb-0 text-center" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        VALIDATION FINALE
-                </h5>
-            </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                <div class="card-body">
-
-                    <div class="container">
-                        {{ form_row(form.save) }}
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    {{ form_end(form) }}
-
-
-#}
-
     <div class="container mt-5 mb-5">
 
 
-        <form name="regForm" method="post" class="needs-validation">
-            {{ form_start(form) }}
+        {{ form_start(form) }}
 
             {# ------------------------ INFORMATIONS PERSONELLES ------------------#}
             <div class="tab">
@@ -315,14 +178,16 @@
                     </div>
                 </div>
             </div>
-
+        {# ------------------------ UPLOADS PHOTOS ------------------#}
             <div class="tab">
                 <h2>Ajoutez vos images avec une courte description :</h2>
                 <div class="progress mb-5">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
                 </div>
-
                 <div class="row">
+
+                    {# -////////----------------------- IMAGE A LA UNE DISPLAY JS #display-title -----------------/////////-#}
+                    <h2 class="col-12" id="display-title">Choisissez la photo qui ouvre votre film hommage</h2>
 
                     <div class="col-lg-6 col-sm-12">
                     <div action="/file-upload" class="dropzone">
@@ -335,7 +200,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
                     <div class="form-group">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
@@ -347,13 +211,13 @@
                         <hr>
                         <p>Nos films hommages sont accompagnés par : ...</p>
                         <pr>Si vous souhaitez un autre fond musical choisissez dans cette liste.</pr>
-                        {{ form_widget(form.musiques) }}
-
+                            {{ form_widget(form.musiques) }}
                     </div>
                 </div>
 {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
             </div>
 
+        {# ------------------------ UPLOADS VIDEOS ------------------#}
             <div class="tab">
                 <h2>Ajoutez vos vidéos avec une courte description :</h2>
                 <div class="progress mb-5">
@@ -371,7 +235,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
                         <div class="form-group">
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
@@ -379,51 +242,33 @@
                     </div>
                 </div>
 {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
-
             </div>
 
+        {# ------------------------ VALIDATION / PAIEMENT ------------------#}
             <div class="tab">
-
-
-
                 <h2>Validation</h2>
                 <div class="progress mb-5">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
                 </div>
-
-
-
-
                     <p>Nous nous engageons à vous envoyer votre film hommage en 48h après validation du paiement.</p>
-
-                {{ form_row(form.save) }}
-
+                    {{ form_row(form.save) }}
                 </div>
-
-
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-outline-warning rouge">Retour</button>
                     <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-outline-success ml-3">Suivant</button>
                 </div>
             </div>
-
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
+            <div class="text-center mt-5">
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
             </div>
-            {{ form_end(form) }}
-        </form>
 
-
+        {{ form_end(form) }}
 
     </div>
-
-
-
 {% endblock %}
 

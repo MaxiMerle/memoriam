@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Projet;
 use App\Entity\ProjetClient;
 use App\Entity\ProjetClientCategorie;
 use App\Entity\ProjetClientQualite;
@@ -21,9 +20,10 @@ class ProjetClientController extends AbstractController
     /**
      * @Route("/votre-projet", name="nouveau_projet")
      * @param Request $request
+     * @param $mailer
      * @return RedirectResponse|Response
      */
-    public function index(Request $request)
+    public function index(Request $request, \Swift_Mailer $mailer)
     {
         // just setup a fresh $task object (remove the dummy data)
         $newProjet = new ProjetClient();
@@ -47,6 +47,15 @@ class ProjetClientController extends AbstractController
              $entityManager = $this->getDoctrine()->getManager();
              $entityManager->persist($newProjet);
              $entityManager->flush();
+
+            $message = (new \Swift_Message('NOUVEAU PROJET'))
+                ->setFrom('maximerle@gmail.com')
+                ->setTo('maximerle@gmail.com')
+                ->setBody('Nouveau projet de ' )
+
+            ;
+
+            $mailer->send($message);
 
             $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance !');
 
