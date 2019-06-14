@@ -178,71 +178,8 @@
                     </div>
                 </div>
             </div>
-        {# ------------------------ UPLOADS PHOTOS ------------------#}
-            <div class="tab">
-                <h2>Ajoutez vos images avec une courte description :</h2>
-                <div class="progress mb-5">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
-                </div>
-                <div class="row">
 
-                    {# -////////----------------------- IMAGE A LA UNE DISPLAY JS #display-title -----------------/////////-#}
-                    <h2 class="col-12" id="display-title">Choisissez la photo qui ouvre votre film hommage</h2>
-
-                    <div class="col-lg-6 col-sm-12">
-                    <div action="/file-upload" class="dropzone">
-                        <div class="fallback">
-                            <div class="demo-droppable">
-                                <ion-icon name="cloud-upload"></ion-icon>
-                                <p>Glissez-déposez un fichier ou cliquez pour rechercher un fichier </p>
-                            </div>
-                            <div class="output"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
-                    <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
-                    </div>
-                </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 mb-5">
-                        <hr>
-                        <p>Nos films hommages sont accompagnés par : ...</p>
-                        <pr>Si vous souhaitez un autre fond musical choisissez dans cette liste.</pr>
-                            {{ form_widget(form.musiques) }}
-                    </div>
-                </div>
-{#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
-            </div>
-
-        {# ------------------------ UPLOADS VIDEOS ------------------#}
-            <div class="tab">
-                <h2>Ajoutez vos vidéos avec une courte description :</h2>
-                <div class="progress mb-5">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-12">
-                        <div action="/file-upload" class="dropzone">
-                            <div class="fallback">
-                                <div class="demo-droppable">
-                                    <ion-icon name="cloud-upload"></ion-icon>
-                                    <p>Glissez-déposez un fichier ou cliquez pour rechercher un fichier</p>
-                                </div>
-                                <div class="output"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
-                        <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
-                        </div>
-                    </div>
-                </div>
-{#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
-            </div>
+        {% include 'projet_client/uploadFichier.html.twig' %}
 
         {# ------------------------ VALIDATION / PAIEMENT ------------------#}
             <div class="tab">

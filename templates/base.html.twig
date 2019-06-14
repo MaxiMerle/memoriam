@@ -12,8 +12,11 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet">
 
+        <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet">
+        {# dans le head pour #}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
         {#-------------      CSS      --------------#}
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/app.css') }}">
@@ -32,7 +35,7 @@
     {#-------------      JS      --------------#}
         {% block javascripts %}
             <script src="{{ asset('build/app.js') }}"></script>
-            <script src="{{ asset('build/dropzone.js') }}"></script>
+            {#<script src="{{ asset('build/dropzone.js') }}"></script>#}
             <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
             <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
