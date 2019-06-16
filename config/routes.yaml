@@ -2,3 +2,10 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+index:
+  path: /
+  controller: App\Controller\ProjetClientBerthelotController::index
+
+login:
+  path: /login
+  controller: App\Controller\ProjetClientBerthelotController::login

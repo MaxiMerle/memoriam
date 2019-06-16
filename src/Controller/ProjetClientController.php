@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\ProjetClient;
+use App\Entity\ProjetClientBerthelot;
 use App\Entity\ProjetClientCategorie;
 use App\Entity\ProjetClientQualite;
+use App\Form\ProjetClientBerthelotType;
 use App\Form\ProjetClientType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,6 +16,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+
 
 class ProjetClientController extends AbstractController
 {
@@ -46,12 +50,33 @@ class ProjetClientController extends AbstractController
             // for example, if Task is a Doctrine entity, save it!
              $entityManager = $this->getDoctrine()->getManager();
              $entityManager->persist($newProjet);
-             $entityManager->flush();
+
+             try{
+                 $entityManager->flush();
+             }catch( \PDOException $e )
+             {
+                 if( $e->getCode() === '23000' )
+                 {
+                     echo $e->getMessage();
+
+                     // Will output an SQLSTATE[23000] message, similar to:
+                     // Integrity constraint violation: 1062 Duplicate entry 'x'
+                     // ... for key 'UNIQ_BB4A8E30E7927C74'
+                 }
+
+                 else throw $e;
+             }
+
+
 
             $message = (new \Swift_Message('NOUVEAU PROJET'))
                 ->setFrom('maximerle@gmail.com')
                 ->setTo('maximerle@gmail.com')
-                ->setBody('Nouveau projet de ' )
+                ->setBody($this->renderView(
+                    'contact/confirmation-admin.html.twig',
+                    array('email' => 'email' )
+                ),
+                    'text/html' )
 
             ;
 
@@ -62,7 +87,7 @@ class ProjetClientController extends AbstractController
             return $this->redirectToRoute('nouveau_projet');
         }
         elseif ($form->isSubmitted() && $form->isEmpty()){
-            $this->addFlash('error', 'Votre Projet n\'a pu être enregistré ! Merci de recommencer');
+            $this->addFlash('warning', 'Votre Projet n\'a pu être enregistré ! Merci de recommencer');
             return $this->redirectToRoute('nouveau_projet');
 
         }
@@ -140,4 +165,14 @@ class ProjetClientController extends AbstractController
    }
 
 
+
+
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout()
+    {
+        // controller can be blank: it will never be executed!
+        throw new \Exception('Don\'t forget to activate logout in security.yaml');
+    }
 }

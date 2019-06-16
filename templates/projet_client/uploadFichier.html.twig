@@ -1,0 +1,98 @@
+{% block body %}
+
+    {# ------------------------ UPLOADS PHOTOS ------------------#}
+    <div class="tab">
+        <h2>Ajoutez vos images avec une courte description :</h2>
+        <div class="progress mb-5">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">60%</div>
+        </div>
+        <div class="row">
+
+            {# -////////----------------------- IMAGE A LA UNE DISPLAY JS #display-title -----------------/////////-#}
+            <h2 class="col-12" id="display-title">Choisissez la photo qui ouvre votre film hommage</h2>
+
+            <div class="col-lg-6 col-sm-12">
+                <div action="/file-upload" class="dropzone">
+                    <div class="fallback">
+                        <div class="demo-droppable">
+                            <ion-icon name="cloud-upload"></ion-icon>
+                            <p>Glissez-déposez un fichier ou cliquez pour rechercher un fichier </p>
+                        </div>
+                        <div class="output"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
+                    <input type="hidden" id="projetId" value=""/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mb-5">
+                <hr>
+                <p>Nos films hommages sont accompagnés par : ...</p>
+                <pr>Si vous souhaitez un autre fond musical choisissez dans cette liste.</pr>
+                {{ form_widget(form.musiques) }}
+            </div>
+        </div>
+        <button type="button" class="btn btn-block btn-primary"  onclick="javascript:dropzone_default.processQueue();">Ajouter un fichier</button>
+        {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
+    </div>
+
+    {# ------------------------ UPLOADS VIDEOS ------------------#}
+    <div class="tab">
+        <h2>Ajoutez vos vidéos avec une courte description :</h2>
+        <div class="progress mb-5">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <div action="/file-upload" class="dropzone">
+                    <div class="fallback">
+                        <div class="demo-droppable">
+                            <ion-icon name="cloud-upload"></ion-icon>
+                            <p>Glissez-déposez un fichier ou cliquez pour rechercher un fichier</p>
+                        </div>
+                        <div class="output"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-block btn-primary" value="Ajouter un fichier" />
+        {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
+    </div>
+{% endblock body %}
+{% block javascripts %}
+    <script>
+        Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
+        var dropzone_default = new Dropzone(".dropzone", {
+            url: '{{ path('fileuploadhandler') }}',
+            maxFiles: 1,//50
+            dictMaxFilesExceeded: '50 fichiers seulement',
+            acceptedFiles: 'image/*',
+            maxFilesize: 20,  // en Mo
+            addRemoveLinks: false,
+            init: function () {
+                this.on("maxfilesexceeded", function (file) {
+                    this.removeFile(file);
+                });
+                this.on("sending", function (file, xhr, formData) {
+                    formData.append("commentaire", $.trim($("#exampleFormControlTextarea1").val()));
+                    formData.append("projetId", $.trim($("#projetId").val()));
+                });
+                this.on("success", function (file, response) {
+                    this.removeAllFiles(true);
+                    if (response.uploaded)
+                        alert('Fichier envoyé: ' + response.fileName);
+                });
+            }
+        });
+    </script>
+{% endblock javascripts %}

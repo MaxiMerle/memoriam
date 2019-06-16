@@ -46,7 +46,7 @@ class ProjetClient
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\ProjetClientCategorie", inversedBy="projet")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $categorie;
 
@@ -139,6 +139,21 @@ class ProjetClient
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $lieuDefunt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $qualite1;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $qualite2;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $qualite3;
 
     public function __construct()
     {
@@ -445,6 +460,42 @@ class ProjetClient
     public function setLieuDefunt(?string $lieuDefunt): self
     {
         $this->lieuDefunt = $lieuDefunt;
+
+        return $this;
+    }
+
+    public function getQualite1(): ?string
+    {
+        return $this->qualite1;
+    }
+
+    public function setQualite1(?string $qualite1): self
+    {
+        $this->qualite1 = $qualite1;
+
+        return $this;
+    }
+
+    public function getQualite2(): ?string
+    {
+        return $this->qualite2;
+    }
+
+    public function setQualite2(string $qualite2): self
+    {
+        $this->qualite2 = $qualite2;
+
+        return $this;
+    }
+
+    public function getQualite3(): ?string
+    {
+        return $this->qualite3;
+    }
+
+    public function setQualite3(string $qualite3): self
+    {
+        $this->qualite3 = $qualite3;
 
         return $this;
     }

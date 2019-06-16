@@ -24,27 +24,30 @@
     </section>
 
     <section class="about">
-        <div class="row mt-5 m-5">
-            <div class="col-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet aperiam culpa cupiditate dolorum eaque esse laudantium libero nemo odit, perspiciatis quae quas quibusdam, repudiandae similique sit, veniam voluptate voluptates? Dolorum eaque esse laudantium libero nemo odit, perspiciatis quae quas quibusdam, repudiandae similique sit, veniam voluptate voluptates?</div>
-            <div class="col-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut blanditiis eius, eos esse ex excepturi illo laborum, magni molestiae nesciunt optio perferendis quasi quos rem, repellat repudiandae tempora ullam!</div>
+        <div class="row mt-5 m-lg-5 m-sm-2">
+            <div class="col-lg-6 col-sm-12">
+                <p> À partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionnelle </strong> pour votre défunt.</p>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <p>Votre film hommage disponible en <strong>48h maximum</strong>, pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux.</p>
+            </div>
         </div>
         <div class="row mt-5">
-
-            <div class="col-6">
+            <div class="col-lg-6 col-sm-12 mt-0 mt-sm-5">
                 <div class="profile text-center">
 
                 </div>
-                <div class="text">
+                <div class="{% if is_mobile() == true  and is_tablet() == false %}  {% elseif is_tablet() %}  {% else %} text{% endif %}">
                     <h3>Michel Floquet</h3>
                     <hr>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at beatae culpa odio officiis, possimus provident repellat reprehenderit saepe sit. Consectetur ea earum eligendi error in, mollitia reiciendis repellendus reprehenderit.</p>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-lg-6 col-sm-12 text-sm-center mt-0 mt-sm-5">
                 <div class="profile text-center">
 
                 </div>
-                <div class="text">
+                <div class="{% if is_mobile() == true  and is_tablet() == false %}  {% elseif is_tablet() %}  {% else %} text{% endif %}">
                     <h3>Emmanuel Ostian</h3>
                     <hr>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at beatae culpa odio officiis, possimus provident repellat reprehenderit saepe sit. Consectetur ea earum eligendi error in, mollitia reiciendis repellendus reprehenderit.</p>

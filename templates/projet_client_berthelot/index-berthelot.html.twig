@@ -105,29 +105,24 @@
                             <hr>
                             <p>3 qualités qui le (la) carratérisent  :</p>
                         </div>
-
                         <div class="col-4">
-                            <p>{{ form_widget(form.qualite1, {'attr': {'list': 'browsers'}}) }}</p>
-                            <datalist id="browsers" class="dropdown-toggle">
-                                <option value="Générosité">
-                                <option value="Attentif aux autres">
-                                <option value="Patience">
-                                <option value="Fidelité">
-                                <option value="Sympathie ">
-                                <option value="Humour">
-                                <option value="Gentillesse">
-                                <option value="Disponibilité">
-                                <option value="Empathie">
-                                <option value="Bon vivant">
-                                <option value="Gaieté">
-                            </datalist>
+                            <p>{{ form_widget(form.qualite) }}</p>
                         </div>
                         <div class="col-4">
-                            <p>{{ form_widget(form.qualite2, {'attr': {'list': 'browsers'}}) }}</p>
-
+                            <select class="custom-select">
+                                <option selected>Choix 2</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                         </div>
                         <div class="col-4">
-                            <p>{{ form_widget(form.qualite3, {'attr': {'list': 'browsers'}}) }}</p>
+                            <select class="custom-select">
+                                <option selected>Choix 3</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                         </div>
                         {# ------------------------ MOMENTS VIE ------------------#}
                         <div class="col-12 mt-3">

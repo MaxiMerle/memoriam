@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block seoTitle %}
+    {% spaceless %}
+        Im Memoriae - Votre Projet
+    {% endspaceless %}
+{% endblock %}
+{% block seoDescription %}
+    {% spaceless %}
+        Votre film hommage commence ici
+    {% endspaceless %}
+{% endblock %}
+{% block body %}
+
+
+<section class="title">
+    {% include 'common/flash_messages.html.twig' %}
+    <h1>LOGIN</h1>
+    <hr>
+    <h2>Entrez votre email et votre code personnel afin d'acceder au formulaire</h2>
+</section>
+
+{% endblock %}

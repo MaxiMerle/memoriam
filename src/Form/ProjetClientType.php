@@ -48,12 +48,16 @@ class ProjetClientType extends AbstractType
                 'expanded' => true,
             ))
 
-            ->add('qualite', EntityType::class, [
-                'class' => ProjetClientQualite::class,
-                'choice_label' => 'nom',
-                'placeholder' => 'Qualité 1 :',
-                'label' => 'Qualité 1 : '
 
+
+            ->add('qualite1', TextType::class, [
+                'attr' => ['placeholder' => 'Qualité 1']
+            ])
+            ->add('qualite2', TextType::class, [
+                'attr' => ['placeholder' => 'Qualité 2']
+            ])
+            ->add('qualite3', TextType::class, [
+                'attr' => ['placeholder' => 'Qualité 3']
             ])
 
 

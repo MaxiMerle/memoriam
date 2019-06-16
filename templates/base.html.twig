@@ -5,6 +5,9 @@
         <title>{% spaceless %}{% block seoTitle %}{% endblock %}{% endspaceless %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="description" content="{% spaceless %}{% block seoDescription %}{% endblock %}{% endspaceless %}">
+        <link rel="icon" type="image/png" href="{{ asset('build/images/logo-vert.5ad98afe.png') }}"/>
+
+
         {#-------------      FONTS      --------------#}
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
@@ -13,6 +16,9 @@
         <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet">
+        {# dans le head pour #}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
 
         {#-------------      CSS      --------------#}
         {% block stylesheets %}
@@ -53,7 +59,6 @@
 
                     if (n === 4) {
                         document.getElementById("nextBtn").style.display = "none";
-                        document.getElementById("prevBtn").style.display = "none";
                     }
                     // ... and run a function that displays the correct step indicator:
                     fixStepIndicator(n)

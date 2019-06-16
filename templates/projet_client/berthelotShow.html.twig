@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block seoTitle %}
+    {% spaceless %}
+        Im Memoriae - Votre Projet
+    {% endspaceless %}
+{% endblock %}
+{% block seoDescription %}
+    {% spaceless %}
+        Votre film hommage commence ici
+    {% endspaceless %}
+{% endblock %}
+{% block body %}
+
+
+    <section class="title">
+        {% include 'common/flash_messages.html.twig' %}
+        <h1>CLIENT ENREGISTRÉ</h1>
+        <hr>
+        <h2>Gardez précieusement votre code personnel !</h2>
+    </section>
+
+    <div class="container">
+        <h2> NOM CLIENT : {{ infosBerthelot.name }}</h2>
+        <h2> EMAIL CLIENT : {{ infosBerthelot.email }}</h2>
+        <h2> CODE CLIENT : <strong>{{ infosBerthelot.code }}</strong></h2>
+    </div>
+
+{% endblock %}
