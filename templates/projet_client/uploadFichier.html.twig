@@ -11,7 +11,7 @@
     <div class="row">
 
         {# -////////----------------------- IMAGE A LA UNE DISPLAY JS #display-title -----------------/////////-#}
-        <h2 class="col-12" id="display-title">Choisissez la photo qui ouvre votre film hommage</h2>
+        <h2 class="col-12" id="display-title">Choisissez les photos/videos de vote film hommage, la 1ère l'ouvrira</h2>
 
         <div class="col-lg-6 col-sm-12">
             <div action="/file-upload" class="dropzone">
@@ -39,7 +39,7 @@
             {{ form_widget(form.musiques) }}
         </div>
     </div>
-    <button type="button" class="btn btn-block btn-primary"  onclick="javascript:dropzone_default.processQueue();">Ajouter un fichier</button>
+    <button type="button" class="btn btn-block btn-primary"  id="envoieFichier">Envoyer les fichiers</button>
     {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
 </div>
 
@@ -51,7 +51,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-sm-12">
-            <div action="/file-upload" class="dropzone">
+            <div action="/file-upload" class="dropzone" id="dzVideo">
                 <div class="fallback">
                     <div class="demo-droppable">
                         <ion-icon name="cloud-upload"></ion-icon>
@@ -63,20 +63,38 @@
         </div>
         <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
             <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea2" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-block btn-primary" value="Ajouter un fichier" />
-    {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
+    <button type="button" class="btn btn-block btn-primary"  id="envoieFichierVideo">Envoyer les videos</button>
+    {# <input type="submit" class="btn btn-block btn-primary" value="Ajouter un fichier" />#}
 </div>
 {% endblock body %}
 {% block javascripts %}
     <script>
             Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
-            var dropzone_default = new Dropzone(".dropzone", {
-                url: '{{ path('fileuploadhandler') }}',
-                maxFiles: 1,//50
+                var dropzone_default = new Dropzone(".dropzone", {
+                    url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
+                    maxFiles: 20,   dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
+                    dictMaxFilesExceeded: '50 fichiers seulement',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: false,
+                    init: function () {
+                        this.on("maxfilesexceeded", function (file) {    this.removeFile(file);});
+                        this.on("sending", function (file, xhr, formData) {
+                            formData.append("commentaire", $.trim($("#exampleFormControlTextarea1").val()));
+                            formData.append("projetId", $.trim($("#projetId").val()));
+                        });
+                        this.on("success", function (file, response) {
+                            this.removeAllFiles(true);
+                            if (response.uploaded)
+                                alert('Fichier envoyé: ' + response.fileName);
+                        });
+                    }
+                });
+            var dropzone_video = new Dropzone("#dzVideo", {
+                url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
+                maxFiles: 20,//50
+                dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
                 dictMaxFilesExceeded: '50 fichiers seulement',
                 acceptedFiles: 'image/*',
                 maxFilesize: 20,  // en Mo
@@ -86,7 +104,7 @@
                         this.removeFile(file);
                     });
                     this.on("sending", function (file, xhr, formData) {
-                        formData.append("commentaire", $.trim($("#exampleFormControlTextarea1").val()));
+                        formData.append("commentaire", $.trim($("#exampleFormControlTextarea2").val()));
                         formData.append("projetId", $.trim($("#projetId").val()));
                     });
                     this.on("success", function (file, response) {
@@ -95,6 +113,15 @@
                             alert('Fichier envoyé: ' + response.fileName);
                     });
                 }
+            });
+
+            $("#envoieFichier").click(function (e) {
+                e.preventDefault();
+                dropzone_default.processQueue();
+            });
+            $("#envoieFichierVideo").click(function (e) {
+                e.preventDefault();
+                dropzone_default.processQueue();
             });
     </script>
 {% endblock javascripts %}
