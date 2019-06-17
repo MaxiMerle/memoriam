@@ -17,6 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Finder\Finder;
+
+use Symfony\Component\HttpFoundation\Session\Session;
 class UploadController extends AbstractController
 {
     /**
@@ -28,24 +31,52 @@ class UploadController extends AbstractController
         // get the file from the request object
         $file = $request->files->get('file');
         $commentaire=$request->get('commentaire');
-        $projet_id=$request->get('projetId');
+        $session = $request->getSession();
+        $projet_id=$session->get(' idProjetClient');//$request->get('projetId');
         $fileName = $file->getClientOriginalName();//$file->guessExtension()
-        $uploadDir = $this->getParameter('kernel.project_dir') . '/../web/uploads/';
+        $uploadDir = $this->getParameter('kernel.project_dir') . '/./public/uploads/'.$projet_id;
         if (!file_exists($uploadDir) && !is_dir($uploadDir)) {
             mkdir($uploadDir, 0775, true);
         }
         if ($file->move($uploadDir, $fileName)) {
             $em = $this->getDoctrine()->getManager();
+            $repository = $this->getDoctrine()->getRepository(ProjetClient::class);
+            $projetClient=$repository->find($projet_id);
             $mediaEntity = new ImageFiles();
             $mediaEntity->setNomFichier($fileName);
             $mediaEntity->setCommentaire($commentaire);
-            //$mediaEntity->setProjet($em->find("ProjetClient"), $projet_id);
+            $mediaEntity->setProjet($projetClient);
             // sauvegarde
             $em->persist($mediaEntity);
-
+            $em->flush();
 //            $output['uploaded'] = true;
 //            $output['fileName'] = $fileName;
         }
-//        return new JsonResponse($output);
+
+        return new JsonResponse($output);
+    }
+    /**
+     * @Route("/filedownloadhandler/{idProjetClient}", name="telecharger")
+     */
+    public function zipDownloadDocumentsAction($idProjetClient)
+    {
+        $files = [];
+        $finder = new  Finder();
+        foreach($finder->in($this->getParameter('kernel.project_dir') . '/public/uploads/'.$idProjetClient) AS $file) {
+            array_push($files, $file->getRealpath());
+        }
+        $zip = new \ZipArchive();
+        $zipName = 'Documents.zip';
+        $zip->open($zipName,  \ZipArchive::CREATE);
+        foreach ($files as $file) {
+            $zip->addFromString(basename($file),  file_get_contents($file));
+        }
+        $zip->close();
+        $response = new Response(file_get_contents($zipName));
+        $response->headers->set('Content-Type', 'application/zip');
+        $response->headers->set('Content-Disposition', 'attachment;filename="' . $zipName . '"');
+        $response->headers->set('Content-length', filesize($zipName));
+        @unlink($zipName);
+        return $response;
     }
 }

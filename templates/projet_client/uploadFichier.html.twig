@@ -27,7 +27,6 @@
         <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
             <div class="form-group">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
-                <input type="hidden" id="projetId" value=""/>
             </div>
         </div>
     </div>
@@ -96,7 +95,7 @@
                 maxFiles: 20,//50
                 dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
                 dictMaxFilesExceeded: '50 fichiers seulement',
-                acceptedFiles: 'image/*',
+                acceptedFiles: 'video/*',
                 maxFilesize: 20,  // en Mo
                 addRemoveLinks: false,
                 init: function () {
@@ -121,7 +120,7 @@
             });
             $("#envoieFichierVideo").click(function (e) {
                 e.preventDefault();
-                dropzone_default.processQueue();
+                dropzone_video.processQueue();
             });
     </script>
 {% endblock javascripts %}

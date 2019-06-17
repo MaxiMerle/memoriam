@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
-
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ProjetClientController extends AbstractController
 {
@@ -51,8 +51,13 @@ class ProjetClientController extends AbstractController
              $entityManager = $this->getDoctrine()->getManager();
              $entityManager->persist($newProjet);
 
+
+
              try{
                  $entityManager->flush();
+                 // on stock en session l'ID du projet
+                 $session = $request->getSession();
+                 $session->set(' idProjetClient', $newProjet->getId());
              }catch( \PDOException $e )
              {
                  if( $e->getCode() === '23000' )

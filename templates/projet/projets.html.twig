@@ -37,7 +37,7 @@
 
                     </div>
                     <div class="col-lg-4 col-sm-12">
-                        <a title="Télécharger" href="{{ path('projetClient_show',{'id' : projet.id }) }}" class=""><button class="btn btn-info"><ion-icon name="cloud-download" size="large" ></ion-icon></button></a>
+                        <a title="Télécharger" href="{{ path('telecharger',{'idProjetClient' : projet.id }) }}" class=""><button class="btn btn-info"><ion-icon name="cloud-download" size="large" ></ion-icon></button></a>
                         <a title="Voir" href="{{ path('projetClient_show',{'id' : projet.id }) }}" class=""><button class="btn btn-dark"><ion-icon name="eye" size="large"></ion-icon></button></a>
                         <a title="Valider" href="{{ path('projetClient_show',{'id' : projet.id }) }}" class=""><button class="btn btn-success"><ion-icon name="checkmark" size="large" ></ion-icon></button></a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"><ion-icon name="trash" size="large"></ion-icon></button>

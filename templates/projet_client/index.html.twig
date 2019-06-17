@@ -179,8 +179,9 @@
                         <div class="col-12 mt-3">
                             <p> Un lieu, un paysage, un pays qui correspondait à votre disparu(e) : </p>
                             {{ form_widget(form.lieuDefunt, {'attr': {'rows': '3' }}) }}
-                        </div>
 
+                        </div>
+                        {{ form_row(form.save) }}
                     </div>
                 </div>
             </div>
@@ -197,7 +198,7 @@
                 </div>
 
                     <p>Nous nous engageons à vous envoyer votre film hommage en 48h après validation du paiement.</p>
-                    {{ form_row(form.save) }}
+
 
 
                 </div>
