@@ -85,20 +85,37 @@ class ProjetClientBerthelotController extends AbstractController
 
     //--------------- FORMULAIRE PROJET BERTHELOT DEJA PAYÉ --------------//
 
+
     /**
      * @Route("/edit-projet/{id}", name="edit-projet")
      * @param ProjetClient $projet
      * @param Request $request
+     * @param \Swift_Mailer $mailer
      * @return Response
      */
 
-    public function editProjet(ProjetClient $projet, Request $request){
+    public function editProjet(ProjetClient $projet, Request $request, \Swift_Mailer $mailer){
 
         $form = $this->createForm(ProjetClientType::class, $projet);
 
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()){
+
+            $message = (new \Swift_Message('Confirmation projet film hommage - In Memoriae'))
+                ->setFrom('contact@in-memoriae.fr')
+                ->setTo($projet->getEmailClient())
+                ->setBody($this->renderView(
+                    'contact/confirmation-admin.html.twig',
+                    array('email' => $projet->getEmailClient() )
+                ),
+                    'text/html' )
+
+            ;
+            $mailer->send($message);
+
 
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -107,6 +124,9 @@ class ProjetClientBerthelotController extends AbstractController
 
             $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance ! ');
 
+            return $this->render('projet_client_berthelot/confirmation-projet.html.twig',[
+                'infos' => $projet
+            ]);
 
         }
         return $this->render('projet_client_berthelot/index-berthelot.html.twig',[
@@ -114,6 +134,8 @@ class ProjetClientBerthelotController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+
 
 
 
@@ -149,57 +171,6 @@ class ProjetClientBerthelotController extends AbstractController
 
 
 
-//
-////--------------- FORMULAIRE PROJET BERTHELOT DEJA PAYÉ --------------//
-//
-//    /**
-//     * @Route("/votre-projet-berthelot", name="nouveau_projet_berthelot")
-//     * @param Request $request
-//     * @param $mailer
-//     * @return RedirectResponse|Response
-//     */
-//    public function index(Request $request, \Swift_Mailer $mailer)
-//    {
-//        // just setup a fresh $task object (remove the dummy data)
-//        $newProjet = new ProjetClient();
-//
-//        $form = $this->createForm(ProjetClientType::class, $newProjet);
-//
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $form->getData();
-//
-//            $newProjet = $form->getData();
-//
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->persist($newProjet);
-//            $entityManager->flush();
-//
-//            $message = (new \Swift_Message('NOUVEAU PROJET'))
-//                ->setFrom('maximerle@gmail.com')
-//                ->setTo('maximerle@gmail.com')
-//                ->setBody('Nouveau projet de ' )
-//            ;
-//
-//            $mailer->send($message);
-//
-//            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance !');
-//
-//            return $this->redirectToRoute('nouveau_projet');
-//        }
-//        elseif ($form->isSubmitted() && $form->isEmpty()){
-//            $this->addFlash('error', 'Votre Projet n\'a pu être enregistré ! Merci de recommencer');
-//            return $this->redirectToRoute('nouveau_projet');
-//
-//        }
-//
-//        return $this->render('projet_client_berthelot/index-berthelot.html.twig', [
-//            'form' => $form->createView(),
-//        ]);
-//    }
-
-
 
     //---------------  AJOUT NOUVEAU CLIENT BERTHELOT --------------//
 
@@ -223,6 +194,8 @@ class ProjetClientBerthelotController extends AbstractController
 
             $newProjetBerthelot = $form->getData();
             $newProjetBerthelot->setCode(random_int(10000,1000000).rand(300,1000));
+
+
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($newProjetBerthelot);

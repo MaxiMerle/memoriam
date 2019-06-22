@@ -33,13 +33,7 @@ class ProjetClientType extends AbstractType
                 'attr' => ['placeholder' => 'Votre email...']
             ])
 
-            ->add('categorie', EntityType::class, [
-                'class' => ProjetClientCategorie::class,
-                'choice_label' => 'name',
-                'placeholder' => 'Choix du pojet :',
-                'label' => 'Choix du projet : '
 
-            ])
             ->add('surnomDefunt', TextType::class, [
                 'attr' => ['placeholder' => 'Dénomination utilisée tout au long du film...']
             ])
