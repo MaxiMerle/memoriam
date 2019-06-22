@@ -62,7 +62,7 @@
   overflow: hidden;
   transform: translateY(-10%);
   letter-spacing: 5px;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Permanent Marker", serif;
 }
 
 .anim-typewriter {
@@ -428,7 +428,7 @@
 }
 .header-ctn .logo-blanc {
   display: block;
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Merriweather", serif !important;
   color: #fff;
   font-size: 30px;
 }
@@ -802,7 +802,7 @@ input.invalid {
 }
 
 .typo {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Reenie Beanie", serif;
   color: #fff;
   font-size: 35px;
 }
@@ -855,11 +855,11 @@ input.invalid {
 }
 
 .test-font6 {
-  font-family: "Rock Salt", cursive;
+  font-family: "Rock Salt", serif;
 }
 
 .test-font7 {
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Reenie Beanie", serif;
 }
 
 body .avis-tablet {
