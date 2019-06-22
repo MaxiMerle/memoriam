@@ -1,5 +1,6 @@
 /* COLORS */
 /* FONTS */
+/* ------------------------------ SECTION HEADER -------------------------------- */
 .header-video {
   position: relative;
   background-color: black;
@@ -40,16 +41,6 @@
   z-index: 1;
 }
 
-@media (pointer: coarse) and (hover: none) {
-  .header-video {
-    background: url("img/background.jpg") black no-repeat center center scroll;
-    background-size: cover;
-  }
-
-  .header-video video {
-    display: none;
-  }
-}
 .line-1 {
   position: relative;
   top: 50%;
@@ -85,64 +76,6 @@
     border-right-color: transparent;
   }
 }
-/* ------------------------------ SECTION HEADER -------------------------------- */
-/*
-
-
-.header{
-  background-image: url("img/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
-  width: 100%;
-  height: 830px;
-  margin: auto;
-  background-color: rgba(48,48,48,.4);
-  background-attachment: fixed;
-
-  video{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-x: center;
-    width: 100%;
-    height: 830px;
-    margin: auto;
-    position: sticky;
-  }
-
-
-
-  a{
-    color: $white;
-  }
-  .home-btn{
-    position: absolute;
-    top: 801px;
-    background-color: rgba(198,68,75,.7);
-    color: $white;
-    padding: 10px 25px;
-    border: none;
-    font-weight: $bold;
-    font-size: 25px;
-    border-radius: 5px;
-    width: 300px;
-    left: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-
-  }
-  h1{
-    font-size: 50px;
-    font-weight: $bold;
-    color: $white;
-    text-align: center;
-  }
-
-}
-*/
 /* ------------------------------ SECTION QUI SOMMES-NOUS -------------------------------- */
 #about {
   margin-top: 50px;
@@ -169,15 +102,6 @@
 }
 
 /* ------------------------------ SECTION PRESENTATION -------------------------------- */
-.img-presentation {
-  background-image: url("img/memories.jpg") !important;
-  width: 100%;
-  height: 100% !important;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-x: center;
-}
-
 .presentation {
   margin-top: 50px;
   padding: 0;
@@ -603,11 +527,6 @@ footer .list a {
   text-align: center;
   padding: 25px;
   font-size: 15px;
-}
-.block-rouge .ligne-blocks .block-gauche {
-  background-image: url("img/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 /* ------------------------------ BLOCK FORMULAIRE -------------------------------- */
