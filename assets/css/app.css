@@ -62,6 +62,7 @@
   overflow: hidden;
   transform: translateY(-10%);
   letter-spacing: 5px;
+  font-family: "Permanent Marker", cursive;
 }
 
 .anim-typewriter {
@@ -870,7 +871,7 @@ body .avis-tablet {
 }
 
 .about .michel {
-  background-image: url("img/michel.jpeg");
+  background-image: url("img/michel2.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 300px;
@@ -879,7 +880,7 @@ body .avis-tablet {
   border-radius: 50%;
 }
 .about .emmanuel {
-  background-image: url("img/emmanuel.jpeg");
+  background-image: url("img/emmanuel.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 300px;

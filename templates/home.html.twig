@@ -14,7 +14,7 @@
         <div class="container h-100">
             <div class="d-flex h-100 text-center align-items-center">
                 <div class="w-100 text-white">
-                    <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter test-font5{% endif %}">In Memoriae</h1>
+                    <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">In Memoriae</h1>
                 </div>
             </div>
         </div>
@@ -24,11 +24,11 @@
     <div class="container-fluid mt-lg-5 p-sm-2  p-lg-5 " id="about">
         <div class="row mt-5 mb-5">
             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-               <div class="proposition mb-3">
-                   <h2>NOTRE PROPOSITION</h2>
-                   <hr>
-                   <p> À partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionnelle </strong> pour votre défunt.</p>
-               </div>
+                <div class="proposition mb-3">
+                    <h2>NOTRE PROPOSITION</h2>
+                    <hr>
+                    <p> À partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionnelle </strong> pour votre défunt.</p>
+                </div>
                 <div class="engagement mt-5 text-center">
                     <h2>NOTRE ENGAGEMENT </h2>
                     <hr>
@@ -118,22 +118,23 @@
                 </video>
                 <br>
             </div>
-        <div class="services">
-            <h5>VOTRE FILM HOMMAGE</h5>
-            <h5>25 photos / 4 vidéos </h5>
-            <p>Un film hommage d'environ 4min </p>
-            <p><strong> 480€ TTC</strong></p>
-            <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
-            <hr>
-            <h5>VOTRE FILM HOMMAGE GRAND FORMAT</h5>
-            <h5> 30 photos / 5 vidéos</h5>
-            <p>Un film hommage d'environ 6min </p>
-            <p><strong>590€ TTC</strong></p>
-            <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
-            <hr>
-            <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
-                <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
-            </p>        </div>
+            <div class="services">
+                <h5>VOTRE FILM HOMMAGE</h5>
+                <h5>20 photos / 4 vidéos </h5>
+                <p>Un film hommage d'environ 4min </p>
+                <p><strong> 480€ TTC</strong></p>
+                <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                <hr>
+                <h5>VOTRE FILM HOMMAGE GRAND FORMAT</h5>
+                <h5> 30 photos / 5 vidéos</h5>
+                <p>Un film hommage entre 5 et 6 minutes </p>
+                <p><strong>590€ TTC</strong></p>
+                <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                <hr>
+                <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisé, sans limitation de contenu ou de durée et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
+                    <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
+                </p>
+            </div>
             {# ------------------------ TABLET ------------------#}
         {% elseif is_tablet() %}
             <div class="video-service">
@@ -144,20 +145,21 @@
             </div>
             <div class="services text-center">
                 <h5>VOTRE FILM HOMMAGE</h5>
-                <h5 class="">25 photos et 4 vidéos </h5>
+                <h5 class="">20 photos et 4 vidéos </h5>
                 <p>Un film hommage d'environ 4min </p>
                 <p><strong>480€</strong></p>
-                <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                <a class="btn btn-outline-dark text-center" href="{#{{ path('nouveau_projet') }}#}">COMMENCER</a>
                 <hr>
                 <h5>VOTRE FILM HOMMAGE GRAND FORMAT</h5>
                 <h5> 30 photos / 5 vidéos</h5>
-                <p>Un film hommage d'environ 6min</p>
+                <p>Un film hommage entre 5 et 6 minutes</p>
                 <p><strong>590€ TTC</strong></p>
                 <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
                 <hr>
-                <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
+                <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisé, sans limitation de contenu ou de durée et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
                     <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
-                </p>            </div>
+                </p>
+            </div>
 
             {# ------------------------ DESKTOP ------------------#}
         {% else %}
@@ -173,11 +175,11 @@
                             </div>
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                 <div class="card-body">
-                                    <h5 class="text-center">Jusqu'à <strong>30 photos et 5 vidéos</strong>  (vidéos souvenirs ou témoignages vidéos)</h5>
-                                    <p class="text-center">Un film hommage d'environ 5min </p>
+                                    <h5 class="text-center"><strong>20 photos et 4 vidéos</strong></h5>
+                                    <p class="text-center">Un film hommage d'environ 4 minutes </p>
                                     <h6><strong>480€ TTC</strong></h6>
                                     <div class="col-12 text-center mt-2 mb-2">
-                                        <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                                        <a class="btn btn-outline-dark text-center" href="{#{{ path('nouveau_projet') }}#}">COMMENCER</a>
                                     </div>
                                 </div>
                             </div>
@@ -191,14 +193,14 @@
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                 <div class="card-body">
-                                    <h5 class="text-center">Jusqu'à <strong>50 photos et 8 vidéos</strong>  (vidéos souvenirs ou témoignages vidéos)</h5>
-                                    <p class="text-center">Un film hommage d'environ 8min </p>
-                                    <p><strong> 600€ TTC</strong></p>
+                                    <h5 class="text-center"><strong>30 photos et 5 vidéos</strong></h5>
+                                    <p class="text-center">Un film hommage entre 5 et 6 minutes </p>
+                                    <p><strong> 590€ TTC</strong></p>
                                     <div class="col-12 text-center mt-2 mb-2">
-                                        <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                                        <a class="btn btn-outline-dark text-center" href="{#{{ path('nouveau_projet') }}#}">COMMENCER</a>
                                     </div>
                                     <hr class="mt-2">
-                                    <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
+                                    <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisé, sans limitation de contenu ou de durée et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
                                         <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
                                     </p>
                                 </div>
@@ -214,7 +216,7 @@
                 </div>
             </div>
 
-    {% endif %}
+        {% endif %}
     </section>
     {#
     <section class="fonctionnement" id="fonctionnement">
@@ -276,19 +278,19 @@
         <h2>LES FAMILLES EN PARLENT</h2>
         <div class="row blocks-avis">
             <div class=" block-avis">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae dolores ea enim, facilis fuga...</p>
-                <h4 class="nom">Jeanne durand</h4>
+                <p>Ça nous a fait pleurer ! De joie bien sur ! C'est tellement beau et émouvant ! Difficile à décrire ! Magnifique ! Merci Merci Merci !!! Je n'en reviens pas ! C'est irréel ! </p>
+                <h4 class="nom">Séverine Billon</h4>
+                <h6>21/06/2019</h6>
+            </div>
+            <div class=" block-avis">
+                <p>Avec mes sœurs nous avons revu toutes les photos de Papa… Nous les avons commentées, choisies… Les anecdotes, les souvenirs sont revenus. Ça a été un grand moment de communion. Et quelle émotion maintenant de revoir le film...</p>
+                <h4 class="nom">Alain P.</h4>
                 <h6>24/04/2019</h6>
             </div>
             <div class=" block-avis">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae dolores ea enim, facilis fuga...</p>
-                <h4 class="nom">Jeanne durand</h4>
-                <h6>24/04/2019</h6>
-            </div>
-            <div class=" block-avis">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At beatae dolores ea enim, facilis fuga...</p>
-                <h4 class="nom">Jeanne durand</h4>
-                <h6>24/04/2019</h6>
+                <p>Mes enfants ont insisté pour faire le film hommage. C’est eux qui ont filmé mon témoignage avec un smartphone. Comme ils ont eu raison. On le regarde souvent ensemble...</p>
+                <h4 class="nom">Hélène C</h4>
+                <h6>02/05/2019</h6>
             </div>
         </div>
     </section>

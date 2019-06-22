@@ -63,12 +63,13 @@
   overflow: hidden;
   transform: translateY(-10%);
   letter-spacing: 5px;
+  font-family: $font5;
 }
 
- .anim-typewriter{
-   animation: typewriter 2s steps(20) 1s 1 normal both,
-   blinkTextCursor 700ms steps(20) infinite normal;
- }
+.anim-typewriter{
+  animation: typewriter 2s steps(20) 1s 1 normal both,
+  blinkTextCursor 700ms steps(20) infinite normal;
+}
 @keyframes typewriter{
   from{width: 0;}
   to{width: 7em;}
@@ -197,12 +198,12 @@
     text-align: center;
 
   }
-   .circle {
+  .circle {
 
-     padding: 8px;
-     background: #fff;
-     color: #666;
-     text-align: center;
+    padding: 8px;
+    background: #fff;
+    color: #666;
+    text-align: center;
     border: 3px solid $white;
   }
   hr{
