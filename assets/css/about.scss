@@ -1,10 +1,21 @@
 .about{
-  .profile{
-    background: url("img/profile.png") no-repeat;
+  .michel{
+    background-image: url("img/michel.jpeg");
+    background-repeat: no-repeat;
     background-size: contain;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 220px;
     margin: 0 auto;
+    border-radius: 50%;
+  }
+  .emmanuel{
+    background-image: url("img/emmanuel.jpeg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 300px;
+    height: 220px;
+    margin: 0 auto;
+    border-radius: 50%;
   }
   .text{
     padding: 20px 150px;
@@ -13,5 +24,10 @@
   hr{
     width: 20%;
     color: $red;
+  }
+  .intro-about{
+    font-size: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

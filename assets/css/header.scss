@@ -1,3 +1,6 @@
+
+
+
 .header-home {
   z-index: 11;
   position: fixed;
@@ -23,14 +26,9 @@
 
   .logo-blanc {
     display: block;
-    //background-image: url("img/logo-blanc.png");
-    //background-repeat: no-repeat;
-    //background-size: 40px;
-    //width: 100px;
-    //height: 50px;
-    font-family: $font7;
+    font-family: $font1!important;
     color: $white;
-    font-size: 35px;
+    font-size: 30px;
     &:hover{
       text-decoration: none;
     }
@@ -72,7 +70,6 @@
   box-shadow: 0 0 23px 0 $black;
   .header-ctn{
     .logo-vert {
-      //background-image: url("img/logo-vert.png");
       color: $black;
     }
     li{
@@ -92,12 +89,6 @@
 
 }
 
-
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-  /* Styles pour cette Media Queries */
-
-
-}
 
 .navbar-tablet{
   background: $grey;

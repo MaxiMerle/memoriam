@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block seoTitle %}{% spaceless %}In Memoriae{% endspaceless %}{% endblock %}
 
-{% block javascripts %}{{ parent() }}{{ encore_entry_script_tags('navbar') }}{% endblock %}
+{% block javascripts %}{{ parent() }}{{ encore_entry_script_tags('navbar') }}
+{% endblock %}
 {% block body %}
 
     {# ------------------------ HEADER ------------------#}
     <div class="header header-video mb-5">
         <div class="overlay"></div>
         <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-            <source src="{{ asset('images/video-header.mp4') }}" type="video/mp4">
+            <source src="{{ asset('images/video-bg-memoriam.mp4') }}" type="video/mp4">
         </video>
         <div class="container h-100">
             <div class="d-flex h-100 text-center align-items-center">
                 <div class="w-100 text-white">
-                    <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">IN MEMORIAE</h1>
+                    <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter test-font5{% endif %}">In Memoriae</h1>
                 </div>
             </div>
         </div>
@@ -101,7 +102,7 @@
             </div>
             <div class="row">
                 <br>
-                <p class="col-12 text-center ">Vous recevez votre film hommage <strong>en 48h maximum</strong> par internet.</p>
+                <p class="col-12 text-center ">Vous recevez votre film hommage <strong>sous 48h maximum</strong> par courriel.</p>
             </div>
         </div>
     </section>
@@ -119,19 +120,20 @@
             </div>
         <div class="services">
             <h5>VOTRE FILM HOMMAGE</h5>
-            <h5>30 photos / 5 vidéos </h5>
-            <p>Un film hommage d'environ 5min </p>
+            <h5>25 photos / 4 vidéos </h5>
+            <p>Un film hommage d'environ 4min </p>
             <p><strong> 480€ TTC</strong></p>
             <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
             <hr>
             <h5>VOTRE FILM HOMMAGE GRAND FORMAT</h5>
-            <h5> 50 photos / 7 vidéos</h5>
-            <p>Un film hommage d'environ 8min </p>
-            <p><strong>600€ TTC</strong></p>
+            <h5> 30 photos / 5 vidéos</h5>
+            <p>Un film hommage d'environ 6min </p>
+            <p><strong>590€ TTC</strong></p>
             <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
             <hr>
-            <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i>
-        </div>
+            <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
+                <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
+            </p>        </div>
             {# ------------------------ TABLET ------------------#}
         {% elseif is_tablet() %}
             <div class="video-service">
@@ -140,22 +142,22 @@
                 </video>
                 <br>
             </div>
-            <div class="services">
+            <div class="services text-center">
                 <h5>VOTRE FILM HOMMAGE</h5>
-                <h5 class="">Jusqu'à <strong>30 photos et 5 vidéos</strong> (vidéos souvenirs ou témoignages vidéos)</h5>
-                <h5>50 photos / 7 vidéos</h5>
-                <p>Un film hommage d'environ 5min </p>
+                <h5 class="">25 photos et 4 vidéos </h5>
+                <p>Un film hommage d'environ 4min </p>
                 <p><strong>480€</strong></p>
                 <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
                 <hr>
                 <h5>VOTRE FILM HOMMAGE GRAND FORMAT</h5>
-                <h5 class="">Jusqu'à <strong>50 photos et 8 vidéos</strong> (vidéos souvenirs ou témoignages vidéos)</h5>
-                <p>Un film hommage d'environ 8min</p>
-                <p><strong>600€ TTC</strong></p>
+                <h5> 30 photos / 5 vidéos</h5>
+                <p>Un film hommage d'environ 6min</p>
+                <p><strong>590€ TTC</strong></p>
                 <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
                 <hr>
-                <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i>
-            </div>
+                <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisable, sans limitation de fichiers et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
+                    <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
+                </p>            </div>
 
             {# ------------------------ DESKTOP ------------------#}
         {% else %}
@@ -207,7 +209,7 @@
                 </div>
                 <div class="video-service ml-1">
                     <video class="embed-responsive embed-responsive-16by9" controls>
-                        <source class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MANU_V4.mp4') }}">
+                        <source class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MR_BILLON.mp4') }}">
                     </video>
                 </div>
             </div>

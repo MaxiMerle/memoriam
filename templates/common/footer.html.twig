@@ -1,32 +1,27 @@
-
-
 {% if is_mobile() == true and is_tablet() == false %}
     <footer>
         <div class="container">
             <br>
             <div class="row row-mobile">
-
                 <div class=" col-sm-12 ">
                         <a href="{{ path('home') }}">IN MEMORIAE</a>
-                    <a href="{{ path('home') }}#service">QUI SOMMES-NOUS ?</a>
+                    <a href="{{ path('qui-sommes-nous') }}#service">QUI SOMMES-NOUS ?</a>
                         <a href="{{ path('home') }}#service">NOTRE SERVICE</a>
                         <a href="{{ path('contact') }}">CONTACTS</a>
                 </div>
                 <div class=" col-sm-12 text-center mt-4 mb-4 list">
 
                     <p>NOS PARTENAIRES :</p>
+                    <a href="{{ path('berthelot') }}">NOUVEAU CLIENT ?</a><br>
                     <a href="http://www.pfmberthelot.fr/"><img class="text-center" src="{{ asset('build/images/logo-vert.5ad98afe.png') }}" alt=""></a>
-
                 </div>
                 <div class=" col-sm-12 ">
-
                         <a href="{{ path('home') }}">MEORIAM</a>
                         <a href="{{ path('contact') }}">010203040506</a>
                         <a href="{{ path('contact') }}">memoriam@mail.fr</a>
                 </div>
             </div>
             <div class="row row-mobile">
-
                 <div class="col-12">
                     <hr>
                         <a href="#">MAXIME MERLE © 2019  </a><br>
@@ -55,8 +50,9 @@
                         </ul>
                     </div>
                     <div class="col-lg-4 col-sm-12 list text-center list">
-                        <p href="">NOS PARTENAIRES :</p><br>
-                        <a href="http://www.pfmberthelot.fr/"><img src="{{ asset('build/images/logo-vert.5ad98afe.png') }}" alt=""></a>
+                        <p href="">NOS PARTENAIRES :</p>
+
+                        <a href="{{ path('berthelot') }}"><img src="{{ asset('build/images/logo-vert.5ad98afe.png') }}" alt=""></a>
                     </div>
                     <div class="col-lg-4 col-sm-12 list">
                         <ul>

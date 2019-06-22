@@ -10,7 +10,9 @@
     <section class="title">
         <h1>PROJET DE : {{ projet.prenomClient }} {{ projet.nomClient }}</h1>
         <hr>
+        {% if projet.categorie is not null %}
         <h2>Forfait selectionné : {{ projet.categorie.name }} </h2>
+        {% endif %}
     </section>
   <section>
       <div class="container section-client">
@@ -76,6 +78,8 @@
             <div>
 
                 <h2>Images : </h2>
+
+
 
             </div>
 

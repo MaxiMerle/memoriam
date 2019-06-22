@@ -19,6 +19,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+
+
 class ProjetClientController extends AbstractController
 {
     /**
@@ -32,12 +34,11 @@ class ProjetClientController extends AbstractController
         // just setup a fresh $task object (remove the dummy data)
         $newProjet = new ProjetClient();
 
-
         $form = $this->createForm(ProjetClientType::class, $newProjet);
 
 
-
         $form->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $form->getData();
@@ -50,8 +51,6 @@ class ProjetClientController extends AbstractController
             // for example, if Task is a Doctrine entity, save it!
              $entityManager = $this->getDoctrine()->getManager();
              $entityManager->persist($newProjet);
-
-
 
              try{
                  $entityManager->flush();

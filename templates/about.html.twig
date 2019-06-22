@@ -23,37 +23,38 @@
 
     </section>
 
-    <section class="about">
-        <div class="row mt-5 m-lg-5 m-sm-2">
+    <div class="about">
+        <div class="row mt-5 m-lg-5 m-sm-2 text-center">
             <div class="col-lg-6 col-sm-12">
-                <p> À partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionnelle </strong> pour votre défunt.</p>
+                <p class="intro-about"> À partir de vos photos / vidéos souvenirs et, si vous le souhaitez, vos témoignages videos, nous réalisons un <strong>film hommage de qualité professionnelle </strong> pour votre défunt.</p>
             </div>
             <div class="col-lg-6 col-sm-12">
-                <p>Votre film hommage disponible en <strong>48h maximum</strong>, pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux.</p>
+                <p class="intro-about">Votre film hommage disponible en <strong>48h maximum</strong>, pour la cérémonie, les proches, tous ceux qui n'ont pas pu se déplacer, les sites mémoriels ou les réseaux sociaux.</p>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-lg-6 col-sm-12 mt-0 mt-sm-5">
-                <div class="profile text-center">
 
+        </div>
+        <hr>
+        <div class="row mt-5">
+            <div class="col-lg-6 col-sm-12 text-sm-center mt-0 mt-sm-5">
+                <div class="michel text-center">
+                    <img class="" src="" alt="">
                 </div>
                 <div class="{% if is_mobile() == true  and is_tablet() == false %}  {% elseif is_tablet() %}  {% else %} text{% endif %}">
-                    <h3>Michel Floquet</h3>
+                    <h3>MICHEL FLOQUET</h3>
                     <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at beatae culpa odio officiis, possimus provident repellat reprehenderit saepe sit. Consectetur ea earum eligendi error in, mollitia reiciendis repellendus reprehenderit.</p>
+                    <p>35 années d’expérience de télévision à TF1 comme grand reporter, rédacteur en chef du journal de 20h, correspondant aux Etas-Unis.</p>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12 text-sm-center mt-0 mt-sm-5">
-                <div class="profile text-center">
-
+                <div class="emmanuel text-center">
+                    <img class="" src="" alt="">
                 </div>
                 <div class="{% if is_mobile() == true  and is_tablet() == false %}  {% elseif is_tablet() %}  {% else %} text{% endif %}">
-                    <h3>Emmanuel Ostian</h3>
+                    <h3>EMMANUEL OSTIAN</h3>
                     <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at beatae culpa odio officiis, possimus provident repellat reprehenderit saepe sit. Consectetur ea earum eligendi error in, mollitia reiciendis repellendus reprehenderit.</p>
-                </div>
+                    <p>25 ans d’expérience de grand reporter à TF1 et France 2, puis de rédacteur en chef pour Canal + et Arte. Depuis quelques années, producteur de documentaires et présentateur sur les chaines d’information en continu. </p>                </div>
             </div>
         </div>
-    </section>
+    </div>
 
 {% endblock %}

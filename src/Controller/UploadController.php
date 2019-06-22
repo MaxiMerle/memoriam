@@ -18,7 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Finder\Finder;
-
 use Symfony\Component\HttpFoundation\Session\Session;
 class UploadController extends AbstractController
 {
@@ -28,12 +27,22 @@ class UploadController extends AbstractController
     public function fileUploadHandler(Request $request)
     {
         $output = array('uploaded' => false);
+
+
         // get the file from the request object
         $file = $request->files->get('file');
         $commentaire=$request->get('commentaire');
         $session = $request->getSession();
-        $projet_id=$session->get(' idProjetClient');//$request->get('projetId');
-        $fileName = $file->getClientOriginalName();//$file->guessExtension()
+        $projet_id=$session->get(' idProjetClient');
+
+        if(empty($file)) {
+            $output['uploaded'] = false;
+            return new JsonResponse($output);
+        }
+        $request->get('projetId');
+
+        $fileName = $file->getClientOriginalName();
+        $file->guessExtension();
         $uploadDir = $this->getParameter('kernel.project_dir') . '/./public/uploads/'.$projet_id;
         if (!file_exists($uploadDir) && !is_dir($uploadDir)) {
             mkdir($uploadDir, 0775, true);
@@ -49,12 +58,15 @@ class UploadController extends AbstractController
             // sauvegarde
             $em->persist($mediaEntity);
             $em->flush();
-//            $output['uploaded'] = true;
-//            $output['fileName'] = $fileName;
+
+
+            $output['uploaded'] = true;
+            $output['fileName'] = $fileName;
         }
 
         return new JsonResponse($output);
     }
+
     /**
      * @Route("/filedownloadhandler/{idProjetClient}", name="telecharger")
      */
@@ -66,7 +78,7 @@ class UploadController extends AbstractController
             array_push($files, $file->getRealpath());
         }
         $zip = new \ZipArchive();
-        $zipName = 'Documents.zip';
+        $zipName = 'Projet_Client_'.$idProjetClient.'.zip';
         $zip->open($zipName,  \ZipArchive::CREATE);
         foreach ($files as $file) {
             $zip->addFromString(basename($file),  file_get_contents($file));

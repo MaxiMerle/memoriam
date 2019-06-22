@@ -56,7 +56,7 @@
   width: 60px;
   margin: 0 auto;
   border-right: 2px solid rgba(198, 68, 75, 0.75);
-  font-size: 50px;
+  font-size: 100px;
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -73,7 +73,7 @@
     width: 0;
   }
   to {
-    width: 8em;
+    width: 7em;
   }
 }
 @keyframes blinkTextCursor {
@@ -427,9 +427,9 @@
 }
 .header-ctn .logo-blanc {
   display: block;
-  font-family: "Reenie Beanie", cursive;
+  font-family: "Montserrat", sans-serif !important;
   color: #fff;
-  font-size: 35px;
+  font-size: 30px;
 }
 .header-ctn .logo-blanc:hover {
   text-decoration: none;
@@ -482,9 +482,6 @@
   background-color: #303030;
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* Styles pour cette Media Queries */
-}
 .navbar-tablet {
   background: #f2f2f2;
   transition: 0.3s all;
@@ -803,6 +800,12 @@ input.invalid {
   padding-left: 2.25rem !important;
 }
 
+.typo {
+  font-family: "Reenie Beanie", cursive;
+  color: #fff;
+  font-size: 35px;
+}
+
 .map {
   padding: 0 !important;
 }
@@ -834,6 +837,30 @@ input.invalid {
   margin-top: 15px;
 }
 
+.test-font {
+  font-family: "Montserrat", sans-serif;
+}
+
+.test-font2 {
+  font-family: "Just Another Hand", cursive;
+}
+
+.test-font3 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.test-font5 {
+  font-family: "Roboto", sans-serif;
+}
+
+.test-font6 {
+  font-family: "Rock Salt", cursive;
+}
+
+.test-font7 {
+  font-family: "Reenie Beanie", cursive;
+}
+
 body .avis-tablet {
   background: #0F9E5E;
 }
@@ -842,12 +869,23 @@ body .avis-tablet {
   margin-top: 40% !important;
 }
 
-.about .profile {
-  background: url("img/profile.png") no-repeat;
+.about .michel {
+  background-image: url("img/michel.jpeg");
+  background-repeat: no-repeat;
   background-size: contain;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 220px;
   margin: 0 auto;
+  border-radius: 50%;
+}
+.about .emmanuel {
+  background-image: url("img/emmanuel.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 220px;
+  margin: 0 auto;
+  border-radius: 50%;
 }
 .about .text {
   padding: 20px 150px;
@@ -856,6 +894,11 @@ body .avis-tablet {
 .about hr {
   width: 20%;
   color: #434343;
+}
+.about .intro-about {
+  font-size: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 html {

@@ -14,10 +14,10 @@
         <h2 class="col-12" id="display-title">Choisissez les photos/videos de vote film hommage, la 1ère l'ouvrira</h2>
 
         <div class="col-lg-6 col-sm-12">
-            <div action="/file-upload" class="dropzone">
+            <div action="/file-upload" class="dropzone demo-droppable">
                 <div class="fallback">
-                    <div class="demo-droppable">
-                        <ion-icon name="cloud-upload"></ion-icon>
+                    <div class="">
+                        <ion-icon name="cloud-upload">w</ion-icon>
                         <p>Glissez-déposez un fichier ou cliquez pour rechercher un fichier </p>
                     </div>
                     <div class="output"></div>
@@ -27,18 +27,13 @@
         <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
             <div class="form-group">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
+{#                <input type="hidden" id="projetId" value=""/>#}
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 mb-5">
-            <hr>
-            <p>Nos films hommages sont accompagnés par : ...</p>
-            <pr>Si vous souhaitez un autre fond musical choisissez dans cette liste.</pr>
-            {{ form_widget(form.musiques) }}
-        </div>
-    </div>
-    <button type="button" class="btn btn-block btn-primary"  id="envoieFichier">Envoyer les fichiers</button>
+
+    <button type="button" class="btn btn-block btn-primary mt-5"  id="envoieFichier">Ajouter une autre image</button>
+    <br>
     {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
 </div>
 
@@ -50,7 +45,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-sm-12">
-            <div action="/file-upload" class="dropzone" id="dzVideo">
+            <div action="/file-upload" class="dropzone demo-droppable" id="dzVideo">
                 <div class="fallback">
                     <div class="demo-droppable">
                         <ion-icon name="cloud-upload"></ion-icon>
@@ -62,11 +57,12 @@
         </div>
         <div class="col-lg-6 col-sm-12 mt-sm-5 mt-lg-0">
             <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea2" rows="9.5" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea2" rows="9" placeholder="Ajoutez une courte description du fichier téléchargé..." ></textarea>
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-block btn-primary"  id="envoieFichierVideo">Envoyer les videos</button>
+    <button type="button" class="btn btn-block btn-primary mt-5"  id="envoieFichierVideo">Ajouter une autre vidéo</button>
+    <br>
     {# <input type="submit" class="btn btn-block btn-primary" value="Ajouter un fichier" />#}
 </div>
 {% endblock body %}
@@ -75,7 +71,7 @@
             Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
                 var dropzone_default = new Dropzone(".dropzone", {
                     url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
-                    maxFiles: 20,   dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
+                    maxFiles: 30,   dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
                     dictMaxFilesExceeded: '50 fichiers seulement',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: false,
                     init: function () {
                         this.on("maxfilesexceeded", function (file) {    this.removeFile(file);});
@@ -96,7 +92,7 @@
                 dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
                 dictMaxFilesExceeded: '50 fichiers seulement',
                 acceptedFiles: 'video/*',
-                maxFilesize: 20,  // en Mo
+                maxFilesize: 50,  // en Mo
                 addRemoveLinks: false,
                 init: function () {
                     this.on("maxfilesexceeded", function (file) {

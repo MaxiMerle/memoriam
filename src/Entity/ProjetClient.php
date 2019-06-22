@@ -28,12 +28,12 @@ class ProjetClient
     private $nomClient;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $prenomClient;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true, unique=true)
      *     message = "The email '{{ value }}' is not a valid email.",
      *     checkMX = true
      */
@@ -51,12 +51,12 @@ class ProjetClient
     private $categorie;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nomDefunt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $prenomDefunt;
 
@@ -76,7 +76,7 @@ class ProjetClient
     private $DescriptionDefunt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $surnomDefunt;
 
@@ -86,7 +86,7 @@ class ProjetClient
     private $gender;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $motFin;
 
@@ -96,42 +96,43 @@ class ProjetClient
     private $deviseDefunt;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $momentDefunt1;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $momentDefunt2;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $momentDefunt3;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $passionDefunt1;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $passionDefunt2;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $passionDefunt3;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $musiques;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\ProjetClientQualite", inversedBy="projetClient")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $qualite;
 
@@ -146,14 +147,19 @@ class ProjetClient
     private $qualite1;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $qualite2;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $qualite3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $code;
 
     public function __construct()
     {
@@ -496,6 +502,18 @@ class ProjetClient
     public function setQualite3(string $qualite3): self
     {
         $this->qualite3 = $qualite3;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }

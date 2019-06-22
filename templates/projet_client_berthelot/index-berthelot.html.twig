@@ -13,7 +13,7 @@
 
     <section class="title">
         {% include 'common/flash_messages.html.twig' %}
-        <h1>VOTRE PROJET</h1>
+        <h1>VOTRE PROJET BERTHELOT</h1>
         <hr>
         <h2>Votre film hommage commence ici</h2>
     </section>
@@ -43,172 +43,201 @@
         {% if not form.vars.valid %}
             <p>{{ form_errors(form) }}</p>
         {% endif %}
-            {# ------------------------ INFORMATIONS PERSONELLES ------------------#}
-            <div class="tab">
-                <h2>Vos informations personnelles : </h2>
-                <div class="progress mb-5">
-                    <div class="mb-5"><br><br></div>
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">20%</div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-6 mt-3">
-                            {{ form_widget(form.prenomClient) }}
-                        </div>
-                        <div class="col-6 mt-3">
-                            {{ form_widget(form.nomClient) }}
-                        </div>
-                        <div class="col-12 mt-3">
-                            {{ form_widget(form.emailClient) }}
-                        </div>
-                        <div class="col-12 mt-3">
-                            {{ form_widget(form.categorie) }}
-                        </div>
+        {# ------------------------ INFORMATIONS PERSONELLES ------------------#}
+        <div class="tab">
+            <h2>Vos informations personnelles : </h2>
+            <div class="progress mb-5">
+                <div class="mb-5"><br><br></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">20%</div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6 mt-3">
+                        {{ form_widget(form.prenomClient) }}
+                    </div>
+                    <div class="col-6 mt-3">
+                        {{ form_widget(form.nomClient) }}
+                    </div>
+                    <div class="col-12 mt-3">
+                        {{ form_widget(form.emailClient) }}
+                    </div>
+                    <div class="col-12 mt-3">
+                        {{ form_widget(form.categorie) }}
                     </div>
                 </div>
             </div>
+        </div>
 
 
-            {# ------------------------  DEFUNT ------------------#}
-            <div class="tab">
-                <h2>Les informations du défunt :  </h2>
-                <div class="progress mb-5">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
-                </div>
-                <div class="form-group">
-                    {# ------------------------ INFORMATIONS  ------------------#}
-                    <div class="row">
-                        <div class="col-6 mt-3">
-                            {{ form_widget(form.prenomDefunt) }}
-                        </div>
-                        <div class="col-6 mt-3">
-                            {{ form_widget(form.nomDefunt) }}
-                        </div>
-                        <div class="col-6 mt-3">
-                            {{ form_widget(form.dateNaissanceDefunt) }}
-                        </div>
-                        <div class="col-6 mt-3">
-                            {{ form_widget(form.dateMortDefunt) }}
-                        </div>
-                        <div class="col-12 mt-3 genre">
-                            {{ form_widget(form.gender) }}
-                        </div>
-                        {# ------------------------ SURNOM  ------------------#}
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p>Comment souhaitez-vous que nous appelions votre cher (chère) disparu(e) dans le film :</p>
-                            <p style="font-size: 13px"><i>Par exemple : <strong>Evelyne</strong> est née à Montluçon - <strong>Evelyne Bertrand</strong> est née à Montluçon - <strong>Mamie Lyne</strong> est née à Montluçon </i></p>
-                            {{ form_widget(form.surnomDefunt) }}
-                        </div>
-                        {# ------------------------ QUALITES ------------------#}
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p>3 qualités qui le (la) carratérisent  :</p>
-                        </div>
-                        <div class="col-4">
-                            <p>{{ form_widget(form.qualite) }}</p>
-                        </div>
-                        <div class="col-4">
-                            <select class="custom-select">
-                                <option selected>Choix 2</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <select class="custom-select">
-                                <option selected>Choix 3</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        {# ------------------------ MOMENTS VIE ------------------#}
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p>3 grands moments de sa vie  :</p>
-                            <p style="font-size: 13px"><i>Par exemple : Son mariage, la naissance d'un enfant, un succès professionnel ou sportif</i></p>
-                        </div>
-                        <div class="col-4">
-                            {{ form_widget(form.momentDefunt1) }}
-                        </div>
-                        <div class="col-4">
-                            {{ form_widget(form.momentDefunt2) }}
-                        </div>
-                        <div class="col-4">
-                            {{ form_widget(form.momentDefunt3) }}
-                        </div>
-                        {# ------------------------ PASSIONS ------------------#}
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p>Ses passions ou hobbies :</p>
-                        </div>
-                        <div class="col-4">
-                            {{ form_widget(form.passionDefunt1) }}
-                        </div>
-                        <div class="col-4">
-                            {{ form_widget(form.passionDefunt2) }}
-                        </div>
-                        <div class="col-4">
-                            {{ form_widget(form.passionDefunt3) }}
-                        </div>
-                        {# ------------------------ CE QU'ON RETIENDRA ------------------#}
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p>Ce que chacun rediendra de lui (en une phrase) :</p>
-                            {{ form_widget(form.descriptionDefunt, {'attr': {'rows': '2' }}) }}
-                        </div>
-                        {# ------------------------ MOT DE LA FIN ------------------#}
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p>Votre Épitaphe : </p>
-                            {{ form_widget(form.motFin, {'attr': {'rows': '3' }}) }}
-                        </div>
-                        {# ------------------------ FACULTATIFS ------------------#}
-                        <div class="col-12 mt-3">
-                            <hr>
-                            <p><strong class="">FACULTATIF</strong> <br> Une devise, un poème, un artiste, un auteur, une association ou une chanson qui correspondait à votre disparu(e) : </p>
-                            {{ form_widget(form.deviseDefunt, {'attr': {'rows': '3' }}) }}
-                        </div>
-                        <div class="col-12 mt-3">
-                            <p> Un lieu, un paysage, un pays qui correspondait à votre disparu(e) : </p>
-                            {{ form_widget(form.lieuDefunt, {'attr': {'rows': '3' }}) }}
-                        </div>
+        {# ------------------------  DEFUNT ------------------#}
+        <div class="tab">
+            <h2>Les informations du défunt :  </h2>
+            <div class="progress mb-5">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
+            </div>
+            <div class="form-group">
+                {# ------------------------ INFORMATIONS  ------------------#}
+                <div class="row">
+                    <div class="col-6 mt-3">
+                        {{ form_widget(form.prenomDefunt) }}
+                    </div>
+                    <div class="col-6 mt-3">
+                        {{ form_widget(form.nomDefunt) }}
+                    </div>
+                    <div class="col-6 mt-3">
+                        {{ form_widget(form.dateNaissanceDefunt) }}
+                    </div>
+                    <div class="col-6 mt-3">
+                        {{ form_widget(form.dateMortDefunt) }}
+                    </div>
+                    <div class="col-12 mt-3 genre">
+                        {{ form_widget(form.gender) }}
+                    </div>
+                    {# ------------------------ SURNOM  ------------------#}
+                    <div class="col-12 mt-3">
+                        <hr>
+                        <p>Comment souhaitez-vous que nous appelions votre cher (chère) disparu(e) dans le film :</p>
+                        <p style="font-size: 13px"><i>Par exemple : <strong>Evelyne</strong> est née à Montluçon - <strong>Evelyne Bertrand</strong> est née à Montluçon - <strong>Mamie Lyne</strong> est née à Montluçon </i></p>
+                        {{ form_widget(form.surnomDefunt) }}
+                    </div>
+                    {# ------------------------ QUALITES ------------------#}
+                    <div class="col-12 mt-3">
+                        <hr>
+                        <p>3 qualités qui le (la) carratérisent  :</p>
+                    </div>
+
+                    <div class="col-4">
+                        <p>{{ form_widget(form.qualite1, {'attr': {'list': 'browsers'}}) }}</p>
+                        <datalist id="browsers" class="dropdown-toggle">
+                            <option value="Générosité">
+                            <option value="Attentif aux autres">
+                            <option value="Patience">
+                            <option value="Fidelité">
+                            <option value="Sympathie ">
+                            <option value="Humour">
+                            <option value="Gentillesse">
+                            <option value="Disponibilité">
+                            <option value="Empathie">
+                            <option value="Bon vivant">
+                            <option value="Gaieté">
+                        </datalist>
+                    </div>
+                    <div class="col-4">
+                        <p>{{ form_widget(form.qualite2, {'attr': {'list': 'browsers'}}) }}</p>
 
                     </div>
+                    <div class="col-4">
+                        <p>{{ form_widget(form.qualite3, {'attr': {'list': 'browsers'}}) }}</p>
+                    </div>
+                    {# ------------------------ MOMENTS VIE ------------------#}
+                    <div class="col-12 mt-3">
+                        <hr>
+                        <p>3 grands moments de sa vie  :</p>
+                        <p style="font-size: 13px"><i>Par exemple : Son mariage, la naissance d'un enfant, un succès professionnel ou sportif</i></p>
+                    </div>
+                    <div class="col-4">
+                        {{ form_widget(form.momentDefunt1) }}
+                    </div>
+                    <div class="col-4">
+                        {{ form_widget(form.momentDefunt2) }}
+                    </div>
+                    <div class="col-4">
+                        {{ form_widget(form.momentDefunt3) }}
+                    </div>
+                    {# ------------------------ PASSIONS ------------------#}
+                    <div class="col-12 mt-3">
+                        <hr>
+                        <p>Ses passions ou hobbies :</p>
+                    </div>
+                    <div class="col-4">
+                        {{ form_widget(form.passionDefunt1) }}
+                    </div>
+                    <div class="col-4">
+                        {{ form_widget(form.passionDefunt2) }}
+                    </div>
+                    <div class="col-4">
+                        {{ form_widget(form.passionDefunt3) }}
+                    </div>
+                    {# ------------------------ CE QU'ON RETIENDRA ------------------#}
+                    <div class="col-12 mt-3">
+                        <hr>
+                        <p>Ce que chacun rediendra de lui (en une phrase) :</p>
+                        {{ form_widget(form.descriptionDefunt, {'attr': {'rows': '2' }}) }}
+                    </div>
+                    {# ------------------------ MOT DE LA FIN ------------------#}
+                    <div class="col-12 mt-3">
+                        <hr>
+                        <p>Votre Épitaphe : </p>
+                        {{ form_widget(form.motFin, {'attr': {'rows': '3' }}) }}
+                    </div>
+                    {# ------------------------ FACULTATIFS ------------------#}
+                    <div class="col-12 mt-3">
+                        <hr>
+                        <p><strong class="">FACULTATIF</strong> <br> Une devise, un poème, un artiste, un auteur, une association ou une chanson qui correspondait à votre disparu(e) : </p>
+                        {{ form_widget(form.deviseDefunt, {'attr': {'rows': '3' }}) }}
+                    </div>
+                    <div class="col-12 mt-3">
+                        <p> Un lieu, un paysage, un pays qui correspondait à votre disparu(e) : </p>
+                        {{ form_widget(form.lieuDefunt, {'attr': {'rows': '3' }}) }}
+                    </div>
+
+
                 </div>
             </div>
+        </div>
 
 
         {% include 'projet_client/uploadFichier.html.twig' %}
 
+        {# ------------------------ MUSIQUE / VALIDATION  ------------------#}
+        <div class="tab">
+            <div class="row">
+                <div class="col-12 mb-5">
 
-        {# ------------------------ VALIDATION / PAIEMENT ------------------#}
-            <div class="tab">
-                <h2>Validation</h2>
-                <div class="progress mb-5">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    <p>Nos films hommages sont accompagnés par : ...</p>
+                    <pr>Si vous souhaitez un autre fond musical choisissez dans cette liste.</pr>
+                    {{ form_widget(form.musiques) }}
+                    <hr>
                 </div>
-
-                    <p>Nous nous engageons à vous envoyer votre film hommage en 48h après validation du paiement.</p>
-                    {{ form_row(form.save) }}
-
-
-                </div>
-            <div style="overflow:auto;">
-                <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-outline-warning rouge">Retour</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-outline-success ml-3">Suivant</button>
-                </div>
+                <div class="col-12"> {{ form_row(form.save) }}</div>
             </div>
-            <div class="text-center mt-5">
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
+        </div>
+        {# ------------------------ RECAPITULATIF ------------------#}
+        <div class="tab">
+            <h2>Validation</h2>
+            <div class="progress mb-5">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
             </div>
+
+            <a class="typo" href="{{ path('home') }}">IN MEMORIAE</a>
+
+
+            <h2 class="text-center">MERCI !</h2>
+            <h5 class="text-center">Votre film hommage est en court de réalisation  !</h5>
+
+            <h5 class="text-center">Vous receverez très prochainement un mail de confirmation.</h5>
+            <hr>
+            <p class="text-center">Nous nous engageons à vous envoyer votre film hommage en 48h après validation du paiement.</p>
+
+
+
+            <a href="{{ path('home') }}" class="btn btn-outline-success">RETOUR À l'accueil</a>
+
+        </div>
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-outline-warning rouge">Retour</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-outline-success ml-3">Suivant</button>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
 
         {{ form_end(form) }}
 
