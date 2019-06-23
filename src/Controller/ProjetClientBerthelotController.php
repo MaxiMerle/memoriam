@@ -7,10 +7,14 @@ use App\Entity\ProjetClientBerthelot;
 use App\Form\ProjetClientBerthelotType;
 use App\Form\ProjetClientType;
 use App\Form\SearchProjetType;
+use App\Entity\ImageFiles;
 use App\Repository\ProjetClientBerthelotRepository;
 use App\Repository\ProjetClientRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Exception;
+use phpDocumentor\Reflection\Types\String_;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +24,9 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Form\FormTypeInterface;
 
 
+/**
+ * @method findProjetIdByCodeClient(ProjetClientRepository $code)
+ */
 class ProjetClientBerthelotController extends AbstractController
 {
 
@@ -39,18 +46,27 @@ class ProjetClientBerthelotController extends AbstractController
     }
 
 
+
+
+
+
+
+
+
+
     //--------------- VERIFICATION CLIENT BERTHELOT --------------//
 
     /**
      * @Route("/search", name="search")
      * @param Request $request
-     * @param ProjetClientRepository $ProjetClientRepository
+     * @param ProjetClientRepository $code
      * @return Response
      */
 
-    public function searchProjetClient(Request $request, ProjetClientRepository $ProjetClientRepository){
+    public function searchProjetClient(Request $request, ProjetClientRepository $code){
 
         $form = $this->createForm(SearchProjetType::class);
+
 
         if($form->handleRequest($request)->isSubmitted() && $form->isValid()){
 
@@ -61,81 +77,22 @@ class ProjetClientBerthelotController extends AbstractController
 
             //--------  RECUPERER ID DU PROJET DEJA CREE ------//
 
-
-//         $idProjet = $this->getDoctrine()->getManager()->getRepository('id');
-
+                $query = $this->repository->findOwnedBy($code);
 
 
-            $this->addFlash('success', 'VOUS ETES BIEN IDENTIFIÉ ! VOTRE PROJET COMMENCE ICI');
+
+
+
 
             //-------- REDIRIGER CLIENT VERS FORMULAIRE PERSO AVEC ID DU PROJET ------//
             return $this->redirectToRoute('edit-projet',[
-//                'id' => $idProjet
+                'id' =>  $query
             ]);
         }
         return $this->render('projet_client/search.html.twig',[
             'search_form' => $form->createView(),
         ]);
     }
-
-
-
-
-
-
-    //--------------- FORMULAIRE PROJET BERTHELOT DEJA PAYÉ --------------//
-
-
-    /**
-     * @Route("/edit-projet/{id}", name="edit-projet")
-     * @param ProjetClient $projet
-     * @param Request $request
-     * @param \Swift_Mailer $mailer
-     * @return Response
-     */
-
-    public function editProjet(ProjetClient $projet, Request $request, \Swift_Mailer $mailer){
-
-        $form = $this->createForm(ProjetClientType::class, $projet);
-
-        $form->handleRequest($request);
-
-
-
-        if ($form->isSubmitted() && $form->isValid()){
-
-            $message = (new \Swift_Message('Confirmation projet film hommage - In Memoriae'))
-                ->setFrom('contact@in-memoriae.fr')
-                ->setTo($projet->getEmailClient())
-                ->setBody($this->renderView(
-                    'contact/confirmation-admin.html.twig',
-                    array('email' => $projet->getEmailClient() )
-                ),
-                    'text/html' )
-
-            ;
-            $mailer->send($message);
-
-
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($projet);
-            $entityManager->flush();
-
-            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance ! ');
-
-            return $this->render('projet_client_berthelot/confirmation-projet.html.twig',[
-                'infos' => $projet
-            ]);
-
-        }
-        return $this->render('projet_client_berthelot/index-berthelot.html.twig',[
-            'edit-projet' => $projet,
-            'form' => $form->createView()
-        ]);
-    }
-
-
 
 
 
@@ -176,14 +133,21 @@ class ProjetClientBerthelotController extends AbstractController
 
     /**
      * @Route("/berthelot", name="berthelot")
-     * @param $request
+     * @param Request $request
      * @return Response
      * @throws Exception
      */
-    public function projetBerthelot( Request $request)
+    public function projetBerthelot(Request $request)
     {
 
         $newProjetBerthelot = new ProjetClient();
+        $mediaEntity = new ImageFiles();
+        $session = $request->getSession();
+        $session->set(' idProjetClient', $newProjetBerthelot->getId());
+
+        // créer nouveau ImageFiles avec l'id du projet client qui vient d'etre crée //
+
+
 
         $form = $this->createForm(ProjetClientBerthelotType::class, $newProjetBerthelot);
         $form->handleRequest($request);
@@ -199,6 +163,8 @@ class ProjetClientBerthelotController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($newProjetBerthelot);
+            $entityManager->persist($mediaEntity);
+
             $entityManager->flush();
 
             $this->addFlash('success', 'Client bien enregistré ! Merci de bien lui transmettre son code personnel unique');
@@ -212,4 +178,63 @@ class ProjetClientBerthelotController extends AbstractController
         ]);
 
     }
+
+
+    //--------------- FORMULAIRE PROJET BERTHELOT DEJA PAYÉ --------------//
+
+
+    /**
+     * @Route("/edit-projet/{id}", name="edit-projet")
+     * @param ProjetClient $projet
+     * @param Request $request
+     * @param Swift_Mailer $mailer
+     * @return Response
+     */
+
+    public function editProjet(ProjetClient $projet, Request $request, \Swift_Mailer $mailer){
+
+        $form = $this->createForm(ProjetClientType::class, $projet);
+
+        $form->handleRequest($request);
+
+        $mediaEntity = new ImageFiles();
+
+        $session = $request->getSession();
+        $session->set(' idProjetClient', $projet->getId());
+
+
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $message = (new \Swift_Message('Confirmation projet film hommage - In Memoriae'))
+                ->setFrom('contact@in-memoriae.fr')
+                ->setTo($projet->getEmailClient())
+                ->setBody($this->renderView(
+                    'contact/confirmation-admin.html.twig',
+                    array('email' => $projet->getEmailClient() )
+                ),
+                    'text/html' )
+
+            ;
+            $mailer->send($message);
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($projet);
+            $entityManager->persist($mediaEntity);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance ! ');
+
+            return $this->render('projet_client_berthelot/confirmation-projet.html.twig',[
+                'infos' => $projet
+            ]);
+
+        }
+        return $this->render('projet_client_berthelot/index-berthelot.html.twig',[
+            'edit-projet' => $projet,
+            'form' => $form->createView()
+        ]);
+    }
+
 }

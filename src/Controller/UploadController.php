@@ -1,11 +1,11 @@
 <?php
 namespace App\Controller;
-use App\Entity\Projet;
 use App\Entity\ProjetClient;
 use App\Entity\ProjetClientCategorie;
 use App\Entity\ProjetClientQualite;
 use App\Entity\ImageFiles;
 use App\Form\ProjetClientType;
+use App\Repository\ProjetClientRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -23,26 +23,23 @@ class UploadController extends AbstractController
 {
     /**
      * @Route("/fileuploadhandler", name="fileuploadhandler")
+     * @param Request $request
+     * @return JsonResponse
      */
     public function fileUploadHandler(Request $request)
     {
         $output = array('uploaded' => false);
-
-
         // get the file from the request object
         $file = $request->files->get('file');
         $commentaire=$request->get('commentaire');
         $session = $request->getSession();
+
+
         $projet_id=$session->get(' idProjetClient');
-
-        if(empty($file)) {
-            $output['uploaded'] = false;
-            return new JsonResponse($output);
-        }
         $request->get('projetId');
+        $fileName = $file->getClientOriginalName();//$file->guessExtension()
 
-        $fileName = $file->getClientOriginalName();
-        $file->guessExtension();
+
         $uploadDir = $this->getParameter('kernel.project_dir') . '/./public/uploads/'.$projet_id;
         if (!file_exists($uploadDir) && !is_dir($uploadDir)) {
             mkdir($uploadDir, 0775, true);
@@ -58,17 +55,16 @@ class UploadController extends AbstractController
             // sauvegarde
             $em->persist($mediaEntity);
             $em->flush();
-
-
-            $output['uploaded'] = true;
-            $output['fileName'] = $fileName;
+//            $output['uploaded'] = true;
+//            $output['fileName'] = $fileName;
         }
-
         return new JsonResponse($output);
     }
 
     /**
      * @Route("/filedownloadhandler/{idProjetClient}", name="telecharger")
+     * @param $idProjetClient
+     * @return Response
      */
     public function zipDownloadDocumentsAction($idProjetClient)
     {
@@ -78,7 +74,7 @@ class UploadController extends AbstractController
             array_push($files, $file->getRealpath());
         }
         $zip = new \ZipArchive();
-        $zipName = 'Projet_Client_'.$idProjetClient.'.zip';
+        $zipName = 'Projet'.$idProjetClient.'.zip';
         $zip->open($zipName,  \ZipArchive::CREATE);
         foreach ($files as $file) {
             $zip->addFromString(basename($file),  file_get_contents($file));

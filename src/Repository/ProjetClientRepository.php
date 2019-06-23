@@ -19,6 +19,42 @@ class ProjetClientRepository extends ServiceEntityRepository
         parent::__construct($registry, ProjetClient::class);
     }
 
+
+    /**
+     * @param $code
+     * @return mixed
+     */
+    public function findProjetIdByCodeClient($code)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('c.id')
+            ->Where('c.code = :code')
+            ->setParameter('code', $code)
+            ->getQuery()->getResult()
+
+            ;
+    }
+
+
+
+    public function queryOwnedBy($code) {
+
+        $query = $this->createQueryBuilder('a')
+            ->select('a.id')
+            ->from(ProjetClient::class, 'a')
+            ->Where('a.code = :code')
+            ->setParameter('code', $code);
+
+        return $query;
+    }
+
+    public function findOwnedBy($user) {
+        return $this->queryOwnedBy($user)
+            ->getQuery()
+            ->getResult();
+    }
+
+
     // /**
     //  * @return ProjetClient[] Returns an array of ProjetClient objects
     //  */
@@ -36,15 +72,15 @@ class ProjetClientRepository extends ServiceEntityRepository
     }
     */
 
-    /*
+
     public function findOneBySomeField($value): ?ProjetClient
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
+            ->andWhere('p.code = :val')
             ->setParameter('val', $value)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
-    */
+
 }
