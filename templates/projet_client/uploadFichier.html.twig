@@ -73,55 +73,54 @@
 {% endblock body %}
 {% block javascripts %}
     <script>
-            Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
-                var dropzone_default = new Dropzone(".dropzone", {
-                    url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
-                    maxFiles: 30,   dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
-                    dictMaxFilesExceeded: '50 fichiers seulement',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: false,
-                    init: function () {
-                        this.on("maxfilesexceeded", function (file) {    this.removeFile(file);});
-                        this.on("sending", function (file, xhr, formData) {
-                            formData.append("commentaire", $.trim($("#exampleFormControlTextarea1").val()));
-                            formData.append("projetId", $.trim($("#projetId").val()));
-                        });
-                        this.on("success", function (file, response) {
-                            this.removeAllFiles(true);
-                            if (response.uploaded)
-                                alert('Fichier envoyé: ' + response.fileName);
-                        });
-                    }
+        Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
+        var dropzone_default = new Dropzone(".dropzone", {
+            url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
+            maxFiles: 20,   dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
+            dictMaxFilesExceeded: '20 fichiers seulement',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: true,
+            init: function () {
+                this.on("maxfilesexceeded", function (file) {    this.removeFile(file);});
+                this.on("sending", function (file, xhr, formData) {
+                    formData.append("commentaire", $.trim($("#exampleFormControlTextarea1").val()));
+                    formData.append("projetId", $.trim($("#projetId").val()));
                 });
-            var dropzone_video = new Dropzone("#dzVideo", {
-                url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
-                maxFiles: 20,//50
-                dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
-                dictMaxFilesExceeded: '50 fichiers seulement',
-                acceptedFiles: 'video/*',
-                maxFilesize: 50,  // en Mo
-                addRemoveLinks: false,
-                init: function () {
-                    this.on("maxfilesexceeded", function (file) {
-                        this.removeFile(file);
-                    });
-                    this.on("sending", function (file, xhr, formData) {
-                        formData.append("commentaire", $.trim($("#exampleFormControlTextarea2").val()));
-                        formData.append("projetId", $.trim($("#projetId").val()));
-                    });
-                    this.on("success", function (file, response) {
-                        this.removeAllFiles(true);
-                        if (response.uploaded)
-                            alert('Fichier envoyé: ' + response.fileName);
-                    });
-                }
-            });
-
-            $("#envoieFichier").click(function (e) {
-                e.preventDefault();
-                dropzone_default.processQueue();
-            });
-            $("#envoieFichierVideo").click(function (e) {
-                e.preventDefault();
-                dropzone_video.processQueue();
-            });
+                this.on("success", function (file, response) {
+                    this.removeAllFiles(true);
+                    if (response.uploaded)
+                        alert('Fichier envoyé: ' + response.fileName);
+                });
+            }
+        });
+        var dropzone_video = new Dropzone("#dzVideo", {
+            url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
+            maxFiles: 5,//50
+            dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
+            dictMaxFilesExceeded: '5 vidéos maximum',
+            acceptedFiles: 'video/*',
+            maxFilesize: 30,  // en Mo
+            addRemoveLinks: true,
+            init: function () {
+                this.on("maxfilesexceeded", function (file) {
+                    this.removeFile(file);
+                });
+                this.on("sending", function (file, xhr, formData) {
+                    formData.append("commentaire", $.trim($("#exampleFormControlTextarea2").val()));
+                    formData.append("projetId", $.trim($("#projetId").val()));
+                });
+                this.on("success", function (file, response) {
+                    this.removeAllFiles(true);
+                    if (response.uploaded)
+                        alert('Fichier envoyé: ' + response.fileName);
+                });
+            }
+        });
+        $("#envoieFichier").click(function (e) {
+            e.preventDefault();
+            dropzone_default.processQueue();
+        });
+        $("#envoieFichierVideo").click(function (e) {
+            e.preventDefault();
+            dropzone_video.processQueue();
+        });
     </script>
 {% endblock javascripts %}
