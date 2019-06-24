@@ -59,6 +59,11 @@ class ProjetClientController extends AbstractController
                  // on stock en session l'ID du projet
                  $session = $request->getSession();
                  $session->set(' idProjetClient', $newProjet->getId());
+                 if($session->has('nbPhotos') != true) {
+                     $session->set('nbPhotos', 0);
+                     $session->set('nbVideos', 0);
+                 }
+
              }catch( \PDOException $e )
              {
                  if( $e->getCode() === '23000' )

@@ -37,25 +37,14 @@ class UploadController extends AbstractController
         // get the file from the request object
         $file = $request->files->get('file');
         $commentaire=$request->get('commentaire');
-
         $session = $request->getSession();
-
-
         $projet_id=$session->get(' idProjetClient');
-
         if(empty($file)) {
             $output['uploaded'] = false;
             return new JsonResponse($output);
         }
-
-        $request->get('projetId');
-
-
-
+        //$request->get('projetId');
         $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-
-      
-
         $uploadDir = $this->getParameter('kernel.project_dir') . '/./public/uploads/'.$projet_id;
         if (!file_exists($uploadDir) && !is_dir($uploadDir)) {
             mkdir($uploadDir, 0775, true);
@@ -71,10 +60,14 @@ class UploadController extends AbstractController
             // sauvegarde
             $em->persist($mediaEntity);
             $em->flush();
+            if($request->get('typeUpload')==2) {
+                $session->set('nbVideos', $session->get('nbVideos')+1);
+            } else {
+                $session->set('nbPhotos', $session->get('nbPhotos')+1);
+            }
 
 //            $output['uploaded'] = true;
 //            $output['fileName'] = $fileName;
-
         }
         return new JsonResponse($output);
     }

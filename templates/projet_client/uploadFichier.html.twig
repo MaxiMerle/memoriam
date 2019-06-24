@@ -23,11 +23,14 @@
 
                     {% if count > 0 %}
                     ---  build the toc here --
-                    {% endif %}/20</strong> photos envoyées</h5>
+                    {% endif %}
+                    {# app.session.get('nbPhotos')#}
+                    <span id="nbPhotos">0</span>
+                    /20</strong> photos envoyées</h5>
 
 
             <div class="col-lg-6 col-sm-12">
-                <div action="/file-upload" class="dropzone demo-droppable">
+                <div action="/file-upload" class="dropzone demo-droppable"  id="dzPhoto">
                     <div class="fallback">
                         <div class="">
                             <ion-icon name="cloud-upload">w</ion-icon>
@@ -56,7 +59,7 @@
         <div class="progress mb-5">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
         </div>
-        <h5 class="col-12"><strong>0/4</strong> vidéos envoyées</h5>
+        <h5 class="col-12"><strong> {#app.session.get('nbVideos')#} <span id="nbVideos">0</span> /4</strong> vidéos envoyées</h5>
         <div class="row">
             <div class="col-lg-6 col-sm-12">
                 <div action="/file-upload" class="dropzone demo-droppable" id="dzVideo">
@@ -82,8 +85,13 @@
 {% endblock body %}
 {% block javascripts %}
     <script>
+        nbPhotos=0;
+        nbVideos=0;
+        $("#nbPhotos").html(nbPhotos);
+        $("#nbVideos").html(nbVideos);
+
         Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
-        var dropzone_default = new Dropzone(".dropzone", {
+        var dropzone_default = new Dropzone("#dzPhoto", {
             url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
             maxFiles: 20,   dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
             dictMaxFilesExceeded: '20 fichiers seulement',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: true,
@@ -91,15 +99,18 @@
                 this.on("maxfilesexceeded", function (file) {    this.removeFile(file);});
                 this.on("sending", function (file, xhr, formData) {
                     formData.append("commentaire", $.trim($("#exampleFormControlTextarea1").val()));
+                    formData.append("typeUpload", 1);
                     formData.append("projetId", $.trim($("#projetId").val()));
                 });
                 this.on("success", function (file, response) {
+                    nbPhotos++;
+                    $("#nbPhotos").html(nbPhotos);
                     this.removeAllFiles(true);
 
                     if (response.uploaded)
                         alert('Fichier envoyé: ' + response.fileName);
 
-                        return $count = fileCount();
+                        //return $count = fileCount();
                 });
             }
         });
@@ -117,9 +128,12 @@
                 });
                 this.on("sending", function (file, xhr, formData) {
                     formData.append("commentaire", $.trim($("#exampleFormControlTextarea2").val()));
+                    formData.append("typeUpload", 2);
                     formData.append("projetId", $.trim($("#projetId").val()));
                 });
                 this.on("success", function (file, response) {
+                    nbVideos++;
+                    $("#nbVideos").html(nbVideos);
                     this.removeAllFiles(true);
                     if (response.uploaded)
                         alert('Fichier envoyé: ' + response.fileName);

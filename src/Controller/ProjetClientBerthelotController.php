@@ -151,7 +151,6 @@ class ProjetClientBerthelotController extends AbstractController
         $mediaEntity = new ImageFiles();
         $session = $request->getSession();
         $session->set(' idProjetClient', $newProjetBerthelot->getId());
-
         // créer nouveau ImageFiles avec l'id du projet client qui vient d'etre crée //
 
 
@@ -208,8 +207,10 @@ class ProjetClientBerthelotController extends AbstractController
 
         $session = $request->getSession();
         $session->set(' idProjetClient', $projet->getId());
-
-
+        if($session->has('nbPhotos') != true) {
+            $session->set('nbPhotos', 0);
+            $session->set('nbVideos', 0);
+        }
 
         if ($form->isSubmitted() && $form->isValid()){
 
