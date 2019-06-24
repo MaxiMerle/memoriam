@@ -124,13 +124,17 @@ class ProjetClientType extends AbstractType
             ])
 
             ->add('deviseDefunt', TextareaType::class, [
+                'required'          => false,
                 'attr' => ['placeholder' => 'Ex : "Ne jamais baisser les bras"...',
                     'label' => 'devise défunt'
                 ]
             ])
             ->add('lieuDefunt', TextareaType::class, [
-                'attr' => ['placeholder' => 'Ex : "Le vieux port de Marseille, la Forêt des Landes, les chateaux de la Loire...',
-                    'label' => 'lieu défunt'
+                'required'          => false,
+                'attr' => [
+                    'placeholder' => 'Ex : "Le vieux port de Marseille, la Forêt des Landes, les chateaux de la Loire...',
+                    'label' => 'lieu défunt',
+
                 ]
             ])
 

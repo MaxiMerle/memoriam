@@ -14,7 +14,16 @@
 
             <h2 class="col-12" id="display-title1">Choisissez la première photo. Celle qui ouvrira le film.</h2>
             <h2 class="col-12" id="display-title2">Choisissez les autres photos.</h2>
-            <h5 class="col-12"><strong>/20</strong> photos envoyées</h5>
+            <h5 class="col-12"><strong>{% set count = 0 %}
+                    {% for anchor in count %}
+                        {% if anchor.content['#paragraph'].field_anchor_link.0.value %}
+                            {% set count = count + 1 %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if count > 0 %}
+                    ---  build the toc here --
+                    {% endif %}/20</strong> photos envoyées</h5>
 
 
             <div class="col-lg-6 col-sm-12">
@@ -86,8 +95,11 @@
                 });
                 this.on("success", function (file, response) {
                     this.removeAllFiles(true);
+
                     if (response.uploaded)
                         alert('Fichier envoyé: ' + response.fileName);
+
+                        return $count = fileCount();
                 });
             }
         });

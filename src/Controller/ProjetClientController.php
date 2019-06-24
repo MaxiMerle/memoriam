@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\ImageFiles;
 use App\Entity\ProjetClient;
 use App\Entity\ProjetClientBerthelot;
 use App\Entity\ProjetClientCategorie;
 use App\Entity\ProjetClientQualite;
 use App\Form\ProjetClientBerthelotType;
 use App\Form\ProjetClientType;
+use App\Repository\ImageFilesRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -111,9 +113,14 @@ class ProjetClientController extends AbstractController
         $projet = $this->getDoctrine()
             ->getRepository(ProjetClient::class)
             ->find($id);
+        $files = $this->getDoctrine()->getRepository(ImageFiles::class)->find($id);
 
 
-        return $this->render('projet/show.html.twig', ['projet' => $projet]);
+        return $this->render('projet/show.html.twig', [
+            'projet' => $projet,
+            'files' => $files
+
+        ]);
 
         // or render a template
         // in the template, print things with {{ product.name }}

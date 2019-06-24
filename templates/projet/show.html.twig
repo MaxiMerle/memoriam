@@ -38,8 +38,8 @@
           <div><p>Sexe :  <strong>{{ projet.gender }}</strong></p></div>
           <div><p>Prénom Défunt :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
           <div><p>Prénom Défunt :  <strong>{{ projet.nomDefunt }}</strong></p></div>
-          <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt|date('d-m-Y') }}</strong></p></div>
-          <div><p>Mort le : <strong>{{ projet.dateMortDefunt|date('d-m-Y') }}</strong></p></div>
+          <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt }}</strong></p></div>
+          <div><p>Mort le : <strong>{{ projet.dateMortDefunt }}</strong></p></div>
 
             <div><p>MUSIQUE :  <strong>{{ projet.musiques }}</strong></p></div>
 
@@ -79,8 +79,11 @@
 
                 <h2>Images : </h2>
 
+                {% for file in files %}
 
+                {{ file.commentaire }}
 
+                {% endfor %}
             </div>
 
         </div>

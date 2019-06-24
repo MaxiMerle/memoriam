@@ -70,6 +70,12 @@ class ProjetClientBerthelotController extends AbstractController
 
         if($form->handleRequest($request)->isSubmitted() && $form->isValid()){
 
+            $data =  $form->getData();
+
+            $code = $data->getCode();
+            $nomClient = $data->getNomClient();
+
+
             //--------VERIFIER SI INFOS MATCHENT AVEC BDD ------//
 
 
@@ -77,17 +83,17 @@ class ProjetClientBerthelotController extends AbstractController
 
             //--------  RECUPERER ID DU PROJET DEJA CREE ------//
 
-                $query = $this->repository->findOwnedBy($code);
-
-
-
+                $id_client = $this->repository->findProjetIdByCodeClient($code, $nomClient);
 
 
 
             //-------- REDIRIGER CLIENT VERS FORMULAIRE PERSO AVEC ID DU PROJET ------//
             return $this->redirectToRoute('edit-projet',[
-                'id' =>  $query
+                'id' =>  $id_client[0]['id'],
+
             ]);
+        }else{
+            $this->addFlash('notice', 'Vos identifiants ne sont introuvables');
         }
         return $this->render('projet_client/search.html.twig',[
             'search_form' => $form->createView(),
@@ -121,9 +127,10 @@ class ProjetClientBerthelotController extends AbstractController
         return $this->render('projet_client_berthelot/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
+
         ));
 
-        return $this->redirectToRoute('berthelot');
+
     }
 
 

@@ -37,16 +37,22 @@ class UploadController extends AbstractController
         // get the file from the request object
         $file = $request->files->get('file');
         $commentaire=$request->get('commentaire');
+
         $session = $request->getSession();
 
 
         $projet_id=$session->get(' idProjetClient');
+
+        if(empty($file)) {
+            $output['uploaded'] = false;
+            return new JsonResponse($output);
+        }
+
         $request->get('projetId');
 
 
 
         $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-        $file->guessExtension();
 
       
 
@@ -65,8 +71,10 @@ class UploadController extends AbstractController
             // sauvegarde
             $em->persist($mediaEntity);
             $em->flush();
+
 //            $output['uploaded'] = true;
 //            $output['fileName'] = $fileName;
+
         }
         return new JsonResponse($output);
     }
@@ -84,7 +92,7 @@ class UploadController extends AbstractController
             array_push($files, $file->getRealpath());
         }
         $zip = new \ZipArchive();
-        $zipName = 'Projet'.$idProjetClient.'.zip';
+        $zipName = 'Projet'.-$idProjetClient.'.zip';
         $zip->open($zipName,  \ZipArchive::CREATE);
         foreach ($files as $file) {
             $zip->addFromString(basename($file),  file_get_contents($file));
