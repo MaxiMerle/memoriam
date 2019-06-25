@@ -16,6 +16,7 @@ use phpDocumentor\Reflection\Types\String_;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -85,16 +86,23 @@ class ProjetClientBerthelotController extends AbstractController
 
                 $id_client = $this->repository->findProjetIdByCodeClient($code, $nomClient);
 
+                if ($id_client == null ){
+                    $this->addFlash('danger', 'Vos identifiants ne sont introuvables');
 
+                    return $this->render('projet_client/search.html.twig',[
+                        'search_form' => $form->createView(),
+                    ]);
 
-            //-------- REDIRIGER CLIENT VERS FORMULAIRE PERSO AVEC ID DU PROJET ------//
-            return $this->redirectToRoute('edit-projet',[
-                'id' =>  $id_client[0]['id'],
+                }else{
+                    //-------- REDIRIGER CLIENT VERS FORMULAIRE PERSO AVEC ID DU PROJET ------//
+                    return $this->redirectToRoute('edit-projet',[
+                        'id' =>  $id_client[0]['id'],
 
-            ]);
-        }else{
-            $this->addFlash('notice', 'Vos identifiants ne sont introuvables');
+                    ]);
+
+                }
         }
+
         return $this->render('projet_client/search.html.twig',[
             'search_form' => $form->createView(),
         ]);
@@ -148,10 +156,7 @@ class ProjetClientBerthelotController extends AbstractController
     {
 
         $newProjetBerthelot = new ProjetClient();
-        $mediaEntity = new ImageFiles();
-        $session = $request->getSession();
-        $session->set(' idProjetClient', $newProjetBerthelot->getId());
-        // créer nouveau ImageFiles avec l'id du projet client qui vient d'etre crée //
+
 
 
 
@@ -169,15 +174,31 @@ class ProjetClientBerthelotController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($newProjetBerthelot);
-            $entityManager->persist($mediaEntity);
 
-            $entityManager->flush();
 
-            $this->addFlash('success', 'Client bien enregistré ! Merci de bien lui transmettre son code personnel unique');
 
-            return $this->render('projet_client/berthelotShow.html.twig',[
-                'infosBerthelot' => $newProjetBerthelot
-            ]);
+            $data = $form->getData();
+            $email = $data->getEmailClient();
+            $Repo = $entityManager->getRepository(ProjetClient::class);
+
+            if ($Repo->findOneBy(['emailClient' => $email])){
+                $form->addError(new FormError('Cet email est déja utilisé'));
+                return $this->render('projet_client/berthelot.html.twig', [
+                    'formBerthelot' => $form->createView(),
+                ]);
+
+            }else{
+
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Client bien enregistré ! Merci de bien lui transmettre son code personnel unique');
+
+                return $this->render('projet_client/berthelotShow.html.twig',[
+                    'infosBerthelot' => $newProjetBerthelot
+                ]);
+            }
+
+
         }
         return $this->render('projet_client/berthelot.html.twig', [
             'formBerthelot' => $form->createView(),

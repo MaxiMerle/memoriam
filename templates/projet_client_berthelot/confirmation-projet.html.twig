@@ -11,11 +11,16 @@
 {% endblock %}
 
 {% block body %}
-<section class="mt-5">
+    <section class="title">
+        {% include 'common/flash_messages.html.twig' %}
+        <h1>VOTRE PROJET BERTHELOT</h1>
+        <hr>
+        <h2>Merci {{ infos.prenomClient }} {{ infos.nomClient }} !</h2>
+    </section>
+<section class="">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mt-5">
-                <h2>MERCI {{ infos.prenomClient }} {{ infos.nomClient }} !</h2>
                 <h5>Votre film hommage est en cours de réalisation  !</h5>
                 <h5>Vous allez recevoir un mail de confirmation à ladresse suivante : {{ infos.emailClient }}.</h5>
                 <hr>
