@@ -36,6 +36,11 @@ class ProjetClientBerthelot
      */
     private $code;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $emailBerthelot;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +78,18 @@ class ProjetClientBerthelot
     public function setCode(?string $code): self
     {
         $this->code = $code;
+
+        return $this;
+    }
+
+    public function getEmailBerthelot(): ?string
+    {
+        return $this->emailBerthelot;
+    }
+
+    public function setEmailBerthelot(?string $emailBerthelot): self
+    {
+        $this->emailBerthelot = $emailBerthelot;
 
         return $this;
     }

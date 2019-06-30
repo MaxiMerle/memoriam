@@ -55,7 +55,7 @@
   overflow: hidden;
   transform: translateY(-10%);
   letter-spacing: 5px;
-  font-family: $font5;
+  font-family: $font10;    //////////----TYPO LOGO HEADER----///////////
 }
 
 .anim-typewriter{
@@ -64,7 +64,7 @@
 }
 @keyframes typewriter{
   from{width: 0;}
-  to{width: 7em;}
+  to{width: 6.5em;}
 }
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(255,255,255,.75);}

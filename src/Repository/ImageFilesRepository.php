@@ -9,4 +9,14 @@ class ImageFilesRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ImageFiles::class);
     }
+
+    public function findOneBySomeField($id): ?ImageFiles
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.projet = :projet')
+            ->setParameter('projet', $id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

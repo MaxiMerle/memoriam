@@ -25,9 +25,10 @@
                     ---  build the toc here --
                     {% endif %}
                     {# app.session.get('nbPhotos')#}
-                    <span id="nbPhotos">0</span>
-                    /20</strong> photos envoyées</h5>
+                    <span id="nbPhotos">0 </span>
+                    / {%  if categorie.id == 1   %} 20 {% else %} 30 {% endif %}</strong> photos envoyées</h5>
 
+            <p class="col-12 text-center ">Les photos ne doivent pas dépasser 5 Mo</p>
 
             <div class="col-lg-6 col-sm-12">
                 <div action="/file-upload" class="dropzone demo-droppable"  id="dzPhoto">
@@ -59,7 +60,10 @@
         <div class="progress mb-5">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
         </div>
-        <h5 class="col-12"><strong> {#app.session.get('nbVideos')#} <span id="nbVideos">0</span> /4</strong> vidéos envoyées</h5>
+        <h5 class="col-12"><strong> {#app.session.get('nbVideos')#} <span id="nbVideos">0</span> / {%  if categorie.id == 1   %} 4 {% else %} 5 {% endif %}</strong> vidéos envoyées</h5>
+        <p class="col-12 text-center">Les vidéos ne doivent pas dépasser 25 Mo.</p>
+        <p class="col-12 text-center">Le chargement peut prendre du temps en fonction de votre connexion internet. Privilégiez une connexion haut débit (en wifi) pour le transfert des fichiers</p>
+
         <div class="row">
             <div class="col-lg-6 col-sm-12">
                 <div action="/file-upload" class="dropzone demo-droppable" id="dzVideo">
@@ -78,7 +82,8 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-block btn-primary mt-5"  id="envoieFichierVideo">Valider et ajouter une autre vidéo</button>
+
+                <button type="button" class="btn btn-block btn-primary mt-5"  id="envoieFichierVideo">Valider et ajouter une autre vidéo</button>
         <br>
         {# <input type="submit" class="btn btn-block btn-primary" value="Ajouter un fichier" />#}
     </div>
@@ -93,8 +98,8 @@
         Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
         var dropzone_default = new Dropzone("#dzPhoto", {
             url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
-            maxFiles: 20,   dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
-            dictMaxFilesExceeded: '20 fichiers seulement',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: true,
+            maxFiles: 20,   dictDefaultMessage: "Glissez-déposez une photo ou cliquez pour rechercher un fichier.",
+            dictMaxFilesExceeded: '20 photos maximum',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: true,
             init: function () {
                 this.on("maxfilesexceeded", function (file) {    this.removeFile(file);});
                 this.on("sending", function (file, xhr, formData) {
@@ -117,7 +122,7 @@
         var dropzone_video = new Dropzone("#dzVideo", {
             url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
             maxFiles: 5,//50
-            dictDefaultMessage: "Glissez-déposez un fichier ou cliquez pour rechercher un fichier",
+            dictDefaultMessage: "Glissez-déposez une vidéo ou cliquez pour rechercher un fichier.",
             dictMaxFilesExceeded: '5 vidéos maximum',
             acceptedFiles: 'video/*',
             maxFilesize: 30,  // en Mo

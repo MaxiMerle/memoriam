@@ -24,7 +24,9 @@ class ProjetClientBerthelotType extends AbstractType
                 'placeholder' => 'Projet selectionné :',
                 'label' => 'Projet'
 
-            ])            ->add('save', SubmitType::class, [
+            ])
+            ->add('emailVendeurBerthelot')
+            ->add('save', SubmitType::class, [
                 'label' => 'VALIDER',
                 'attr' => ['class' => 'btn btn-block btn-outline-success']
             ])

@@ -87,7 +87,7 @@ class ProjetClientBerthelotController extends AbstractController
                 $id_client = $this->repository->findProjetIdByCodeClient($code, $nomClient);
 
                 if ($id_client == null ){
-                    $this->addFlash('danger', 'Vos identifiants ne sont introuvables');
+                    $this->addFlash('danger', 'Vos identifiants sont incorrets - Veuillez réessayer ou nous contacter en cas de problème ');
 
                     return $this->render('projet_client/search.html.twig',[
                         'search_form' => $form->createView(),
@@ -96,7 +96,7 @@ class ProjetClientBerthelotController extends AbstractController
                 }else{
                     //-------- REDIRIGER CLIENT VERS FORMULAIRE PERSO AVEC ID DU PROJET ------//
                     return $this->redirectToRoute('edit-projet',[
-                        'id' =>  $id_client[0]['id'],
+                        'code' =>  $id_client[0]['code'],
 
                     ]);
 
@@ -211,7 +211,7 @@ class ProjetClientBerthelotController extends AbstractController
 
 
     /**
-     * @Route("/edit-projet/{id}", name="edit-projet")
+     * @Route("/edit-projet/{code}", name="edit-projet")
      * @param ProjetClient $projet
      * @param Request $request
      * @param Swift_Mailer $mailer
@@ -226,8 +226,15 @@ class ProjetClientBerthelotController extends AbstractController
 
         $mediaEntity = new ImageFiles();
 
+        $data = $form->getData();
+
+
+
+        $categorie = $projet->getCategorie();
+
         $session = $request->getSession();
         $session->set(' idProjetClient', $projet->getId());
+        $session->set(' categorie', $projet->getCategorie());
         if($session->has('nbPhotos') != true) {
             $session->set('nbPhotos', 0);
             $session->set('nbVideos', 0);
@@ -235,7 +242,7 @@ class ProjetClientBerthelotController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()){
 
-            $message = (new \Swift_Message('Confirmation projet film hommage - In Memoriae'))
+            $messageClient = (new \Swift_Message('Confirmation projet film hommage - In Memoriae'))
                 ->setFrom('contact@in-memoriae.fr')
                 ->setTo($projet->getEmailClient())
                 ->setBody($this->renderView(
@@ -245,7 +252,45 @@ class ProjetClientBerthelotController extends AbstractController
                     'text/html' )
 
             ;
-            $mailer->send($message);
+            date_default_timezone_set('Europe/Paris');
+            $date = date('d/m/Y'.' à '.'H:i', time());
+
+
+            $messageVendeur = (new \Swift_Message('Projet CLient validé'))
+                ->setFrom('contact@in-memoriae.fr')
+                ->setTo($projet->getEmailVendeurBerthelot())
+                ->setBody($this->renderView(
+                    'contact/confirmation-vendeurs.html.twig',
+                    array(
+                        'email' => $projet->getEmailClient(),
+                        'nomClient' => $projet->getNomClient(),
+                        'prenomnomClient' => $projet->getPrenomClient(),
+                        'date' => $date
+                        )
+                ),
+                    'text/html' )
+
+            ;
+            $messageMonteurs = (new \Swift_Message('Nouveau projet In Memoriam'))
+                ->setFrom('contact@in-memoriae.fr')
+                ->setTo('maximerle@gmail.com')
+                ->setBody($this->renderView(
+                    'contact/confirmation-monteurs.html.twig',
+                    array(
+                        'email' => $projet->getEmailClient(),
+                        'idProjet' => $projet->getId(),
+                        'nomClient' => $projet->getNomClient(),
+                        'prenomnomClient' => $projet->getPrenomClient(),
+                        'date' => $date
+                    )
+                ),
+                    'text/html' )
+
+            ;
+
+            $mailer->send($messageClient);
+            $mailer->send($messageVendeur);
+            $mailer->send($messageMonteurs);
 
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -262,6 +307,7 @@ class ProjetClientBerthelotController extends AbstractController
         }
         return $this->render('projet_client_berthelot/index-berthelot.html.twig',[
             'edit-projet' => $projet,
+            'categorie' => $categorie,
             'form' => $form->createView()
         ]);
     }

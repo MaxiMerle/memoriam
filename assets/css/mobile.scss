@@ -32,13 +32,14 @@ section{
     //height: 45px;
     color: $black;
     font-size: 20px!important;
-    font-family: $font2;
+    font-family: $font10;
 
   }
   .projet{
     display: flex;
     justify-content: center;
     align-items: end;
+
   }
 
 }
@@ -52,11 +53,17 @@ section{
 
 
 .header-mobile{
-  height: 550px;
+
 
   h1{
-    padding-top: 285px;
+    padding-top: 150px;
+    color: $black;
+    font-size: 50px!important;
+    font-family: $font10;
+
   }
+
+
 }
 
 /* ------------------------------ SECTION ABOUT -------------------------------- */
@@ -129,7 +136,6 @@ section{
     margin: 0 auto;
     font-size: 40px;
     border: none;
-    font-family: $font2;
     margin-top: 20px;
   }
   .ligne-blocks{
@@ -137,9 +143,16 @@ section{
   }
   .texte{
     padding: 0;
-    font-family: $font1;
-    font-size: 20px;
 
+  }
+
+}
+.tab{
+  h2{
+    font-size: 20px!important;
+  }
+  #projet_client_musiques{
+    display: inline-block!important;
   }
 }
 

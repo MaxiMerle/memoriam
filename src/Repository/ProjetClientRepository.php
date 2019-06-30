@@ -28,7 +28,7 @@ class ProjetClientRepository extends ServiceEntityRepository
     public function findProjetIdByCodeClient($code, $nomClient)
     {
         return $this->createQueryBuilder('c')
-            ->select('c.id')
+            ->select('c.code')
             ->Where('c.code = :code')
             ->setParameter('code', $code)
 

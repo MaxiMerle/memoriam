@@ -53,7 +53,7 @@
   overflow: hidden;
   transform: translateY(-10%);
   letter-spacing: 5px;
-  font-family: "Permanent Marker", serif;
+  font-family: "Courgette", cursive;
 }
 
 .anim-typewriter {
@@ -65,7 +65,7 @@
     width: 0;
   }
   to {
-    width: 7em;
+    width: 6.5em;
   }
 }
 @keyframes blinkTextCursor {
@@ -352,7 +352,7 @@
 }
 .header-ctn .logo-blanc {
   display: block;
-  font-family: "Merriweather", serif !important;
+  font-family: "Courgette", cursive !important;
   color: #fff;
   font-size: 30px;
 }
@@ -688,6 +688,9 @@ input.invalid {
   color: #434343 !important;
   font-family: "Just Another Hand", cursive;
 }
+.tab input.invalid {
+  border-color: #c6444b;
+}
 
 .projet ion-icon {
   font-size: 40px;
@@ -724,6 +727,14 @@ input.invalid {
   font-family: "Reenie Beanie", serif;
   color: #fff;
   font-size: 35px;
+}
+
+#projet_client_musiques {
+  display: flex;
+  text-align: left;
+}
+#projet_client_musiques .form-check {
+  flex: 2;
 }
 
 .map {

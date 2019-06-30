@@ -161,9 +161,20 @@ class ProjetClient
      */
     private $code;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $emailVendeurBerthelot;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $validation;
+
     public function __construct()
     {
         $this->qualite = new ArrayCollection();
+        $this->validation = false;
     }
 
 
@@ -514,6 +525,30 @@ class ProjetClient
     public function setCode(?string $code): self
     {
         $this->code = $code;
+
+        return $this;
+    }
+
+    public function getEmailVendeurBerthelot(): ?string
+    {
+        return $this->emailVendeurBerthelot;
+    }
+
+    public function setEmailVendeurBerthelot(?string $emailVendeurBerthelot): self
+    {
+        $this->emailVendeurBerthelot = $emailVendeurBerthelot;
+
+        return $this;
+    }
+
+    public function getValidation(): ?int
+    {
+        return $this->validation;
+    }
+
+    public function setValidation(?int $validation): self
+    {
+        $this->validation = $validation;
 
         return $this;
     }

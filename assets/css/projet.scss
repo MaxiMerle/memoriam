@@ -220,6 +220,9 @@ input.invalid {
       font-family: $font2;
     }
   }
+  input.invalid{
+    border-color: $new_red;
+  }
 }
 .projet{
 ion-icon{
@@ -263,4 +266,13 @@ ion-icon{
   font-family: $font7;
   color: $white;
   font-size: 35px;
+}
+
+#projet_client_musiques{
+  display: flex;
+  text-align: left;
+
+  .form-check{
+    flex: 2;
+  }
 }

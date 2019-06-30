@@ -25,105 +25,119 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class ProjetClientController extends AbstractController
 {
-    /**
-     * @Route("/votre-projet", name="nouveau_projet")
-     * @param Request $request
-     * @param $mailer
-     * @return RedirectResponse|Response
-     */
-    public function index(Request $request, \Swift_Mailer $mailer)
-    {
-        // just setup a fresh $task object (remove the dummy data)
-        $newProjet = new ProjetClient();
-
-        $form = $this->createForm(ProjetClientType::class, $newProjet);
-
-
-        $form->handleRequest($request);
-
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $form->getData();
-            // but, the original `$task` variable has also been updated
-            $newProjet = $form->getData();
-
-
-
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-             $entityManager = $this->getDoctrine()->getManager();
-             $entityManager->persist($newProjet);
-
-             try{
-                 $entityManager->flush();
-                 // on stock en session l'ID du projet
-                 $session = $request->getSession();
-                 $session->set(' idProjetClient', $newProjet->getId());
-                 if($session->has('nbPhotos') != true) {
-                     $session->set('nbPhotos', 0);
-                     $session->set('nbVideos', 0);
-                 }
-
-             }catch( \PDOException $e )
-             {
-                 if( $e->getCode() === '23000' )
-                 {
-                     echo $e->getMessage();
-
-                     // Will output an SQLSTATE[23000] message, similar to:
-                     // Integrity constraint violation: 1062 Duplicate entry 'x'
-                     // ... for key 'UNIQ_BB4A8E30E7927C74'
-                 }
-
-                 else throw $e;
-             }
-
-
-
-            $message = (new \Swift_Message('NOUVEAU PROJET'))
-                ->setFrom('maximerle@gmail.com')
-                ->setTo('maximerle@gmail.com')
-                ->setBody($this->renderView(
-                    'contact/confirmation-admin.html.twig',
-                    array('email' => 'email' )
-                ),
-                    'text/html' )
-
-            ;
-
-            $mailer->send($message);
-
-            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance !');
-
-            return $this->redirectToRoute('nouveau_projet');
-        }
-        elseif ($form->isSubmitted() && $form->isEmpty()){
-            $this->addFlash('warning', 'Votre Projet n\'a pu être enregistré ! Merci de recommencer');
-            return $this->redirectToRoute('nouveau_projet');
-
-        }
-
-        return $this->render('projet_client/index.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
+//    /**
+//     * @Route("/votre-projet", name="nouveau_projet")
+//     * @param Request $request
+//     * @param $mailer
+//     * @return RedirectResponse|Response
+//     */
+//    public function index(Request $request, \Swift_Mailer $mailer)
+//    {
+//        // just setup a fresh $task object (remove the dummy data)
+//        $newProjet = new ProjetClient();
+//
+//        $form = $this->createForm(ProjetClientType::class, $newProjet);
+//
+//
+//        $form->handleRequest($request);
+//
+//
+//        if ($form->isSubmitted() && $form->isValid()) {
+//            $form->getData();
+//            // but, the original `$task` variable has also been updated
+//            $newProjet = $form->getData();
+//
+//
+//
+//            // ... perform some action, such as saving the task to the database
+//            // for example, if Task is a Doctrine entity, save it!
+//             $entityManager = $this->getDoctrine()->getManager();
+//             $entityManager->persist($newProjet);
+//
+//             try{
+//                 $entityManager->flush();
+//                 // on stock en session l'ID du projet
+//                 $session = $request->getSession();
+//                 $session->set(' idProjetClient', $newProjet->getId());
+//                 if($session->has('nbPhotos') != true) {
+//                     $session->set('nbPhotos', 0);
+//                     $session->set('nbVideos', 0);
+//                 }
+//
+//             }catch( \PDOException $e )
+//             {
+//                 if( $e->getCode() === '23000' )
+//                 {
+//                     echo $e->getMessage();
+//
+//                     // Will output an SQLSTATE[23000] message, similar to:
+//                     // Integrity constraint violation: 1062 Duplicate entry 'x'
+//                     // ... for key 'UNIQ_BB4A8E30E7927C74'
+//                 }
+//
+//                 else throw $e;
+//             }
+//
+//
+//
+//            $message = (new \Swift_Message('NOUVEAU PROJET'))
+//                ->setFrom('maximerle@gmail.com')
+//                ->setTo('maximerle@gmail.com')
+//                ->setBody($this->renderView(
+//                    'contact/confirmation-admin.html.twig',
+//                    array('email' => 'email' )
+//                ),
+//                    'text/html' )
+//
+//            ;
+//
+//            $mailer->send($message);
+//
+//            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance !');
+//
+//            return $this->redirectToRoute('nouveau_projet');
+//        }
+//        elseif ($form->isSubmitted() && $form->isEmpty()){
+//            $this->addFlash('warning', 'Votre Projet n\'a pu être enregistré ! Merci de recommencer');
+//            return $this->redirectToRoute('nouveau_projet');
+//
+//        }
+//
+//        return $this->render('projet_client/index.html.twig', [
+//            'form' => $form->createView(),
+//        ]);
+//    }
 
 
     /**
      * @Route("/admin/projet-clients/{id}", name="projetClient_show")
+     * @param $id
+     * @param $request
+     * @return Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         $projet = $this->getDoctrine()
             ->getRepository(ProjetClient::class)
             ->find($id);
-        $files = $this->getDoctrine()->getRepository(ImageFiles::class)->find($id);
+
+
+
+        $projet_id = $this->getDoctrine()->getRepository(ImageFiles::class)->findBy(['projet' => $id ]);
+
+        $session = $request->getSession();
+
+        $projet_id_dir=$session->get(' idProjetClient');
+
+        $uploadDir = $this->getParameter('kernel.project_dir') . '/./public/uploads/'.$projet_id_dir;
+
+
 
 
         return $this->render('projet/show.html.twig', [
             'projet' => $projet,
-            'files' => $files
+            'id_prpjet' => $projet_id,
+            'uploadDir' => $uploadDir
 
         ]);
 
@@ -141,11 +155,18 @@ class ProjetClientController extends AbstractController
     {
         $projet = $this->getDoctrine()
             ->getRepository(ProjetClient::class)
-            ->findAll();
+            ->findBy(array('validation' => false));
+
+        $projetValide = $this->getDoctrine()
+            ->getRepository(ProjetClient::class)
+            ->findBy(array('validation' => true));
 
 
 
-        return $this->render('projet/projets.html.twig', ['projetsClients' => $projet]);
+        return $this->render('projet/projets.html.twig', [
+            'projetsClients' => $projet,
+            'projetsClientsValide' => $projetValide
+        ]);
 
         // or render a template
         // in the template, print things with {{ product.name }}
@@ -179,6 +200,27 @@ class ProjetClientController extends AbstractController
 
         return $this->redirectToRoute('projetsClients');
    }
+
+
+    /**
+     * @Route("/admin/valider/{id}", name="valider_projet")
+     */
+
+    public function validerProjet($id)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(ProjetClient::class);
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $projet = $repository->find($id);
+
+        $projet->setValidation(true);
+
+        $entityManager->persist($projet);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('projetsClients');
+    }
 
 
 

@@ -2,10 +2,45 @@
 {% block seoTitle %}{% spaceless %}In Memoriae{% endspaceless %}{% endblock %}
 
 {% block javascripts %}{{ parent() }}{{ encore_entry_script_tags('navbar') }}
+
+    <script>
+        $(document).ready(function(){
+            $('#display-video2').hide();
+            $("#hide-video1").click(function(){
+                $("#display-video1").prop('muted', true);
+
+                $('#display-video1').hide();
+
+                $("#display-video2").show();
+            });
+            $("#hide-video2").click(function(){
+                $("#display-video2").prop('muted', true);
+                $('#display-video2').hide();
+
+
+                $("#display-video1").show();
+            });
+
+
+        });
+    </script>
 {% endblock %}
 {% block body %}
 
+
+
     {# ------------------------ HEADER ------------------#}
+
+    {% if is_mobile() == true  and is_tablet() == false %}
+        <div class="header-mobile">
+            <div class="w-100">
+                <h1>In Memoriae</h1>
+                <br><br>
+                <hr>
+            </div>
+        </div>
+    {% elseif is_tablet() %}
+    {% else %}
     <div class="header header-video mb-5">
         <div class="overlay"></div>
         <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
@@ -14,11 +49,12 @@
         <div class="container h-100">
             <div class="d-flex h-100 text-center align-items-center">
                 <div class="w-100 text-white">
-                    <h1 class="{% if is_mobile() == true  and is_tablet() == false %} {% elseif is_tablet() %}{% else %}line-1 anim-typewriter{% endif %}">In Memoriae</h1>
+                    <h1 class="line-1 anim-typewriter">In Memoriae</h1>
                 </div>
             </div>
         </div>
     </div>
+    {% endif %}
 
     {# ------------------------ NOTRE PROPOSITION / NOTRE ENGAGEMENT ------------------#}
     <div class="container-fluid mt-lg-5 p-sm-2  p-lg-5 " id="about">
@@ -112,24 +148,31 @@
         <h2 class="">2 POSSIBILITÉS</h2>
         {# ------------------------ MOBILE ------------------#}
         {% if is_mobile() == true  and is_tablet() == false %}
-            <div class="video-service">
-                <video class="embed-responsive embed-responsive-16by9" controls>
-                    <source class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MANU_V4.mp4') }}">
-                </video>
-                <br>
-            </div>
+
             <div class="services">
+                <div class="video-service">
+                    <video class="embed-responsive embed-responsive-16by9" controls id="" controlsList="nodownload">
+                        <source  class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_ISABEAU.mp4') }}">
+                    </video>
+                    <br>
+                </div>
                 <h5>VOTRE FILM HOMMAGE</h5>
                 <h5>20 photos / 4 vidéos </h5>
+                <p class="text-center">(Vidéos souvenirs et témoignages vidéos)</p>
                 <p>Un film hommage d'environ 4min </p>
                 <p><strong> 480€ TTC</strong></p>
-                <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                <a class="btn btn-outline-dark text-center" href="{{ path('search') }}">COMMENCER</a>
                 <hr>
+                <video class="embed-responsive embed-responsive-16by9" controls id="" controlsList="nodownload">
+                    <source  class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MR_BILLON.mp4') }}">
+                </video>
+                <br>
                 <h5>VOTRE FILM HOMMAGE GRAND FORMAT</h5>
                 <h5> 30 photos / 5 vidéos</h5>
+                <p class="text-center">(Vidéos souvenirs et témoignages vidéos)</p>
                 <p>Un film hommage entre 5 et 6 minutes </p>
                 <p><strong>590€ TTC</strong></p>
-                <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                <a class="btn btn-outline-dark text-center" href="{{ path('search') }}">COMMENCER</a>
                 <hr>
                 <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisé, sans limitation de contenu ou de durée et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
                     <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
@@ -138,23 +181,29 @@
             {# ------------------------ TABLET ------------------#}
         {% elseif is_tablet() %}
             <div class="video-service">
-                <video class="embed-responsive embed-responsive-16by9" controls>
-                    <source class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MANU_V4.mp4') }}">
+                <video class="embed-responsive embed-responsive-16by9" controls id="" controlsList="nodownload">
+                    <source  class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_ISABEAU.mp4') }}">
                 </video>
                 <br>
             </div>
             <div class="services text-center">
                 <h5>VOTRE FILM HOMMAGE</h5>
                 <h5 class="">20 photos et 4 vidéos </h5>
+                <p class="text-center">(Vidéos souvenirs et témoignages vidéos)</p>
                 <p>Un film hommage d'environ 4min </p>
                 <p><strong>480€</strong></p>
-                <a class="btn btn-outline-dark text-center" href="{#{{ path('nouveau_projet') }}#}">COMMENCER</a>
+                <a class="btn btn-outline-dark text-center" href="{{ path('search') }}">COMMENCER</a>
                 <hr>
+                <video class="embed-responsive embed-responsive-16by9" controls id="" controlsList="nodownload">
+                    <source  class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MR_BILLON.mp4') }}">
+                </video>
+                <br>
                 <h5>VOTRE FILM HOMMAGE GRAND FORMAT</h5>
                 <h5> 30 photos / 5 vidéos</h5>
+                <p class="text-center">(Vidéos souvenirs et témoignages vidéos)</p>
                 <p>Un film hommage entre 5 et 6 minutes</p>
                 <p><strong>590€ TTC</strong></p>
-                <a class="btn btn-outline-dark text-center" href="{{ path('nouveau_projet') }}">COMMENCER</a>
+                <a class="btn btn-outline-dark text-center" href="{{ path('search') }}">COMMENCER</a>
                 <hr>
                 <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisé, sans limitation de contenu ou de durée et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
                     <a href="{{ path('contact') }}"> Contactez-nous</a> pour plus d'informations.
@@ -167,8 +216,8 @@
                 <div class="dropdown-services">
                     <div id="accordion">
                         <div class="card border-secondary">
-                            <div class="card-header" id="headingOne">
-                                <button class="btn btn-service collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="card-header" id="headingOne display-video1">
+                                <button class="btn btn-service collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo" id="hide-video2">
                                     <h5 class="mb-0  btn-title">VOTRE FILM HOMMAGE</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
@@ -180,14 +229,14 @@
                                     <p class="text-center">Un film hommage d'environ 4 minutes </p>
                                     <h6><strong>480€ TTC</strong></h6>
                                     <div class="col-12 text-center mt-2 mb-2">
-                                        <a class="btn btn-outline-dark text-center" href="{#{{ path('nouveau_projet') }}#}">COMMENCER</a>
+                                        <a class="btn btn-outline-dark text-center" href="{{ path('search') }}">COMMENCER</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card border-secondary">
-                            <div class="card-header" id="headingTwo">
-                                <button class="btn btn-service" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <div class="card-header" id="headingTwo hide-title">
+                                <button class="btn btn-service" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="hide-video1">
                                     <h5 class="mb-0  btn-title">VOTRE FILM HOMMAGE GRAND FORMAT</h5>
                                     <ion-icon name="arrow-dropdown"></ion-icon>
                                 </button>
@@ -199,7 +248,7 @@
                                     <p class="text-center">Un film hommage entre 5 et 6 minutes </p>
                                     <p><strong> 590€ TTC</strong></p>
                                     <div class="col-12 text-center mt-2 mb-2">
-                                        <a class="btn btn-outline-dark text-center" href="{#{{ path('nouveau_projet') }}#}">COMMENCER</a>
+                                        <a class="btn btn-outline-dark text-center" href="{{ path('search') }}">COMMENCER</a>
                                     </div>
                                     <hr class="mt-2">
                                     <p class="mt-5 text-center" style=""><i>Si vous préférez la réalisation d'un film hommage entièrement personnalisé, sans limitation de contenu ou de durée et avec l'envoi d'une équipe professionnelle pour recueillir vos témoignages, filmer la cérémonie etc.  </i><br>
@@ -212,8 +261,11 @@
                     </div>
                 </div>
                 <div class="video-service ml-1">
-                    <video class="embed-responsive embed-responsive-16by9" controls>
-                        <source class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MR_BILLON.mp4') }}">
+                    <video class="embed-responsive embed-responsive-16by9" controls id="display-video1" controlsList="nodownload">
+                        <source  class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_ISABEAU.mp4') }}">
+                    </video>
+                    <video class="embed-responsive embed-responsive-16by9" controls id="display-video2" controlsList="nodownload">
+                        <source  class="embed-responsive-item controls"  width="560" height="315" src="{{ asset('images/NECRO_MR_BILLON.mp4') }}">
                     </video>
                 </div>
             </div>
@@ -225,12 +277,12 @@
 
     {# ------------------------ AVIS ------------------#}
 
-    <section class="{% if is_mobile() == true  and is_tablet() == false %} avis-mobile p-4 {% elseif is_tablet() %} avis {% else %} avis{% endif %} mt-5 mb-5" >
+    <section class="{% if is_mobile() == true  and is_tablet() == false %} avis text-center m-0 {% elseif is_tablet() %} avis {% else %} avis{% endif %} mt-5 mb-5" >
         <h2>LES FAMILLES EN PARLENT</h2>
         <div class="row blocks-avis">
             <div class=" block-avis">
                 <p>Ça nous a fait pleurer ! De joie bien sur ! C'est tellement beau et émouvant ! Difficile à décrire ! Magnifique ! Merci Merci Merci !!! Je n'en reviens pas ! C'est irréel ! </p>
-                <h4 class="nom">Séverine Billon</h4>
+                <h4 class="nom">Séverine B.</h4>
                 <h6>21/06/2019</h6>
             </div>
             <div class=" block-avis">
@@ -240,7 +292,7 @@
             </div>
             <div class=" block-avis">
                 <p>Mes enfants ont insisté pour faire le film hommage. C’est eux qui ont filmé mon témoignage avec un smartphone. Comme ils ont eu raison. On le regarde souvent ensemble...</p>
-                <h4 class="nom">Hélène C</h4>
+                <h4 class="nom">Hélène C.</h4>
                 <h6>02/05/2019</h6>
             </div>
         </div>

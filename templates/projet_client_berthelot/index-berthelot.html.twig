@@ -11,6 +11,8 @@
 {% endblock %}
 {% block javascripts %}
     <script>
+        $("#error").hide();
+        $("#error1").hide();
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
         function showTab(n) {
@@ -20,20 +22,30 @@
             // ... and fix the Previous/Next buttons:
             if (n == 0) {
                 document.getElementById("prevBtn").style.display = "none";
+                $("#error").hide()
+                $("#error1").hide();
             } else {
                 document.getElementById("prevBtn").style.display = "inline";
+                $("#error").hide()
+                $("#error1").hide();
             }
             if (n === 4) {
                 document.getElementById("nextBtn").style.display = "none";
             }
             if (n === 3) {
                 document.getElementById("nextBtn").style.display = "inline";
+                $("#error").hide()
+                $("#error1").hide();
             }
             if (n === 2) {
                 document.getElementById("nextBtn").style.display = "inline";
+                $("#error").hide()
+                $("#error1").hide();
             }
             if (n === 1) {
                 document.getElementById("nextBtn").style.display = "inline";
+                $("#error").hide()
+                $("#error1").hide();
             }
             // ... and run a function that displays the correct step indicator:
             fixStepIndicator(n)
@@ -58,19 +70,28 @@
         }
 
         function validateForm() {
+
             // This function deals with validation of the form fields
             var x, y, i, valid = true;
             x = document.getElementsByClassName("tab");
-            y = x[currentTab].getElementsByTagName("");
+            y = x[currentTab].getElementsByTagName("input");
             // A loop that checks every input field in the current tab:
             for (i = 0; i < y.length; i++) {
                 // If a field is empty...
                 if (y[i].value == "") {
                     // add an "invalid" class to the field:
                     y[i].className += " invalid";
-                    // and set the current valid status to false:
+
+                    // and set the current valid status to false
                     valid = false;
+
+
+                    $("#error").show();
+                    $("#error1").show();
+
+
                 }
+
             }
             // If the valid status is true, mark the step as finished and valid:
             if (valid) {
@@ -85,10 +106,12 @@
             for (i = 0; i < x.length; i++) {
                 x[i].className = x[i].className.replace(" active", "");
             }
-            //... and adds the "active" class to the current step:
+            //... and adds the "active" class on the current step:
             x[n].className += " active";
         }
     </script>
+
+
 
 
     <script>
@@ -101,9 +124,88 @@
 
         });
     </script>
+
+
+    <script>
+        $(document).ready(function(){
+            $("#musiques_1,#musiques_2,#musiques_3,#musiques_4,#musiques_5,#musiques_6").hide();
+
+
+            $("#projet_client_musiques_0").click(function(){
+                $('#musiques_1,#musiques_2,#musiques_3,#musiques_4c').hide();
+                $('#musiques_1,#musiques_2,#musiques_3,#musiques_4,#musiques_5,#musiques_6,#musiques_7,#musiques_8').prop('muted', true);
+
+
+                $("#musiques_0").show();
+                $("#musiques_0").prop('muted', false);
+            });
+            $("#projet_client_musiques_1").click(function(){
+
+                $('#musiques_0,#musiques_2, #musiques_3,#musiques_4,#musiques_5,#musiques_6,#musiques_7,#musiques_8').hide();
+                $('#musiques_0,#musiques_2, #musiques_3,#musiques_4,#musiques_5,#musiques_6,#musiques_7,#musiques_8').prop('muted', true);
+
+
+                $("#musiques_1").show();
+                $("#musiques_1").prop('muted', false);
+
+            });
+            $("#projet_client_musiques_2").click(function(){
+                $('#musiques_0,#musiques_1,#musiques_3,#musiques_4,#musiques_5,#musiques_6,#musiques_7,#musiques_8').hide();
+                $('#musiques_0,#musiques_1,#musiques_3,#musiques_4,#musiques_5,#musiques_6,#musiques_7,#musiques_8').prop('muted', true);
+
+
+
+                $("#musiques_2").show();
+                $("#musiques_2").prop('muted', false);
+
+            });
+            $("#projet_client_musiques_3").click(function(){
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_4,#musiques_5,#musiques_6,#musiques_7,#musiques_8').hide();
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_4,#musiques_5,#musiques_6,#musiques_7,#musiques_8').prop('muted', true);
+
+
+                $("#musiques_3").show();
+                $("#musiques_3").prop('muted', false);
+
+            });
+            $("#projet_client_musiques_4").click(function(){
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_3,#musiques_5,#musiques_6,#musiques_7,#musiques_8').hide();
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_3,#musiques_5,#musiques_6,#musiques_7,#musiques_8').prop('muted', true);
+
+
+                $("#musiques_4").show();
+                $("#musiques_4").prop('muted', false);
+
+            });
+            $("#projet_client_musiques_5").click(function(){
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_4,#musiques_3,#musiques_6,#musiques_7,#musiques_8').hide();
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_4,#musiques_3,#musiques_6,#musiques_7,#musiques_8').prop('muted', true);
+
+
+                $("#musiques_5").show();
+                $("#musiques_5").prop('muted', false);
+
+            });
+            $("#projet_client_musiques_6").click(function(){
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_4,#musiques_5,#musiques_3,#musiques_7,#musiques_8').hide();
+                $('#musiques_2, #musiques_0,#musiques_1,#musiques_4,#musiques_5,#musiques_3,#musiques_7,#musiques_8').prop('muted', true);
+
+
+                $("#musiques_6").show();
+                $("#musiques_6").prop('muted', false);
+
+            });
+
+
+
+        });
+    </script>
+
+
 {% endblock %}
 {% block body %}
 
+    {{ form_start(form) }}
     <section class="title">
         {% include 'common/flash_messages.html.twig' %}
         <h1>VOTRE PROJET BERTHELOT</h1>
@@ -132,10 +234,7 @@
     <div class="container mt-5 mb-5">
 
 
-        {{ form_start(form) }}
-        {% if not form.vars.valid %}
-            <p>{{ form_errors(form) }}</p>
-        {% endif %}
+
         {# ------------------------ INFORMATIONS PERSONELLES ------------------#}
         <div class="tab">
             <h2>Vos informations personnelles : </h2>
@@ -143,6 +242,7 @@
                 <div class="mb-5"><br><br></div>
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">20%</div>
             </div>
+
             <div class="form-group">
                 <div class="row">
                     <div class="col-6 mt-3">
@@ -156,6 +256,8 @@
                     </div>
                 </div>
             </div>
+            <div class="alert alert-danger col-xs-12 hidden" id="error">Merci de remplir tous les champs affichés en rouge</div>
+
         </div>
 
 
@@ -165,6 +267,7 @@
             <div class="progress mb-5">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">40%</div>
             </div>
+
             <div class="form-group">
                 {# ------------------------ INFORMATIONS  ------------------#}
                 <div class="row">
@@ -274,6 +377,8 @@
 
                 </div>
             </div>
+            <div class="alert alert-danger col-xs-12 hidden" id="error1">Merci de remplir tous les champs affichés en rouge</div>
+
         </div>
 
 
@@ -285,21 +390,49 @@
                 <div class="progress mb-5">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
                 </div>
-                <div class="col-12 mb-5">
+                <div class="col-12 mb-3">
 
-                    <p>Nos films hommages sont accompagnés par : ...</p>
-                    <pr>Si vous souhaitez un autre fond musical, choisissez dans cette liste :</pr>
-                    {{ form_widget(form.musiques) }}
+                    {% if not form.vars.valid %}
+                        <p>{{ form_errors(form) }}</p>
+                    {% endif %}
+                    <div class="my-custom-class-for-errors">
+                        {{ form_errors(form.prenomDefunt) }}
+                    </div>
+
+                    <h5>Nos films hommages sont accompagnés par : ...</h5>
                     <hr>
+                    <h5>Si vous souhaitez un autre fond musical, choisissez dans cette liste :</h5><br>
+
+                    {{ form_widget(form.musiques) }}
+                    <br>
+
+                    <div class="row">
+                        <audio class="col-12" src="{{ asset('musiques/preview5.mp3') }}" id="musiques_0" controls controlsList="nodownload"  ></audio>
+                        <audio class="col-12" src="{{ asset('musiques/preview2.mp3') }}" id="musiques_1" controls controlsList="nodownload" ></audio>
+                        <audio class="col-12" src="{{ asset('musiques/preview3.mp3') }}" id="musiques_2" controls controlsList="nodownload" ></audio>
+                        <audio class="col-12" src="{{ asset('musiques/preview4.mp3') }}" id="musiques_3" controls controlsList="nodownload" ></audio>
+                        <audio class="col-12" src="{{ asset('musiques/preview5.mp3') }}" id="musiques_4" controls controlsList="nodownload"  ></audio>
+                        <audio class="col-12" src="{{ asset('musiques/preview2.mp3') }}" id="musiques_5" controls controlsList="nodownload" ></audio>
+                        <audio class="col-12" src="{{ asset('musiques/preview3.mp3') }}" id="musiques_6" controls controlsList="nodownload" ></audio>
+
+                    </div>
+
                 </div>
-                <div class="col-12"> {{ form_row(form.save) }}</div>
+            {#   <div class="col-12">
+                 <hr>
+               <p>Si vous souhaitez un autre fond musical, il est possible de payer les droits à la SACEM directement via ce formulaire : </p>
+
+            </div>#}
+
+
+                <div class="col-12 mt-lg-5"> {{ form_row(form.save) }}</div>
 
         </div>
         {# ------------------------ RECAPITULATIF ------------------#}
 
         <div style="overflow:auto;">
             <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-outline-warning rouge">Retour</button>
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-outline-dark ">Retour</button>
                 <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-outline-success ml-3">Suivant</button>
             </div>
         </div>

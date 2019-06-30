@@ -8,7 +8,7 @@
 {% block body %}
 
     <section class="title">
-        <h1>PROJET DE : {{ projet.prenomClient }} {{ projet.nomClient }}</h1>
+        <h1>PROJET DE :  {{ projet.prenomClient }} {{ projet.nomClient }}</h1>
         <hr>
         {% if projet.categorie is not null %}
         <h2>Forfait selectionné : {{ projet.categorie.name }} </h2>
@@ -16,89 +16,96 @@
     </section>
   <section>
       <div class="container section-client">
-          <div class="row text-center">
-                  <div class="col-12">
-                      <h2>Numero de dossier : <strong>{{ projet.dossier }}</strong></h2>
-                  </div>
-          </div>
           <div class="row">
-              <p class="col-12">Projet numero : <strong>{{ projet.id }}</strong></p>
-
-              <p class="col-6">Nom Client: <strong>{{ projet.nomClient }}</strong></p>
-              <p class="col-6">Prenom Client : <strong>{{ projet.prenomClient }}</strong></p>
-
-                  <div class="col-12"><p>Email Client : <strong>{{ projet.emailClient }}</strong></p>
+                  <p class="col-12">Projet numero : <strong>{{ projet.id }}</strong></p>
+                  <p class="col-6">Nom Client: <strong>{{ projet.nomClient }}</strong></p>
+                  <p class="col-6">Prenom Client : <strong>{{ projet.prenomClient }}</strong></p>
+              <div class="col-12">
+                  <p>Email Client : <strong>{{ projet.emailClient }}</strong></p>
               </div>
           </div>
           <hr>
+          <div class="row">
+            <div class="col-12 section-defunt">
+              <div><p>SURNOM :  <strong>{{ projet.surnomDefunt }}</strong></p></div>
+              <div><p>Sexe :  <strong>{{ projet.gender }}</strong></p></div>
+              <div><p>Prénom Défunt :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
+              <div><p>Prénom Défunt :  <strong>{{ projet.nomDefunt }}</strong></p></div>
+              <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt }}</strong></p></div>
+              <div><p>Mort le : <strong>{{ projet.dateMortDefunt }}</strong></p></div>
+                <hr>
+              <div><p>MUSIQUE :  <strong>{{ projet.musiques }}</strong></p></div>
 
-      <div class="row">
-        <div class="col-12 section-defunt">
-          <div><p>SURNOM :  <strong>{{ projet.surnomDefunt }}</strong></p></div>
-          <div><p>Sexe :  <strong>{{ projet.gender }}</strong></p></div>
-          <div><p>Prénom Défunt :  <strong>{{ projet.PrenomDefunt }}</strong></p></div>
-          <div><p>Prénom Défunt :  <strong>{{ projet.nomDefunt }}</strong></p></div>
-          <div><p>Né le : <strong>{{ projet.dateNaissanceDefunt }}</strong></p></div>
-          <div><p>Mort le : <strong>{{ projet.dateMortDefunt }}</strong></p></div>
 
-            <div><p>MUSIQUE :  <strong>{{ projet.musiques }}</strong></p></div>
+                <div class="col-6"><p>3 qualités : <br>
 
+                        - <strong>{{ projet.qualite1}}</strong><br>
+                        - <strong>{{ projet.qualite2}}</strong><br>
+                        - <strong>{{ projet.qualite3}}</strong><br>
 
-            <div class="col-6"><p>3 qualités : <br>
+                    </p>
+                </div>
+                <hr>
+                <div class="col-6"><p>3 grands moments : <br>
+                        - <strong>{{ projet.momentDefunt1 }}</strong><br>
+                        - <strong>{{ projet.momentDefunt2 }}</strong><br>
+                        - <strong>{{ projet.momentDefunt3 }}</strong><br>
+                    </p>
+                </div>
+                <hr>
+                <div class="col-6"><p>Passions / Hobbies : <br>
+                        - <strong>{{ projet.passionDefunt1 }}</strong><br>
+                        - <strong>{{ projet.passionDefunt2 }}</strong><br>
+                        - <strong>{{ projet.passionDefunt3 }}</strong><br>
+                    </p>
+                </div>
+                <hr>
+                <div><p>Ce que chacun retiendra de lui : <strong>{{ projet.descriptionDefunt }}</strong></p></div>
+              <div><p>Mot de la fin : <strong>{{ projet.motFin }}</strong></p></div>
+                <hr>
 
-                    - <strong>{{ projet.qualite1}}</strong><br>
-                    - <strong>{{ projet.qualite2}}</strong><br>
-                    - <strong>{{ projet.qualite3}}</strong><br>
-
-                </p>
+              <div><p>Devise, citation : <strong> {{ projet.deviseDefunt }}</strong></p></div>
+              <div><p>Lieu : <strong> {{ projet.lieuDefunt }}</strong></p></div>
             </div>
-            <div class="col-6"><p>3 grands moments : <br>
-                    - <strong>{{ projet.momentDefunt1 }}</strong><br>
-                    - <strong>{{ projet.momentDefunt2 }}</strong><br>
-                    - <strong>{{ projet.momentDefunt3 }}</strong><br>
-                </p>
+          </div>
+
+
+            <div class="container-fluid mt-5">
+                <h2>Liste des fichiers</h2>
+
+                <table class="table table-hover col-12">
+
+                    <thead>
+                    <tr>
+                        <th>Id du fichier</th>
+                        <th>Nom du fichier</th>
+                        <th>Description</th>
+                        <th>Appercu</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for files in id_prpjet %}
+
+                    <tr>
+
+                        <td>{{ files.id }}</td>
+                        <td>{{ files.nomFichier }}</td>
+                        <td>{{ files.commentaire }}</td>
+                        <td>{% for file in uploadDir %}<img src="{{ file.nomFichier }}" alt="">{% endfor %}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
             </div>
 
-            <div class="col-6"><p>Passions / Hobbies : <br>
-                    - <strong>{{ projet.passionDefunt1 }}</strong><br>
-                    - <strong>{{ projet.passionDefunt2 }}</strong><br>
-                    - <strong>{{ projet.passionDefunt3 }}</strong><br>
-                </p>
-            </div>
 
-            <div><p>Ce que chacun retiendra de lui : <strong>{{ projet.descriptionDefunt }}</strong></p></div>
-          <div><p>Mot de la fin : <strong>{{ projet.motFin }}</strong></p></div>
-          <div><p>Devise, citation : <strong> {{ projet.deviseDefunt }}</strong></p></div>
-        </div>
-      </div>
-      <hr>
-<div class="container">
-    <div class="row">
-        <div class="col-12 section-images">
-            <div>
 
-                <h2>Images : </h2>
-
-                {% for file in files %}
-
-                {{ file.commentaire }}
-
-                {% endfor %}
-            </div>
-
-        </div>
     </div>
-        <div class="row">
-            <div class="col-12 section-videos">
-            <div>
-                <h2>Vidéos : <strong></strong></h2>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-      </div>
   </section>
 
 

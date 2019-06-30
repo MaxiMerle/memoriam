@@ -44,7 +44,13 @@ class UploadController extends AbstractController
             return new JsonResponse($output);
         }
         //$request->get('projetId');
-        $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+        $id_fichier = 1;
+        $counter = $id_fichier++;
+
+        $fileName = 'fichier'.'_'.$counter .'-'.$file->getClientOriginalName().'.'.$file->guessExtension();
+
+
         $uploadDir = $this->getParameter('kernel.project_dir') . '/./public/uploads/'.$projet_id;
         if (!file_exists($uploadDir) && !is_dir($uploadDir)) {
             mkdir($uploadDir, 0775, true);
@@ -54,6 +60,7 @@ class UploadController extends AbstractController
             $repository = $this->getDoctrine()->getRepository(ProjetClient::class);
             $projetClient=$repository->find($projet_id);
             $mediaEntity = new ImageFiles();
+
             $mediaEntity->setNomFichier($fileName);
             $mediaEntity->setCommentaire($commentaire);
             $mediaEntity->setProjet($projetClient);

@@ -25,17 +25,25 @@ class ProjetClientType extends AbstractType
         $builder
             ->add('nomClient', TextType::class, [
                 'attr' => ['placeholder' => 'Votre nom...']
+                ,
+                'required' => false
             ])
             ->add('prenomClient', TextType::class, [
-                'attr' => ['placeholder' => 'Votre prenom...']
+                'attr' => ['placeholder' => 'Votre prenom...'],
+                'required' => false
             ])
             ->add('emailClient', EmailType::class, [
-                'attr' => ['placeholder' => 'Votre email...']
+                'attr' => [
+                    'placeholder' => 'Votre email...',
+                    'readonly' => true
+                    ],
+                'required' => false,
+
             ])
 
-
             ->add('surnomDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Dénomination utilisée tout au long du film...']
+                'attr' => ['placeholder' => 'Dénomination utilisée tout au long du film...'],
+                'required' => false
             ])
             ->add('gender', ChoiceType::class, array(
                 'choices' => array('Femme' => 'Femme', 'Homme' => 'Homme'),
@@ -45,89 +53,108 @@ class ProjetClientType extends AbstractType
 
 
             ->add('qualite1', TextType::class, [
-                'attr' => ['placeholder' => 'Qualité 1']
+                'attr' => ['placeholder' => 'Qualité 1'],
+                'required' => false
             ])
             ->add('qualite2', TextType::class, [
-                'attr' => ['placeholder' => 'Qualité 2']
+                'attr' => ['placeholder' => 'Qualité 2'],
+                'required' => false
             ])
             ->add('qualite3', TextType::class, [
-                'attr' => ['placeholder' => 'Qualité 3']
+                'attr' => ['placeholder' => 'Qualité 3'],
+                'required' => false
             ])
 
 
 
             ->add('musiques', ChoiceType::class, array(
-                'choices' => array('1 - Suite n°3 pour orchestre de Bach' => '1 - Suite n°3 pour orchestre de Bach', '2 - Suite n°3 pour orchestre de Bach' => '2 - Suite n°3 pour orchestre de Bach', '3 - Suite n°3 pour orchestre de Bach' => '3 - Suite n°3 pour orchestre de Bach', '4 - Suite n°3 pour orchestre de Bach' => '4 - Suite n°3 pour orchestre de Bach'),
-                'expanded' => false
+                'choices' => array('Suite n°3 pour orchestre de Bach' => 'Suite n°3 pour orchestre de Bach', 'Suite n°4 pour orchestre de Bach' => 'Suite n°4 pour orchestre de Bach', 'Suite n°5 pour orchestre de Bach' => 'Suite n°5 pour orchestre de Bach', 'Suite n°6 pour orchestre de Bach' => 'Suite n°6 pour orchestre de Bach', 'Suite n°7 pour orchestre de Bach' => 'Suite n°7 pour orchestre de Bach', 'Suite n°8 pour orchestre de Bach' => 'Suite n°8 pour orchestre de Bach'),
+                'expanded' => true,
+                'attr' => ['class' => 'col-12']
+
+
             ))
 
 
             ->add('nomDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Nom...']
+                'attr' => ['placeholder' => 'Nom...'],
+                'required' => false
             ])
 
             ->add('prenomDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Prénom...']
+                'attr' => ['placeholder' => 'Prénom...'],
+                'required' => false
             ])
             ->add('dateNaissanceDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Date de naissance...']
+                'attr' => ['placeholder' => 'Date de naissance...'],
+                'required' => false
             ])
             ->add('dateMortDefunt', TextType::class, [
-                'attr' => ['placeholder' => 'Date du décès...']
+                'attr' => ['placeholder' => 'Date du décès...'],
+                'required' => false
             ])
 
             ->add('momentDefunt1', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : Son mariage en 1969 ...',
                     'label' => 'Les grands moments de sa vie'
                 ]
+                ,
+                'required' => false
             ])
             ->add('momentDefunt2', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : La naissance de ses enfants ...',
                     'label' => 'Les grands moments de sa vie'
-                ]
+                ],
+                'required' => false
             ])
             ->add('momentDefunt3', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : Son titre de championne ...',
                     'label' => 'Les grands moments de sa vie'
-                ]
+                ],
+                'required' => false
             ])
 
             ->add('passionDefunt1', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : La lecture ...',
                     'label' => 'Ses passions ses hobbies'
-                ]
+                ],
+                'required' => false
             ])
 
             ->add('passionDefunt2', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : Le jogging ...',
                     'label' => 'Ses passions ses hobbies'
-                ]
+                ],
+                'required' => false
             ])
 
             ->add('passionDefunt3', TextType::class, [
                 'attr' => ['placeholder' => 'Ex : La cuisine ...',
                     'label' => 'Ses passions ou ses hobbies'
-                ]
+                ],
+                'required' => false
             ])
 
 
             ->add('descriptionDefunt', TextareaType::class, [
                 'attr' => ['placeholder' => 'Ex : Elle a été une mère exemplaire pour ses enfants ...',
                             'label' => 'Ce que chacun retiendra de lui (en une phrase)...'
-                    ]
+                    ],
+                'required' => false
             ])
 
             ->add('motFin', TextareaType::class, [
                 'attr' => ['placeholder' => 'Ex : Repose en paix, Evelyne. Nous ne t\'oublierons jamais ...',
                     'label' => 'épitaphe'
-                ]
+                ],
+                'required' => false
             ])
 
             ->add('deviseDefunt', TextareaType::class, [
                 'required'          => false,
                 'attr' => ['placeholder' => 'Ex : "Ne jamais baisser les bras"...',
                     'label' => 'devise défunt'
-                ]
+                ],
             ])
             ->add('lieuDefunt', TextareaType::class, [
                 'required'          => false,
@@ -135,13 +162,17 @@ class ProjetClientType extends AbstractType
                     'placeholder' => 'Ex : "Le vieux port de Marseille, la Forêt des Landes, les chateaux de la Loire...',
                     'label' => 'lieu défunt',
 
-                ]
+                ],
             ])
 
 
             ->add('save', SubmitType::class, [
-                'label' => 'FINALISER',
-                'attr' => ['class' => 'btn btn-block btn-outline-success']
+                'label' => 'VALIDER',
+                'attr' => [
+                    'class' => 'btn btn-block btn-outline-success',
+
+
+                    ]
                 ])
 
         ;
