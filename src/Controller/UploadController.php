@@ -46,7 +46,7 @@ class UploadController extends AbstractController
         //$request->get('projetId');
 
         $id_fichier = 1;
-        $counter = $id_fichier++;
+        $counter = $id_fichier ++;
 
         $fileName = 'fichier'.'_'.$counter .'-'.$file->getClientOriginalName().'.'.$file->guessExtension();
 

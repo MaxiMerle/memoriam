@@ -417,6 +417,8 @@
 
                     </div>
 
+                    <input type="checkbox" name="checkbox" value="check" id="agree" class="mt-5" required/>J'ai lu et j'accepte les <a href="{{ path('cgv') }}">Conditions générales de vente</a>
+
                 </div>
             {#   <div class="col-12">
                  <hr>
@@ -425,7 +427,7 @@
             </div>#}
 
 
-                <div class="col-12 mt-lg-5"> {{ form_row(form.save) }}</div>
+                <div class="col-12 mt-lg-2"> {{ form_row(form.save) }}</div>
 
         </div>
         {# ------------------------ RECAPITULATIF ------------------#}

@@ -21,10 +21,8 @@
                         {% endif %}
                     {% endfor %}
 
-                    {% if count > 0 %}
-                    ---  build the toc here --
-                    {% endif %}
-                    {# app.session.get('nbPhotos')#}
+
+
                     <span id="nbPhotos">0 </span>
                     / {%  if categorie.id == 1   %} 20 {% else %} 30 {% endif %}</strong> photos envoyées</h5>
 
@@ -48,10 +46,25 @@
                 </div>
             </div>
         </div>
-
-        <button type="button" class="btn btn-block btn-primary mt-5 hide-title"  id="envoieFichier">Valider et ajouter une autre photo</button>
         <br>
-        {#                <a href="" class="btn  btn-block btn-outline-success  mt-5 mb-5 fichier">Ajouter un fichier<ion-icon name="add-circle-outline" size="large"></ion-icon></a>#}
+
+        {% if categorie.id == 1 %}
+            {% if count < 20 %}
+                <button type="button" class="btn btn-block btn-primary mt-5 hide-title"  id="envoieFichier">Valider et ajouter une autre photo</button>
+            {% elseif count == 1 %}
+                <p>Toutes vos photos sont bien enregistrées, vous pouvez passer à la suite.</p>
+            {% endif %}
+        {% endif %}
+
+        {% if categorie.id == 2 %}
+            {% if count < 30 %}
+                <button type="button" class="btn btn-block btn-primary mt-5 hide-title"  id="envoieFichier">Valider et ajouter une autre photo</button>
+            {% elseif count == 30 %}
+                <p>Toutes vos photos sont bien enregistrées, vous pouvez passer à la suite.</p>
+            {% endif %}
+        {% endif %}
+
+        <br>
     </div>
 
     {# ------------------------ UPLOADS VIDEOS ------------------#}
@@ -82,8 +95,23 @@
                 </div>
             </div>
         </div>
-
+        {% if categorie.id == 1 %}
+            {% if count < 4 %}
                 <button type="button" class="btn btn-block btn-primary mt-5"  id="envoieFichierVideo">Valider et ajouter une autre vidéo</button>
+            {% elseif count == 5 %}
+                <p>Toutes vos photos sont bien enregistrées, vous pouvez passer à la suite.</p>
+            {% endif %}
+
+        {% endif %}
+        {% if categorie.id == 2 %}
+            {% if count < 5 %}
+                <button type="button" class="btn btn-block btn-primary mt-5"  id="envoieFichierVideo">Valider et ajouter une autre vidéo</button>
+            {% elseif count == 5 %}
+                <p>Toutes vos photos sont bien enregistrées, vous pouvez passer à la suite.</p>
+            {% endif %}
+        {% endif %}
+
+
         <br>
         {# <input type="submit" class="btn btn-block btn-primary" value="Ajouter un fichier" />#}
     </div>

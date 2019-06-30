@@ -298,7 +298,6 @@ class ProjetClientBerthelotController extends AbstractController
             $entityManager->persist($mediaEntity);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Votre Projet a bien été enregistré ! Merci de votre confiance ! ');
 
             return $this->render('projet_client_berthelot/confirmation-projet.html.twig',[
                 'infos' => $projet
