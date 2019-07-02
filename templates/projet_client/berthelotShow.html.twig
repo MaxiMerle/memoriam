@@ -16,13 +16,14 @@
         {% include 'common/flash_messages.html.twig' %}
         <h1>CLIENT ENREGISTRÉ</h1>
         <hr>
-        <h2>Gardez précieusement votre code personnel !</h2>
+        <h2>Transmettez bien le code généré au client</h2>
     </section>
 
-    <div class="container">
+    <div class="container mt-5 mb-5">
         <h2> NOM CLIENT : {{ infosBerthelot.nomClient }}</h2>
         <h2> EMAIL CLIENT : {{ infosBerthelot.emailClient }}</h2>
         <h2> CODE CLIENT : <strong>{{ infosBerthelot.code }}</strong></h2>
+        <br><br><br><br>
     </div>
 
 {% endblock %}

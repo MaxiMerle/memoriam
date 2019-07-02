@@ -29,10 +29,6 @@ section {
   align-items: end;
 }
 
-.navbar-tablet h1 {
-  margin-top: 40% !important;
-}
-
 /* ------------------------------ SECTION HEADER -------------------------------- */
 .header-mobile h1 {
   padding-top: 150px;

@@ -13,8 +13,9 @@ class ImageFilesRepository extends ServiceEntityRepository
     public function findOneBySomeField($id): ?ImageFiles
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.projet = :projet')
-            ->setParameter('projet', $id)
+            ->select('p.projet')
+            ->Where('p.id = :id')
+            ->setParameter('id', $id)
             ->getQuery()
             ->getResult()
             ;

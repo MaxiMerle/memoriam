@@ -155,11 +155,11 @@ class ProjetClientController extends AbstractController
     {
         $projet = $this->getDoctrine()
             ->getRepository(ProjetClient::class)
-            ->findBy(array('validation' => false));
+            ->findBy(array('validation' => 0));
 
         $projetValide = $this->getDoctrine()
             ->getRepository(ProjetClient::class)
-            ->findBy(array('validation' => true));
+            ->findBy(array('validation' => 1));
 
 
 
@@ -185,6 +185,8 @@ class ProjetClientController extends AbstractController
 
     /**
      * @Route("/admin/projets/{id}", name="projet_delete")
+     * @param $id
+     * @return RedirectResponse
      */
 
     public function supprimerProjet($id)
@@ -195,7 +197,9 @@ class ProjetClientController extends AbstractController
 
         $projet = $repository->find($id);
 
+
         $entityManager->remove($projet);
+
         $entityManager->flush();
 
         return $this->redirectToRoute('projetsClients');
@@ -204,6 +208,8 @@ class ProjetClientController extends AbstractController
 
     /**
      * @Route("/admin/valider/{id}", name="valider_projet")
+     * @param $id
+     * @return RedirectResponse
      */
 
     public function validerProjet($id)

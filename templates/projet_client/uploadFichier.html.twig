@@ -51,7 +51,7 @@
         {% if categorie.id == 1 %}
             {% if count < 20 %}
                 <button type="button" class="btn btn-block btn-primary mt-5 hide-title"  id="envoieFichier">Valider et ajouter une autre photo</button>
-            {% elseif count == 1 %}
+            {% elseif count == 20 %}
                 <p>Toutes vos photos sont bien enregistrées, vous pouvez passer à la suite.</p>
             {% endif %}
         {% endif %}
@@ -74,7 +74,7 @@
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">80%</div>
         </div>
         <h5 class="col-12"><strong> {#app.session.get('nbVideos')#} <span id="nbVideos">0</span> / {%  if categorie.id == 1   %} 4 {% else %} 5 {% endif %}</strong> vidéos envoyées</h5>
-        <p class="col-12 text-center">Les vidéos ne doivent pas dépasser 25 Mo.</p>
+        <p class="col-12 text-center">Les vidéos ne doivent excéder 2 minutes pour un poids maximum de 50 Mo.</p>
         <p class="col-12 text-center">Le chargement peut prendre du temps en fonction de votre connexion internet. Privilégiez une connexion haut débit (en wifi) pour le transfert des fichiers</p>
 
         <div class="row">
@@ -125,9 +125,10 @@
 
         Dropzone.autoDiscover = false;//autoProcessQueue: false, pour plusieurs fichier à la fois
         var dropzone_default = new Dropzone("#dzPhoto", {
-            url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
+            url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,timeout: 1000000,
             maxFiles: 20,   dictDefaultMessage: "Glissez-déposez une photo ou cliquez pour rechercher un fichier.",
-            dictMaxFilesExceeded: '20 photos maximum',   acceptedFiles: 'image/*',         maxFilesize: 10,addRemoveLinks: true,
+            dictMaxFilesExceeded: '20 photos maximum',   acceptedFiles: 'image/*',
+            maxFilesize: 10,addRemoveLinks: true,
             init: function () {
                 this.on("maxfilesexceeded", function (file) {    this.removeFile(file);});
                 this.on("sending", function (file, xhr, formData) {
@@ -148,12 +149,12 @@
             }
         });
         var dropzone_video = new Dropzone("#dzVideo", {
-            url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,
+            url: '{{ path('fileuploadhandler') }}', autoProcessQueue: false,timeout: 1000000,
             maxFiles: 5,//50
             dictDefaultMessage: "Glissez-déposez une vidéo ou cliquez pour rechercher un fichier.",
             dictMaxFilesExceeded: '5 vidéos maximum',
             acceptedFiles: 'video/*',
-            maxFilesize: 30,  // en Mo
+            maxFilesize: 50,  // en Mo
             addRemoveLinks: true,
             init: function () {
                 this.on("maxfilesexceeded", function (file) {

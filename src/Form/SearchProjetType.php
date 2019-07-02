@@ -17,8 +17,13 @@ class SearchProjetType extends AbstractType
             ->add('nomClient', TextType::class,[
                 'label' => 'Votre nom',
             ])
+
+            ->add('emailClient', TextType::class,[
+                'label' => 'Votre email',
+            ])
             ->add('code', TextType::class,[
-                'label' => 'Votre code fourni chez Berthelot',
+                'label' => 'Votre code à 9 chiffres fourni chez Berthelot',
+
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'CHERCHER',

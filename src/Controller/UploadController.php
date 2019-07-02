@@ -45,13 +45,17 @@ class UploadController extends AbstractController
         }
         //$request->get('projetId');
 
-        $id_fichier = 1;
-        $counter = $id_fichier ++;
 
-        $fileName = 'fichier'.'_'.$counter .'-'.$file->getClientOriginalName().'.'.$file->guessExtension();
+
+
 
 
         $uploadDir = $this->getParameter('kernel.project_dir') . '/./public/uploads/'.$projet_id;
+
+        $counter = count(glob($uploadDir.'/*.*'));
+        $fileName = 'fichier'.'_'.$counter .'.'.$file->guessExtension();
+
+
         if (!file_exists($uploadDir) && !is_dir($uploadDir)) {
             mkdir($uploadDir, 0775, true);
         }

@@ -415,12 +415,11 @@
 .navbar-tablet a {
   font-size: 15px;
 }
-.navbar-tablet .logo-vert {
-  background-image: url("img/logo-vert.png");
-  background-repeat: no-repeat;
-  background-size: 50px;
-  width: 50px;
-  height: 50px;
+.navbar-tablet .typo-titre {
+  font-family: "Courgette", cursive;
+}
+.navbar-tablet ul {
+  margin-top: 10px;
 }
 .navbar-tablet .projet {
   display: flex;
@@ -766,38 +765,6 @@ input.invalid {
   font-size: 25px;
   border-radius: unset;
   margin-top: 15px;
-}
-
-.test-font {
-  font-family: "Montserrat", sans-serif;
-}
-
-.test-font2 {
-  font-family: "Just Another Hand", cursive;
-}
-
-.test-font3 {
-  font-family: "Source Sans Pro", sans-serif;
-}
-
-.test-font5 {
-  font-family: "Roboto", sans-serif;
-}
-
-.test-font6 {
-  font-family: "Rock Salt", serif;
-}
-
-.test-font7 {
-  font-family: "Reenie Beanie", serif;
-}
-
-body .avis-tablet {
-  background: #0F9E5E;
-}
-
-.navbar-tablet h1 {
-  margin-top: 40% !important;
 }
 
 .about .michel {

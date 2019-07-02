@@ -23,14 +23,18 @@ class ProjetClientRepository extends ServiceEntityRepository
     /**
      * @param $code
      * @param $nomClient
+     * @param $emailClient
      * @return mixed
      */
-    public function findProjetIdByCodeClient($code, $nomClient)
+    public function findProjetIdByCodeClient($code, $nomClient, $emailClient)
     {
         return $this->createQueryBuilder('c')
             ->select('c.code')
             ->Where('c.code = :code')
             ->setParameter('code', $code)
+
+            ->andWhere('c.emailClient = :emailClient')
+            ->setParameter('emailClient', $emailClient)
 
             ->andWhere('c.nomClient = :nomClient')
             ->setParameter('nomClient', $nomClient)

@@ -24,24 +24,24 @@
             <section class="infos">
                 <div class="ligne-info ligne-mobile">
                     <ion-icon name="mail"></ion-icon>
-                    <h3>MAIL@MAIL.COM</h3>
+                    <h3>CONTACT@IN-MEMORIAE.FR</h3>
                 </div>
                 <div class="ligne-info ligne-mobile">
                     <ion-icon name="calendar"></ion-icon>
                     <h3>NOUS SOMMES À VOTRE SERVICE TOUTE L'ANNÉE 7/7</h3>
                 </div>
-                <div class="ligne-info ligne-mobile">
-                    <ion-icon name="card"></ion-icon>
-                    <h3>PAIEMENT SÉCURISÉ VIA PAYPAL</h3>
-                </div>
+{#                <div class="ligne-info ligne-mobile">#}
+{#                    <ion-icon name="card"></ion-icon>#}
+{#                    <h3>PAIEMENT SÉCURISÉ VIA PAYPAL</h3>#}
+{#                </div>#}
             </section>
         </div>
         <h2>UNE QUESTION ? UN PROJET SUR MESURE ? UNE PRÉCISION FACTUELLE SUR VOTRE FILM HOMMAGE ?</h2>
         <section class="contact-form">
             <div>
                 {{ form_start(contact_form) }}
-                {{ form_row(contact_form.name, { 'label': 'Votre Nom', 'attr' : { 'placeholder' : 'Durand...'} }) }}
-                {{ form_row(contact_form.email, { 'label': 'Votre Email', 'attr' : { 'placeholder' : 'email@exemple.fr ...'} }) }}
+                {{ form_row(contact_form.name, { 'label': 'Votre Nom', 'attr' : { 'placeholder' : 'Nom...'} }) }}
+                {{ form_row(contact_form.email, { 'label': 'Votre Email', 'attr' : { 'placeholder' : 'votre-email@exemple.fr ...'} }) }}
                 {{ form_row(contact_form.message, { 'label' : 'Votre Message', 'attr' : { 'rows' : '4', 'placeholder' : 'Votre message ...'} } ) }}
                 <div class="form-group col-12 text-center">
                     <input type="submit" value="ENVOYER" class="btn btn-outline-success btn-envoyer"/>

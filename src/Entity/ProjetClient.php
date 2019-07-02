@@ -131,7 +131,7 @@ class ProjetClient
     private $musiques;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\ProjetClientQualite", inversedBy="projetClient")
+     * @ORM\ManyToMany(targetEntity="App\Entity\ProjetClientQualite", inversedBy="projetClient", orphanRemoval=true, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $qualite;
@@ -170,6 +170,29 @@ class ProjetClient
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $validation;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ImageFiles", mappedBy="projet", orphanRemoval=true, cascade={"persist", "remove"})
+     */
+    private $projetFiles;
+
+    /**
+     * @return mixed
+     */
+    public function getProjetFiles()
+    {
+        return $this->projetFiles;
+    }
+
+    /**
+     * @param mixed $projetFiles
+     */
+    public function setProjetFiles($projetFiles): void
+    {
+        $this->projetFiles = $projetFiles;
+    }
+
 
     public function __construct()
     {

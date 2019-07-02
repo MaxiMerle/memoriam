@@ -75,16 +75,14 @@ class ProjetClientBerthelotController extends AbstractController
 
             $code = $data->getCode();
             $nomClient = $data->getNomClient();
+            $emailClient = $data->getEmailClient();
 
 
             //--------VERIFIER SI INFOS MATCHENT AVEC BDD ------//
 
+            $id_client = $this->repository->findProjetIdByCodeClient($code, $nomClient, $emailClient);
 
 
-
-            //--------  RECUPERER ID DU PROJET DEJA CREE ------//
-
-                $id_client = $this->repository->findProjetIdByCodeClient($code, $nomClient);
 
                 if ($id_client == null ){
                     $this->addFlash('danger', 'Vos identifiants sont incorrets - Veuillez réessayer ou nous contacter en cas de problème ');
@@ -273,7 +271,7 @@ class ProjetClientBerthelotController extends AbstractController
             ;
             $messageMonteurs = (new \Swift_Message('Nouveau projet In Memoriam'))
                 ->setFrom('contact@in-memoriae.fr')
-                ->setTo('maximerle@gmail.com')
+                ->setTo('monteurs@in-memoriae.fr')
                 ->setBody($this->renderView(
                     'contact/confirmation-monteurs.html.twig',
                     array(
@@ -295,6 +293,7 @@ class ProjetClientBerthelotController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($projet);
+
             $entityManager->persist($mediaEntity);
             $entityManager->flush();
 
